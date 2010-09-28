@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Informatik Q11 2010/2011</title>
+<meta charset=utf-8>
+<meta name=author content="Tim Baumann">
+<style>
+* { margin: 0; padding: 0; }
+
+body {
+	font: 15px/22px Georgia, serif;
+	background: #2da653;
+	position: relative;
+}
+#wrapper {
+	width: 800px; margin: 15px auto; padding: 25px 40px;
+	background: #fff;
+}
+#leading {
+	font-size: 17px; line-height: 24px;
+}
+#index {
+	padding: 20px;
+	background: #fffdba;
+}
+#index ul {
+	margin-bottom: 0;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: Helvetica, Arial, sans-serif; line-height: 1.5em; margin: 22px 0 10px; }
+h1 { font-size: 52px; margin: 0 0 15px; }
+h2 { font-size: 38px; }
+h3 { font-size: 28px; }
+h4 { font-size: 22px; }
+h5, h6 { color: #777; }
+h5 { font-size: 18px; }
+h6 { font-size: 15px; }
+
+ul, ol, p, pre, #index, img.diagram {
+	margin-bottom: 18px;
+}
+
+p.date {
+	text-align: right;
+	font-size: 17px;
+	color: #2e62bc;
+}
+
+img.diagram {
+	display: block;
+	margin-left: auto; margin-right: auto;
+	max-width: 100%;
+}
+
+ul, ol {
+	margin-left: 20px;
+}
+ul ul, ul ol, ol ul, ol ol {
+	margin-bottom: 0;
+}
+
+code, pre {
+	background: #eee;
+	font-weight: bold;
+	font-family: "Courier New", "Courier", monospace;
+}
+code { 
+	padding: 0 4px;
+}
+pre {
+	padding: 10px;
+}
+
+a {
+	color: #cd4407;
+}
+a:hover {
+	text-decoration: none;
+}
+
+/* http://github.com/icco/pygments-css/raw/master/borland.css */
+.highlight .hll { background-color: #ffffcc }
+.highlight .c { color: #888888 } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { color: #008800; font-weight: bold } /* Keyword */
+.highlight .cm { color: #888888 } /* Comment.Multiline */
+.highlight .cp { color: #cc0000; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #888888 } /* Comment.Single */
+.highlight .cs { color: #cc0000; font-weight: bold; background-color: #fff0f0 } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #303030 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #606060 } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { color: #008800; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008800; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008800; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008800 } /* Keyword.Pseudo */
+.highlight .kr { color: #008800; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #888888; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #0000DD; font-weight: bold } /* Literal.Number */
+.highlight .s { color: #dd2200; background-color: #fff0f0 } /* Literal.String */
+.highlight .na { color: #336699 } /* Name.Attribute */
+.highlight .nb { color: #003388 } /* Name.Builtin */
+.highlight .nc { color: #bb0066; font-weight: bold } /* Name.Class */
+.highlight .no { color: #003366; font-weight: bold } /* Name.Constant */
+.highlight .nd { color: #555555 } /* Name.Decorator */
+.highlight .ne { color: #bb0066; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0066bb; font-weight: bold } /* Name.Function */
+.highlight .nl { color: #336699; font-style: italic } /* Name.Label */
+.highlight .nn { color: #bb0066; font-weight: bold } /* Name.Namespace */
+.highlight .py { color: #336699; font-weight: bold } /* Name.Property */
+.highlight .nt { color: #bb0066; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #336699 } /* Name.Variable */
+.highlight .ow { color: #008800 } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #0000DD; font-weight: bold } /* Literal.Number.Float */
+.highlight .mh { color: #0000DD; font-weight: bold } /* Literal.Number.Hex */
+.highlight .mi { color: #0000DD; font-weight: bold } /* Literal.Number.Integer */
+.highlight .mo { color: #0000DD; font-weight: bold } /* Literal.Number.Oct */
+.highlight .sb { color: #dd2200; background-color: #fff0f0 } /* Literal.String.Backtick */
+.highlight .sc { color: #dd2200; background-color: #fff0f0 } /* Literal.String.Char */
+.highlight .sd { color: #dd2200; background-color: #fff0f0 } /* Literal.String.Doc */
+.highlight .s2 { color: #dd2200; background-color: #fff0f0 } /* Literal.String.Double */
+.highlight .se { color: #0044dd; background-color: #fff0f0 } /* Literal.String.Escape */
+.highlight .sh { color: #dd2200; background-color: #fff0f0 } /* Literal.String.Heredoc */
+.highlight .si { color: #3333bb; background-color: #fff0f0 } /* Literal.String.Interpol */
+.highlight .sx { color: #22bb22; background-color: #f0fff0 } /* Literal.String.Other */
+.highlight .sr { color: #008800; background-color: #fff0ff } /* Literal.String.Regex */
+.highlight .s1 { color: #dd2200; background-color: #fff0f0 } /* Literal.String.Single */
+.highlight .ss { color: #aa6600; background-color: #fff0f0 } /* Literal.String.Symbol */
+.highlight .bp { color: #003388 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #336699 } /* Name.Variable.Class */
+.highlight .vg { color: #dd7700 } /* Name.Variable.Global */
+.highlight .vi { color: #3333bb } /* Name.Variable.Instance */
+.highlight .il { color: #0000DD; font-weight: bold } /* Literal.Number.Integer.Long */
+</style>
+
+<body>
+<div id=wrapper>
+	<h1 id="informatik-q11-20102011">Informatik Q11 2010/2011</h1>
+
+<!--<p id="leading">Dies ist mein öffentliches Schulheft im Fach Informatik. Ich hoffe sie sind nützlich für meine Mitschüler und sonst für jeden, der das hier liest. Wie immer gilt: Wer einen Fehler findet, der kann ihn behalten. Lieber wär es mir jedoch, wenn ihr mich einfach in der Schule darauf anspricht. Danken möchte ich noch Frau Huber, meiner Informatiklehrerin für die Erlaubnis, im Unterricht unsere Notebooks benützen zu dürfen.</p>-->
+
+<p class="date">27.9.2010</p>
+
+<h2 id="listen">Listen</h2>
+
+<h3 id="einfach-verkettete-listen">Einfach verkettete Listen</h3>
+
+<h4 id="warteschlange">Warteschlange</h4>
+
+<h5 id="eigenschaften">Eigenschaften</h5>
+
+<ul>
+<li>Länge begrenzt</li>
+  <li>verwendet Feld (Array)</li>
+  <li>
+<a href="http://de.wikipedia.org/wiki/First_In_%E2%80%93_First_Out">FIFO</a> (first in – first out)</li>
+  <li>Zwei Klassen, eine für die Inhalte, eine für Koordination notwendig</li>
+</ul><h5 id="nachteile">Nachteile</h5>
+
+<ul>
+<li>Länge des Feldes ist begrenzt, das bedeutet
+    <ul>
+<li>entweder gibt es zu wenig Platz</li>
+      <li>oder Speicherplatz wird verschwendet.</li>
+    </ul>
+</li>
+  <li>Beim Entfernen müssen alle Elemente aufgerückt werden ⇒ schlechte Performance</li>
+</ul><h4 id="polonaisehttpwwwyoutubecomwatchv-mf3jc13bpe"><a href="http://www.youtube.com/watch?v=-Mf3Jc13BpE">Polonaise</a></h4>
+
+<p>Beispiel: Polonese im Klassenzimmer. Alex, der letzer Mann ist, soll den ersten, Frank, bitten, langsamer zu gehen. Lösung: Alex wendet sich an seinen Vordermann und bittet diesen langsamer zu gehen, wenn dieser der erste ist, oder die ganze Nachricht wiederum an seinen Vordermann weiterzugeben.</p>
+
+<p>Pseudo-Code (mit <a href="http://python.org/">Python</a>-Syntax):</p>
+
+<pre><code>methode langsamer():
+    wenn selbst.vordermann:
+        selbst.vordermann.langsamer()
+    ansonsten:
+        selbst.geschwindigkeit--
+</code></pre>
+
+<p>Objektdiagramm:</p>
+
+<pre><code>#YUML dir:lr
+[stativ{bg:lightblue}]-erster&gt;[knoten1],
+[stativ{bg:lightblue}]-letzter&gt;[knoten3],
+[knoten1{bg:green}]-enthält&gt;[element1],
+[knoten2{bg:green}]-enthält&gt;[element2],
+[knoten3{bg:green}]-enthält&gt;[element3],
+[knoten1{bg:green}]-nächster&gt;[knoten2{bg:green}],
+[knoten2{bg:green}]-nächster&gt;[knoten3{bg:green}],
+</code></pre>
+
+<p>Klassendiagramm:</p>
+
+<pre><code>#yuml dir:lr
+[STATIV{bg:lightblue}]&lt;&gt;hat als erster-1&gt;[KNOTEN{bg:green}],
+[KNOTEN{bg:green}]&lt;&gt;nächster-0..1&gt;[KNOTEN{bg:green}],
+[KNOTEN{bg:green}]&lt;&gt;enthält-&gt;[ELEMENT],
+</code></pre>
+<pre><code>#yuml dir:lr
+[KNOTEN|KNOTEN naechster;ELEMENT inhalt],
+[STATIV|KNOTEN erster;int anzahlKnoten|void hintenAnfuegen()],
+</code></pre>
+
+<p class="date">28.9.2010</p>
+
+<p>Und das ganze in Java:</p>
+
+<div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">hintenEinfuegen</span><span class="o">(</span><span class="n">ELEMENT</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+	<span class="k">if</span><span class="o">(</span><span class="n">naechster</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">naechster</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KNOTEN</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+		<span class="c1">// Anzahl der Knoten erhÃ¶hen</span>
+	<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+		<span class="n">nachster</span><span class="o">.</span><span class="na">hintenEinfuegen</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<script defer async>
+(function(win, doc) {
+	var headers = doc.querySelectorAll('h2, h3, h4');
+	var numbers = [0];
+	
+	// Create index
+	var index = doc.createElement('div');
+	index.id = 'index';
+	var ul = doc.createElement('ul');
+	ul.style.display = 'block';
+	var close_link = doc.createElement('a');
+	close_link.href = '#';
+	var toggle_close_link = function(evt) {
+		if(ul.style.display == 'block') {
+			ul.style.display = 'none';
+			close_link.innerHTML = 'Navigation anzeigen';
+		} else {
+			ul.style.display = 'block';
+			close_link.innerHTML = 'Navigation ausblenden';
+		}
+		if(evt) evt.preventDefault();
+		return false;
+	};
+	close_link.onclick = toggle_close_link;
+	toggle_close_link();
+	index.appendChild(close_link);
+	index.appendChild(ul);
+	
+	for(var i = 0, l = headers.length; i < l; i++) {
+		var header = headers[i];
+		var level = parseInt(header.nodeName.charAt(1)) - 1;
+		numbers.length = level;
+		numbers[level-1] = (numbers[level-1] || 0) + 1;
+		var header_string = header.innerHTML;
+		var header_id = 'header' + numbers.join('_');
+		var level_string = numbers.join('. ') + '. ';
+		
+		// Update header
+		header.insertBefore(doc.createTextNode(level_string), header.firstChild);
+		header.id = header_id;
+		
+		// Update index
+		var li = doc.createElement('li');
+		var a  = doc.createElement('a');
+		a.href = '#' + header_id;
+		a.innerHTML = level_string + header_string;
+		li.appendChild(a);
+		ul.appendChild(li);
+	}
+	
+	// Insert index
+	var h1 = document.getElementsByTagName('h1')[0];
+	h1.parentNode.insertBefore(index, h1.nextSibling);
+})(window, document);
+
+(function(win, doc) {
+	var pres_live = doc.getElementsByTagName('pre');
+	var pres = [];
+	for(var i = 0, l = pres_live.length; i < l; i++) {
+		pres[i] = pres_live[i];
+	}
+	for(var i = 0, l = pres.length; i < l; i++) {
+		var pre = pres[i];
+		var content = pre.getElementsByTagName('code')[0].innerHTML;
+		var lines = content.split('\n');
+		if(lines[0].match(/#yuml/i)) {
+			var url = 'http://yuml.me/diagram/scruffy;dir:lr/class/' + encodeURIComponent(lines.slice(1).join('\n'));
+			var img = doc.createElement('img');
+			img.className = 'diagram';
+			img.src = url;
+			pre.parentNode.replaceChild(img, pre);
+		}
+	}
+})(window, document);
+</script>
