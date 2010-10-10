@@ -36,7 +36,7 @@ Pseudo-Code (mit [Python](http://python.org/)-Syntax):
 	    ansonsten:
 	        selbst.geschwindigkeit--
 
-Objektdiagramm:
+Objektdiagramm (sich bitte runde Ecken denken!):
 
 	#YUML dir:lr
 	[stativ{bg:lightblue}]-erster>[knoten1],
@@ -45,7 +45,7 @@ Objektdiagramm:
 	[knoten2{bg:green}]-enthält>[element2],
 	[knoten3{bg:green}]-enthält>[element3],
 	[knoten1{bg:green}]-nächster>[knoten2{bg:green}],
-	[knoten2{bg:green}]-nächster>[knoten3{bg:green}],
+	[knoten2{bg:green}]-nächster>[knoten3{bg:green}]
 
 Klassendiagramm:
 
@@ -66,8 +66,79 @@ Und das ganze in Java:
 	public void hintenEinfuegen(ELEMENT e) {
 		if(naechster == null) {
 			naechster = new KNOTEN(e);
-			// Anzahl der Knoten erhöhen
+			// Anzahl der Knoten erhoehen
 		} else {
 			nachster.hintenEinfuegen(e);
 		}
 	}
+
+<p class="date">4.10.2010</p>
+
+Klasse STATIV:
+
+	#highlight java
+	public void vorneEinfuegen(ELEMENT e) {
+		if(erster == null) {
+			erster = new KNOTEN(e);
+		} else {
+			KNOTEN knotenNeu = new KNOTEN(e);
+			knotenNeu.naechsterSetzen(knotenNeu);
+			erster = knotenNeu;
+		}
+	}
+^
+	#highlight java
+	public KNOTEN vorneEntfernen() {
+		if(erster == null) {
+			return null;
+		} else {
+			KNOTEN weg = erster;
+			weg.setzeNaechsten(null);
+			erster = erster.gibNaechsten();
+			return weg;
+		}
+	}
+^
+	#highlight java
+	public KNOTEN knotenGeben(int position) {
+		KNOTEN aktuell = erster;
+		for(int i = 0; i < position; i++) {
+			aktuell = aktuell.gibNaechsten();
+		}
+		return aktuell;
+	}
+^
+	#highlight java
+	public KNOTEN knotenLoeschen(int position) {
+		if(position == 0) {
+			return vorneEntfernen();
+		} else {
+			KNOTEN weg = knotenGeben(position);
+			knotenGeben(position - 1).setzeNaechsten(weg.gibNaechsten);
+			weg.setzeNaechsten(null);
+			return weg;
+		}
+	}
+
+<p class="date">5.10.2010</p>
+
+Buch S. 21/6
+
+Eckiges Objektdiagramm:
+
+	#yuml dir:lr
+	[hotelier0{bg:lightblue}]-erster>[knoten0{bg:green}],
+	[knoten0{bg:green}]-enthält>[person0],
+	[knoten0{bg:green}]-nächster>[knoten1{bg:green}],
+	[knoten1{bg:green}]-enthält>[person1],
+	[knoten1{bg:green}]-nächster>[knoten2{bg:green}],
+	[knoten2{bg:green}]-enthält>[person2],
+	[knoten2{bg:green}]-nächster>[knoten3{bg:green}],
+	[knoten3{bg:green}]-enthält>[person3]
+^
+	#yuml dir:lr
+	[PERSON|int gewicht;String name|int gewichtGeben();String nameGeben()],
+	[KNOTEN|KNOTEN naechster;PERSON inhalt|int inhaltGewichtGeben();void inhaltSetzen(PERSON p);KNOTEN naechsterGeben()],
+	[HOTELIER|KNOTEN erster|int gewichtGeben();void ersterSetzen(KNOTEN k)]
+
+Wer will für mich am Dienstag die Aufzeichnungen machen?

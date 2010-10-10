@@ -14,7 +14,7 @@ body {
 	position: relative;
 }
 #wrapper {
-	width: 800px; margin: 15px auto; padding: 25px 40px;
+	width: 1000px; margin: 15px auto; padding: 25px 40px;
 	background: #fff;
 }
 #leading {
@@ -187,7 +187,7 @@ a:hover {
         selbst.geschwindigkeit--
 </code></pre>
 
-<p>Objektdiagramm:</p>
+<p>Objektdiagramm (sich bitte runde Ecken denken!):</p>
 
 <pre><code>#YUML dir:lr
 [stativ{bg:lightblue}]-erster&gt;[knoten1],
@@ -196,7 +196,7 @@ a:hover {
 [knoten2{bg:green}]-enthält&gt;[element2],
 [knoten3{bg:green}]-enthält&gt;[element3],
 [knoten1{bg:green}]-nächster&gt;[knoten2{bg:green}],
-[knoten2{bg:green}]-nächster&gt;[knoten3{bg:green}],
+[knoten2{bg:green}]-nächster&gt;[knoten3{bg:green}]
 </code></pre>
 
 <p>Klassendiagramm:</p>
@@ -218,12 +218,81 @@ a:hover {
 <div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">hintenEinfuegen</span><span class="o">(</span><span class="n">ELEMENT</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
 	<span class="k">if</span><span class="o">(</span><span class="n">naechster</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
 		<span class="n">naechster</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KNOTEN</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
-		<span class="c1">// Anzahl der Knoten erhÃ¶hen</span>
+		<span class="c1">// Anzahl der Knoten erhoehen</span>
 	<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
 		<span class="n">nachster</span><span class="o">.</span><span class="na">hintenEinfuegen</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
 	<span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
+
+<p class="date">4.10.2010</p>
+
+<p>Klasse STATIV:</p>
+
+<div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">vorneEinfuegen</span><span class="o">(</span><span class="n">ELEMENT</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+	<span class="k">if</span><span class="o">(</span><span class="n">erster</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">erster</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KNOTEN</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+	<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+		<span class="n">KNOTEN</span> <span class="n">knotenNeu</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KNOTEN</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+		<span class="n">knotenNeu</span><span class="o">.</span><span class="na">naechsterSetzen</span><span class="o">(</span><span class="n">knotenNeu</span><span class="o">);</span>
+		<span class="n">erster</span> <span class="o">=</span> <span class="n">knotenNeu</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+<div class="highlight"><pre><span class="kd">public</span> <span class="n">KNOTEN</span> <span class="nf">vorneEntfernen</span><span class="o">()</span> <span class="o">{</span>
+	<span class="k">if</span><span class="o">(</span><span class="n">erster</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+	<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+		<span class="n">KNOTEN</span> <span class="n">weg</span> <span class="o">=</span> <span class="n">erster</span><span class="o">;</span>
+		<span class="n">weg</span><span class="o">.</span><span class="na">setzeNaechsten</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+		<span class="n">erster</span> <span class="o">=</span> <span class="n">erster</span><span class="o">.</span><span class="na">gibNaechsten</span><span class="o">();</span>
+		<span class="k">return</span> <span class="n">weg</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+<div class="highlight"><pre><span class="kd">public</span> <span class="n">KNOTEN</span> <span class="nf">knotenGeben</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">)</span> <span class="o">{</span>
+	<span class="n">KNOTEN</span> <span class="n">aktuell</span> <span class="o">=</span> <span class="n">erster</span><span class="o">;</span>
+	<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">position</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+		<span class="n">aktuell</span> <span class="o">=</span> <span class="n">aktuell</span><span class="o">.</span><span class="na">gibNaechsten</span><span class="o">();</span>
+	<span class="o">}</span>
+	<span class="k">return</span> <span class="n">aktuell</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+<div class="highlight"><pre><span class="kd">public</span> <span class="n">KNOTEN</span> <span class="nf">knotenLoeschen</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">)</span> <span class="o">{</span>
+	<span class="k">if</span><span class="o">(</span><span class="n">position</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="nf">vorneEntfernen</span><span class="o">();</span>
+	<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+		<span class="n">KNOTEN</span> <span class="n">weg</span> <span class="o">=</span> <span class="n">knotenGeben</span><span class="o">(</span><span class="n">position</span><span class="o">);</span>
+		<span class="n">knotenGeben</span><span class="o">(</span><span class="n">position</span> <span class="o">-</span> <span class="mi">1</span><span class="o">).</span><span class="na">setzeNaechsten</span><span class="o">(</span><span class="n">weg</span><span class="o">.</span><span class="na">gibNaechsten</span><span class="o">);</span>
+		<span class="n">weg</span><span class="o">.</span><span class="na">setzeNaechsten</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+		<span class="k">return</span> <span class="n">weg</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+<p class="date">5.10.2010</p>
+
+<p>Buch S. 21/6</p>
+
+<p>Eckiges Objektdiagramm:</p>
+
+<pre><code>#yuml dir:lr
+[hotelier0{bg:lightblue}]-erster&gt;[knoten0{bg:green}],
+[knoten0{bg:green}]-enthält&gt;[person0],
+[knoten0{bg:green}]-nächster&gt;[knoten1{bg:green}],
+[knoten1{bg:green}]-enthält&gt;[person1],
+[knoten1{bg:green}]-nächster&gt;[knoten2{bg:green}],
+[knoten2{bg:green}]-enthält&gt;[person2],
+[knoten2{bg:green}]-nächster&gt;[knoten3{bg:green}],
+[knoten3{bg:green}]-enthält&gt;[person3]
+</code></pre>
+<pre><code>#yuml dir:lr
+[PERSON|int gewicht;String name|int gewichtGeben();String nameGeben()],
+[KNOTEN|KNOTEN naechster;PERSON inhalt|int inhaltGewichtGeben();void inhaltSetzen(PERSON p);KNOTEN naechsterGeben()],
+[HOTELIER|KNOTEN erster|int gewichtGeben();void ersterSetzen(KNOTEN k)]
+</code></pre>
+
+<p>Wer will für mich am Dienstag die Aufzeichnungen machen?</p>
 </div>
 <script defer async>
 (function(win, doc) {
@@ -288,7 +357,11 @@ a:hover {
 	}
 	for(var i = 0, l = pres.length; i < l; i++) {
 		var pre = pres[i];
-		var content = pre.getElementsByTagName('code')[0].innerHTML;
+		var code = pre.getElementsByTagName('code')[0];
+		if(!code) {
+			continue;
+		}
+		var content = code.innerHTML;
 		var lines = content.split('\n');
 		if(lines[0].match(/#yuml/i)) {
 			var url = 'http://yuml.me/diagram/scruffy;dir:lr/class/' + encodeURIComponent(lines.slice(1).join('\n'));

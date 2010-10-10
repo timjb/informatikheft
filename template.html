@@ -14,7 +14,7 @@ body {
 	position: relative;
 }
 #wrapper {
-	width: 800px; margin: 15px auto; padding: 25px 40px;
+	width: 1000px; margin: 15px auto; padding: 25px 40px;
 	background: #fff;
 }
 #leading {
@@ -209,7 +209,11 @@ a:hover {
 	}
 	for(var i = 0, l = pres.length; i < l; i++) {
 		var pre = pres[i];
-		var content = pre.getElementsByTagName('code')[0].innerHTML;
+		var code = pre.getElementsByTagName('code')[0];
+		if(!code) {
+			continue;
+		}
+		var content = code.innerHTML;
 		var lines = content.split('\n');
 		if(lines[0].match(/#yuml/i)) {
 			var url = 'http://yuml.me/diagram/scruffy;dir:lr/class/' + encodeURIComponent(lines.slice(1).join('\n'));
