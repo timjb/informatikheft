@@ -7,7 +7,7 @@ require 'kramdown'
 require 'mustache'
 require 'nokogiri'
 
-require 'curb'
+#require 'curb'
 
 #def yuml_img(yuml_code, options)
 #  #yuml_code.gsub!("\t", "")
@@ -32,6 +32,9 @@ require 'curb'
 #  file_name
 #end
 
+# install pygments:
+# - sudo apt-get install python-pip
+# - sudo easy_install Pygments
 def pygmentize(code, language, params={})
   IO.popen("pygmentize -l #{language} -f html", "r+") do |io|
     io.write(code)
@@ -43,7 +46,7 @@ end
 task :default do
   # Convert to HTML
   markdown = File.open('index.markdown').read
-  html = Kramdown::Document.new(markdown).to_html
+  html = Kramdown::Document.new(markdown, :parse_block_html => true).to_html
   
   # Parse the HTML Doc
   html_doc = Nokogiri::HTML::DocumentFragment.parse(html)

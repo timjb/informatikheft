@@ -37,7 +37,7 @@ h5, h6 { color: #777; }
 h5 { font-size: 18px; }
 h6 { font-size: 15px; }
 
-ul, ol, p, pre, #index, img.diagram {
+ul, ol, p, pre, #index, img.diagram, div.exercise, .wsd img {
 	margin-bottom: 18px;
 }
 
@@ -47,7 +47,7 @@ p.date {
 	color: #2e62bc;
 }
 
-img.diagram {
+img.diagram, .wsd img {
 	display: block;
 	margin-left: auto; margin-right: auto;
 	max-width: 100%;
@@ -70,6 +70,14 @@ code {
 }
 pre {
 	padding: 10px;
+}
+
+div.exercise {
+	border: 2px solid #ccc;
+	padding: 8px;
+}
+div.exercise > *:last-child {
+	margin-bottom: 0;
 }
 
 a {
@@ -272,11 +280,12 @@ a:hover {
 
 <p class="date">5.10.2010</p>
 
-<p>Buch S. 21/6</p>
+<div class="exercise">
+  <p>Buch S. 21/6</p>
 
-<p>Eckiges Objektdiagramm:</p>
+  <p>Eckiges Objektdiagramm:</p>
 
-<pre><code>#yuml dir:lr
+  <pre><code>#yuml dir:lr
 [hotelier0{bg:lightblue}]-erster&gt;[knoten0{bg:green}],
 [knoten0{bg:green}]-enthält&gt;[person0],
 [knoten0{bg:green}]-nächster&gt;[knoten1{bg:green}],
@@ -286,15 +295,112 @@ a:hover {
 [knoten2{bg:green}]-nächster&gt;[knoten3{bg:green}],
 [knoten3{bg:green}]-enthält&gt;[person3]
 </code></pre>
-<pre><code>#yuml dir:lr
+  <pre><code>#yuml dir:lr
 [PERSON|int gewicht;String name|int gewichtGeben();String nameGeben()],
 [KNOTEN|KNOTEN naechster;PERSON inhalt|int inhaltGewichtGeben();void inhaltSetzen(PERSON p);KNOTEN naechsterGeben()],
 [HOTELIER|KNOTEN erster|int gewichtGeben();void ersterSetzen(KNOTEN k)]
 </code></pre>
 
-<p>Wer will für mich am Dienstag die Aufzeichnungen machen?</p>
+  <p class="date">11.10.2010</p>
+
+  <p>Sequenzdiagramme:</p>
+
+  <pre><code>#websequencediagram
+(Benutzer)-&gt;stativ0: datenAusgeben()
+stativ0-&gt;knoten1: datenAusgeben()
+activate stativ0
+activate knoten1
+knoten1-&gt;element1: datenGeben()
+activate element1
+element1--&gt;knoten1: "\"Apfel gruen\""
+deactivate element1
+knoten1--&gt;stativ0: "\"Apfel gruen\""
+deactivate knoten1
+stativ0-&gt;stativ0: Ausgabe mit System.out.println
+stativ0-&gt;knoten1: naechsterGeben()
+activate knoten1
+knoten1--&gt;stativ0: knoten2
+deactivate knoten1
+stativ0-&gt;knoten2: datenAusgeben()
+activate stativ0
+activate knoten2
+knoten2-&gt;element2: datenGeben()
+activate element2
+element2--&gt;knoten2: "\"Banane gelb\""
+deactivate element2
+knoten2--&gt;stativ0: "\"Banane gelb\""
+deactivate knoten2
+stativ0-&gt;stativ0: Ausgabe mit System.out.println
+stativ0-&gt;knoten2: naechsterGeben()
+activate knoten2
+knoten2--&gt;stativ0: null
+deactivate knoten1
+deactivate stativ0
+stativ0--&gt;(Benutzer): ""
+</code></pre>
+
+  <p>Und in Java:</p>
+
+  <div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">datenAusgeben</span><span class="o">()</span> <span class="o">{</span>
+	<span class="n">KNOTEN</span> <span class="n">k</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">erster</span><span class="o">;</span>
+	<span class="k">while</span><span class="o">(</span><span class="n">k</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">k</span><span class="o">.</span><span class="na">datenAusgeben</span><span class="o">());</span>
+		<span class="n">k</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="na">naechsterGeben</span><span class="o">();</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
 </div>
-<script defer async>
+
+<h4 id="rekursive-funktionen">Rekursive Funktionen</h4>
+
+<h5 id="die-fibonacci-folgehttpdewikipediaorgwikifibonacci-folge">Die <a href="http://de.wikipedia.org/wiki/Fibonacci-Folge">Fibonacci-Folge</a>
+</h5>
+
+<p>A(0) = 0<br>
+A(1) = 1<br>
+A(2) = 1 = 0 + 1<br>
+A(3) = 2 = 1 + 1<br>
+A(4) = 3 = 1 + 2<br>
+A(5) = 5 = 2 + 3<br>
+A(6) = 8 = 3 + 5<br>
+fib(n) = fib(n-2) + fib(n-1)</p>
+
+<p>In Worten: Die n-te Fibonacci-Zahl ist die Summe ihrer beiden Vorgänger. Die 0-te Fibonacci-Zahl ist 0, die 1-te 0.</p>
+
+<h5 id="rekursive-funktionen-1">Rekursive Funktionen</h5>
+
+<p>Definition: <strong>Rekursive Funktionen</strong> enthalten in ihrem Funktionsterm mindestens einmal den eigenen Funktionsbezeichner. Ein Funktionsaufruf endet nur dann nach einer endlichen Anzahl von Berechnungsschritten, wenn die Abbruchbedingung erfüllt ist.</p>
+
+<pre><code>fib(5) = fib(4)          + fib(3)
+       = fib(3) + fib(2) + fib(2) + fib(1)
+       …
+       = 5
+</code></pre>
+<div class="highlight"><pre><span class="kd">public</span> <span class="kt">int</span> <span class="nf">fib</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+	<span class="k">if</span><span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="n">n</span><span class="o">;</span>
+	<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="nf">fib</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="n">fib</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+<div class="exercise">
+  <p>S. 24/3 a)</p>
+
+  <p>A(0) = 300<br>
+A(1) = 300 + 300 * 0,2 = 360<br>
+A(2) = 360 + 360 * 0,2 = 432</p>
+
+  <p>Allgemein:<br>
+A(t) = A(t-1) + A(t-1) * 0,2 = A(t-1) * 1,2</p>
+
+  <p>Abbruchbedingung:<br>
+A(0) = 300</p>
+</div>
+</div>
+<script>
 (function(win, doc) {
 	var headers = doc.querySelectorAll('h2, h3, h4');
 	var numbers = [0];
@@ -369,7 +475,14 @@ a:hover {
 			img.className = 'diagram';
 			img.src = url;
 			pre.parentNode.replaceChild(img, pre);
+		} else if(lines[0].match(/#websequencediagram/i)) {
+			var div = doc.createElement('div');
+			div.className = 'wsd';
+			div.setAttribute('wsd_style', 'modern-blue');
+			pre.parentNode.replaceChild(div, pre);
+			div.appendChild(pre);
 		}
 	}
 })(window, document);
 </script>
+<script src=http://www.websequencediagrams.com/service.js></script>
