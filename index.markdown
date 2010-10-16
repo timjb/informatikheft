@@ -148,8 +148,8 @@ Sequenzdiagramme:
 
 	#websequencediagram
 	(Benutzer)->stativ0: datenAusgeben()
-	stativ0->knoten1: datenAusgeben()
 	activate stativ0
+	stativ0->knoten1: datenAusgeben()
 	activate knoten1
 	knoten1->element1: datenGeben()
 	activate element1
