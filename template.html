@@ -187,7 +187,7 @@ a:hover {
 		var level = parseInt(header.nodeName.charAt(1)) - 1;
 		numbers.length = level;
 		numbers[level-1] = (numbers[level-1] || 0) + 1;
-		var header_string = header.innerHTML;
+		var header_string = header.innerText;
 		var header_id = 'header' + numbers.join('_');
 		var level_string = numbers.join('. ') + '. ';
 		
