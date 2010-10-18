@@ -64,7 +64,7 @@ Und das ganze in Java:
 
 	#highlight java
 	public void hintenEinfuegen(ELEMENT e) {
-		if(naechster == null) {
+		if (naechster == null) {
 			naechster = new KNOTEN(e);
 			// Anzahl der Knoten erhoehen
 		} else {
@@ -78,7 +78,7 @@ Klasse STATIV:
 
 	#highlight java
 	public void vorneEinfuegen(ELEMENT e) {
-		if(erster == null) {
+		if (erster == null) {
 			erster = new KNOTEN(e);
 		} else {
 			KNOTEN knotenNeu = new KNOTEN(e);
@@ -89,7 +89,7 @@ Klasse STATIV:
 ^
 	#highlight java
 	public KNOTEN vorneEntfernen() {
-		if(erster == null) {
+		if (erster == null) {
 			return null;
 		} else {
 			KNOTEN weg = erster;
@@ -110,7 +110,7 @@ Klasse STATIV:
 ^
 	#highlight java
 	public KNOTEN knotenLoeschen(int position) {
-		if(position == 0) {
+		if (position == 0) {
 			return vorneEntfernen();
 		} else {
 			KNOTEN weg = knotenGeben(position);
@@ -219,7 +219,7 @@ Definition: **Rekursive Funktionen** enthalten in ihrem Funktionsterm mindestens
 ^
 	#highlight java
 	public int fib(int n) {
-		if(n == 0 || n == 1) {
+		if (n == 0 || n == 1) {
 			return n;
 		} else {
 			return fib(n-1) + fib(n-2);
@@ -239,3 +239,146 @@ A(t) = A(t-1) + A(t-1) * 0,2 = A(t-1) * 1,2
 Abbruchbedingung:  
 A(0) = 300
 </div>
+
+<p class="date">11.10.2010</p>
+
+<div class="exercise">
+Buch S. 25/5 a)
+
+A(3) = 9  
+A(2) = 5  
+A(1) = 1  
+
+Allgemein:  
+A(n) = A(n-1) + 4, n > 1  
+Abbruchbedingung:  
+A(1) = 1
+
+oder: A(n) = 1 + 4(n-1)
+
+b)
+
+	A(3) = A(2) + 4  
+	     = A(1) + 4 + 4
+	     = 1 + 4 + 4
+	     = 9
+</div>
+
+### Rekursive Methoden einer Liste (soll Nummer 3 sein)
+
+Rekursive Funktionen: im Funktionsterm steht mindestens ein Mal der eigene Funktionsbezeichner
+Rekursive Methoden: Innerhalb der Definition (Methodenrumpf); Aufruf der gleichnamigen Methode eines referenzierten Objekts
+Bereits bekannt: `hintenEinfuegen(ELEMENT e)`
+Rekursiver Aufbau in der Klasse KNOTEN:
+
+	#highlight java
+	public void hintenEinfuegen(ELEMENT e) {
+		if (this.naechster != null) {
+			this.naechster.hintenEinfuegen(e);
+		} else {
+			this.naechster = new KNOTEN(e);
+		}
+	}
+
+anzahlKnotenGeben()
+1. ohne Rekursion
+   STATIV:
+	public int anzahlKnotenGeben() {
+		KNOTEN aktuell = this.naechster;
+		int zaehler = 0;
+		while (aktuell != null) {
+			zaehler++; // Um eins hochzaehlen
+			aktuell = aktuell.naechsterGeben();
+		}
+		return zaehler;
+	}
+2. mit Rekursion
+   STATIV:
+	public int anzahlKnotenGeben() {
+		if (this.erster == null) {
+			return 0;
+		}
+		return this.erster.anzahlGeben();
+	}
+   KNOTEN:
+	public int anzahlGeben() {
+		if (this.naechster == null) { // Abbruchbedingung
+			return 1;
+		}
+		return this.naechster.anzahlGeben() + 1;
+	}
+
+Nicht rekursiv:
+
+	#websequencediagram
+	(Benutzer)->stativ0: anzahlKnotenGeben()
+	activate stativ0
+	stativ0->knoten1: naechsterGeben()
+	activate knoten1
+	knoten1-->stativ0: knoten2
+	deactivate knoten1
+	stativ0->stativ0: Zähler erhöhen
+	deactivate stativ0
+	stativ0-->(Benutzer): 3
+
+Rekursiv:
+
+	#websequencediagram
+	(Benutzer)->stativ0: anzahlKnotenGeben()
+	activate stativ0
+	stativ0->knoten1: naechsterGeben()
+	activate knoten1
+	knoten1-->stativ0: knoten2
+	deactivate knoten1
+	deactivate stativ0
+	stativ0-->(Benutzer): 3
+
+&rarr; Jeder Knoten muss überprüfen, ob er der letzte ist  
+&rarr; Alle Knoten verhalten sich gleich **außer** der letzte
+
+&rArr; Verwende eine kleine Kugel, die keinen Inhalt haben kann und hänge sie an den letzten Korb (Knoten).
+
+Sequenzdiagramm:
+
+	#yuml
+	[stativ0]-erster>knoten1
+	knoten1-inhalt>element1
+	knoten1-naechster>knoten2
+	…
+	knoten2-naechster>abschluss0
+
+Vorteil: Bei Methoden der Klasse KNOTEN keine Fallunterscheidung mehr notwendig.  
+Nachteil: Zwei Klassen (DATENKNOTEN und ABSCHLUSS)
+
+STATIV:
+
+	#highlight java
+	public int anzahlKnoten() {
+		return this.erster.anzahlGeben();
+	}
+
+DATENKNOTEN:
+
+	#highlight java
+	public int anzahlGeben() {
+		return this.naechster.anzahlGeben() + 1;
+	}
+
+ABSCHLUSS:
+
+	#highlight java
+	public int anzahlGeben() {
+		return 0;
+	}
+
+Klassendiagramm:
+
+LISTE-erster>
+LISTENELEMENT
+ABSCHLUSS und DATENKNOTEN vererben von LISTENELEMENT (Beziehung: "ist ein")
+ABSCHLUSS
+DATENKNOTEN<>inhalt-1>DATENELEMENT
+DATENKNOTEN<>naechster-1>LISTENELEMENT
+DATENELEMENT
+
+LISTENEL, ABSCHL, und DATENKNOTEN gruppieren, Bezeichnung KOMPOSITUM
