@@ -382,3 +382,13 @@ DATENKNOTEN<>naechster-1>LISTENELEMENT
 DATENELEMENT
 
 LISTENEL, ABSCHL, und DATENKNOTEN gruppieren, Bezeichnung KOMPOSITUM
+
+<p class="date">19.10.2010</p>
+
+	#highlight java
+	public abstract class LISTENELEMENT {
+		public abstract int anzahlKnoten();
+	}
+	public class DATENKNOTEN extends LISTENELEMENT {
+		...
+	}
