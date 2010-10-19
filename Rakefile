@@ -64,6 +64,9 @@ task :default do
     elsif lines[0].match /^#highlight/i
       lines[0].sub!(/^#highlight\s*/i, '')
       language = lines.shift
+      lines.map! do |line|
+        line.gsub "\t", ' '*4
+      end
       pre.replace(pygmentize(lines.join("\n"), language))
     end
   end
