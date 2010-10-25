@@ -438,7 +438,7 @@ DATENKNOTEN:
 
 ABSCHLUSS:
 
-	#hightlight java
+	#highlight java
 	public DATENELEMENT inhaltLetzterGeben(DATENELEMENT e) {
 		return e;
 	}
