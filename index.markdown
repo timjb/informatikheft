@@ -419,3 +419,26 @@ Klassendiagramm:
 	public class DATENKNOTEN extends LISTENELEMENT {
 		...
 	}
+
+<p class="date">25.10.2010</p>
+
+LISTE:
+
+	#highlight java
+	public DATENELEMENT inhaltLetzterGeben() {
+		return this.erster.inhaltLetzterGeben(null);
+	}
+
+DATENKNOTEN:
+
+	#highlight java
+	public DATENELEMENT inhaltLetzterGeben(DATENELEMENT e) {
+		return this.naechster.inhaltLetzterGeben(this.inhalt);
+	}
+
+ABSCHLUSS:
+
+	#hightlight java
+	public DATENELEMENT inhaltLetzterGeben(DATENELEMENT e) {
+		return e;
+	}
