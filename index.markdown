@@ -1,5 +1,7 @@
 # Informatik Q11 2010/2011
 
+Verbesserungen bitte an [tim@timbaumann.info](mailto:tim@timbaumann.info).
+
 <!--<p id="leading">Dies ist mein öffentliches Schulheft im Fach Informatik. Ich hoffe sie sind nützlich für meine Mitschüler und sonst für jeden, der das hier liest. Wie immer gilt: Wer einen Fehler findet, der kann ihn behalten. Lieber wär es mir jedoch, wenn ihr mich einfach in der Schule darauf anspricht. Danken möchte ich noch Frau Huber, meiner Informatiklehrerin für die Erlaubnis, im Unterricht unsere Notebooks benützen zu dürfen.</p>-->
 
 <p class="date">27.9.2010</p>
@@ -442,3 +444,37 @@ ABSCHLUSS:
 	public DATENELEMENT inhaltLetzterGeben(DATENELEMENT e) {
 		return e;
 	}
+
+<p class="date">26.10.2010</p>
+
+LISTE:
+
+	#highlight java
+	public void listendatenAusgeben() {
+		System.out.println("In der Liste ist gespeichert: ");
+		erster.listendatenAusgeben();
+	}
+
+DATENKNOTEN:
+
+	#highlight java
+	public void listendatenAusgeben() {
+		System.out.println(this.inhalt.datenGeben());
+		this.naechster.listendatenAusgeben();
+	}
+
+ABSCHLUSS:
+
+	#highlight java
+	public void listendatenAusgeben() {
+		// Nichts zu tun ...
+	}
+
+Weitere Methoden:
+
+* `vorneEinfuegen()`
+* `vorneEntfernen()`
+* `hintenEntfernen()`
+* `datenknotenGeben(String datenwert)`
+
+**Hausaufgabe: S. 31 Nr. 4**

@@ -154,6 +154,8 @@ a:hover {
 <div id=wrapper>
 	<h1 id="informatik-q11-20102011">Informatik Q11 2010/2011</h1>
 
+<p>Verbesserungen bitte an <a href="mailto:tim@timbaumann.info">tim@timbaumann.info</a>.</p>
+
 <!--<p id="leading">Dies ist mein öffentliches Schulheft im Fach Informatik. Ich hoffe sie sind nützlich für meine Mitschüler und sonst für jeden, der das hier liest. Wie immer gilt: Wer einen Fehler findet, der kann ihn behalten. Lieber wär es mir jedoch, wenn ihr mich einfach in der Schule darauf anspricht. Danken möchte ich noch Frau Huber, meiner Informatiklehrerin für die Erlaubnis, im Unterricht unsere Notebooks benützen zu dürfen.</p>-->
 
 <p class="date">27.9.2010</p>
@@ -604,6 +606,40 @@ deactivate stativ0
     <span class="k">return</span> <span class="n">e</span><span class="o">;</span>
 <span class="o">}</span>
 </pre></div>
+
+<p class="date">26.10.2010</p>
+
+<p>LISTE:</p>
+
+<div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">listendatenAusgeben</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"In der Liste ist gespeichert: "</span><span class="o">);</span>
+    <span class="n">erster</span><span class="o">.</span><span class="na">listendatenAusgeben</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></div>
+
+<p>DATENKNOTEN:</p>
+
+<div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">listendatenAusgeben</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">inhalt</span><span class="o">.</span><span class="na">datenGeben</span><span class="o">());</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">.</span><span class="na">listendatenAusgeben</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></div>
+
+<p>ABSCHLUSS:</p>
+
+<div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">listendatenAusgeben</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// Nichts zu tun ...</span>
+<span class="o">}</span>
+</pre></div>
+
+<p>Weitere Methoden:</p>
+
+<ul>
+<li><code>vorneEinfuegen()</code></li>
+  <li><code>vorneEntfernen()</code></li>
+  <li><code>hintenEntfernen()</code></li>
+  <li><code>datenknotenGeben(String datenwert)</code></li>
+</ul><p><strong>Hausaufgabe: S. 31 Nr. 4</strong></p>
 </div>
 <script>
 (function(win, doc) {
