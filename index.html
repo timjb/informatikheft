@@ -639,7 +639,86 @@ deactivate stativ0
   <li><code>vorneEntfernen()</code></li>
   <li><code>hintenEntfernen()</code></li>
   <li><code>datenknotenGeben(String datenwert)</code></li>
-</ul><p><strong>Hausaufgabe: S. 31 Nr. 4</strong></p>
+</ul><p class="date">8.11.2010</p>
+
+<h5 id="die-methode-hintenentnehmen-der-einfach-verketteten-liste">Die Methode <code>hintenEntnehmen</code> der einfach verketteten Liste:</h5>
+
+<ul>
+<li>Inhalt des letzten Knoten wird für entnehmen benötigt</li>
+  <li>Suche nach inhaltLetzter mit inhaltLetzterGeben</li>
+  <li>Datenwert von inhaltLetzter kann der Methode entnehmen übergeben werden</li>
+  <li>Rückgabewert von entnehmen(inhaltLetzter) liefert Inhalt des ehemals letzten Knoten</li>
+</ul><div class="highlight"><pre><span class="kd">class</span> <span class="nc">Liste</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+    <span class="kd">public</span> <span class="n">Datenelement</span> <span class="nf">hintenEntnehmen</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">Datenelement</span> <span class="n">inhaltLetzter</span> <span class="o">=</span> <span class="n">erster</span><span class="o">.</span><span class="na">inhaltLetzterGeben</span><span class="o">(</span><span class="n">erster</span><span class="o">.</span><span class="na">inhaltGeben</span><span class="o">());</span>
+        <span class="k">return</span> <span class="nf">entnehmen</span><span class="o">(</span><span class="n">inhaltLetzter</span><span class="o">.</span><span class="na">datenwertGeben</span><span class="o">());</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="n">Datenelement</span> <span class="nf">entnehmen</span><span class="o">(</span><span class="n">String</span> <span class="n">datenwert</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// alten Knoteninhalt festhalten</span>
+        <span class="n">Datenelement</span> <span class="n">alterKnoteninhalt</span> <span class="o">=</span> <span class="n">datenknotenGeben</span><span class="o">(</span><span class="n">datenwert</span><span class="o">).</span><span class="na">inhaltGeben</span><span class="o">();</span>
+        <span class="n">erster</span><span class="o">.</span><span class="na">entfernen</span><span class="o">(</span><span class="n">datenwert</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">alterKnoteninhalt</span><span class="o">;</span> <span class="c1">// Knoteninhalt zurueckgeben</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="n">Datenknoten</span> <span class="nf">datenknotenGeben</span><span class="o">(</span><span class="n">String</span> <span class="n">datenwert</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">erster</span><span class="o">.</span><span class="na">datenknotenGeben</span><span class="o">(</span><span class="n">datenwert</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// ...</span>
+<span class="o">}</span>
+</pre></div>
+<div class="highlight"><pre><span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Listenelement</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="n">Listenelement</span> <span class="nf">entfernen</span><span class="o">(</span><span class="n">String</span> <span class="n">suchwert</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="n">Datenelement</span> <span class="nf">inhaltLetzterGeben</span><span class="o">(</span><span class="n">Datenelement</span> <span class="n">aktInhalt</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="n">Datenknoten</span> <span class="nf">datenknotenGeben</span><span class="o">(</span><span class="n">String</span> <span class="n">suchwert</span><span class="o">);</span>
+    <span class="c1">// ...</span>
+<span class="o">}</span>
+</pre></div>
+<div class="highlight"><pre><span class="kd">public</span> <span class="n">Datenknoten</span> <span class="kd">extends</span> <span class="n">Listenelement</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+    <span class="kd">public</span> <span class="n">Listenelement</span> <span class="nf">entfernen</span><span class="o">(</span><span class="n">String</span> <span class="n">suchwert</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// wenn datenwert von inhalt mit suchwert ueberein-</span>
+        <span class="c1">// stimmt, soll der Knoten entfernt werden</span>
+        <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">inhalt</span><span class="o">.</span><span class="na">datenwertGeben</span><span class="o">()</span> <span class="o">==</span> <span class="n">suchwert</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">naechster</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">.</span><span class="na">entfernen</span><span class="o">(</span><span class="n">suchwert</span><span class="o">);</span>
+            <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="n">Datenelement</span> <span class="nf">inhaltLetzterGeben</span><span class="o">(</span><span class="n">Datenelement</span> <span class="n">aktInhalt</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">.</span><span class="na">inhaltLetzterGeben</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">inhalt</span><span class="o">);</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="n">Datenknoten</span> <span class="nf">datenknotenGeben</span><span class="o">(</span><span class="n">String</span> <span class="n">suchwert</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">inhalt</span><span class="o">.</span><span class="na">datenwertGeben</span><span class="o">()</span> <span class="o">==</span> <span class="n">suchwert</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">.</span><span class="na">datenwertGeben</span><span class="o">(</span><span class="n">suchwert</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="c1">// ...</span>
+<span class="o">}</span>
+</pre></div>
+<div class="highlight"><pre><span class="kd">public</span> <span class="n">Abschluss</span> <span class="kd">extends</span> <span class="n">Listenelement</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+    <span class="kd">public</span> <span class="n">Listenelement</span> <span class="nf">entfernen</span><span class="o">(</span><span class="n">String</span> <span class="n">suchwert</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="n">Datenelement</span> <span class="nf">inhaltLetzterGeben</span><span class="o">(</span><span class="n">Datenelement</span> <span class="n">aktInhalt</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">aktInhalt</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="n">Datenknoten</span> <span class="nf">datenknotenGeben</span><span class="o">(</span><span class="n">String</span> <span class="n">suchwert</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="c1">// ...</span>
+<span class="o">}</span>
+</pre></div>
 </div>
 <script>
 (function(win, doc) {

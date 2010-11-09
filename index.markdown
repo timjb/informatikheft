@@ -477,4 +477,86 @@ Weitere Methoden:
 * `hintenEntfernen()`
 * `datenknotenGeben(String datenwert)`
 
-**Hausaufgabe: S. 31 Nr. 4**
+<p class="date">8.11.2010</p>
+
+##### Die Methode `hintenEntnehmen` der einfach verketteten Liste:
+
+* Inhalt des letzten Knoten wird für entnehmen benötigt
+* Suche nach inhaltLetzter mit inhaltLetzterGeben
+* Datenwert von inhaltLetzter kann der Methode entnehmen übergeben werden
+* Rückgabewert von entnehmen(inhaltLetzter) liefert Inhalt des ehemals letzten Knoten
+^
+	#highlight java
+	class Liste {
+		// ...
+		public Datenelement hintenEntnehmen() {
+			Datenelement inhaltLetzter = erster.inhaltLetzterGeben(erster.inhaltGeben());
+			return entnehmen(inhaltLetzter.datenwertGeben());
+		}
+		
+		public Datenelement entnehmen(String datenwert) {
+			// alten Knoteninhalt festhalten
+			Datenelement alterKnoteninhalt = datenknotenGeben(datenwert).inhaltGeben();
+			erster.entfernen(datenwert);
+			return alterKnoteninhalt; // Knoteninhalt zurueckgeben
+		}
+		
+		public Datenknoten datenknotenGeben(String datenwert) {
+			return this.erster.datenknotenGeben(datenwert);
+		}
+		// ...
+	}
+^
+	#highlight java
+	abstract class Listenelement {
+		// ...
+		public abstract Listenelement entfernen(String suchwert);
+		public abstract Datenelement inhaltLetzterGeben(Datenelement aktInhalt);
+		public abstract Datenknoten datenknotenGeben(String suchwert);
+		// ...
+	}
+^
+	#highlight java
+	public Datenknoten extends Listenelement {
+		// ...
+		public Listenelement entfernen(String suchwert) {
+			// wenn datenwert von inhalt mit suchwert ueberein-
+			// stimmt, soll der Knoten entfernt werden
+			if (this.inhalt.datenwertGeben() == suchwert) {
+				return this.naechster;
+			} else {
+				this.naechster = this.naechster.entfernen(suchwert);
+				return this;
+			}
+		}
+		
+		public Datenelement inhaltLetzterGeben(Datenelement aktInhalt) {
+			return this.naechster.inhaltLetzterGeben(this.inhalt);
+		}
+		
+		public Datenknoten datenknotenGeben(String suchwert) {
+			if (this.inhalt.datenwertGeben() == suchwert) {
+				return this;
+			} else {
+				return this.naechster.datenwertGeben(suchwert);
+			}
+		}
+		// ...
+	}
+^
+	#highlight java
+	public Abschluss extends Listenelement {
+		// ...
+		public Listenelement entfernen(String suchwert) {
+			return this;
+		}
+		
+		public Datenelement inhaltLetzterGeben(Datenelement aktInhalt) {
+			return aktInhalt;
+		}
+		
+		public Datenknoten datenknotenGeben(String suchwert) {
+			return null;
+		}
+		// ...
+	}
