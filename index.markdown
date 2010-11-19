@@ -40,7 +40,7 @@ Pseudo-Code (mit [Python](http://python.org/)-Syntax):
 
 Objektdiagramm (sich bitte runde Ecken denken!):
 
-	#YUML dir:lr
+	#yuml dir:lr
 	[stativ{bg:lightblue}]-erster>[knoten1],
 	[stativ{bg:lightblue}]-letzter>[knoten3],
 	[knoten1{bg:green}]-enthält>[element1],
@@ -143,8 +143,6 @@ Eckiges Objektdiagramm:
 	[PERSON|int gewicht;String name|int gewichtGeben();String nameGeben()],
 	[KNOTEN|KNOTEN naechster;PERSON inhalt|int inhaltGewichtGeben();void inhaltSetzen(PERSON p);KNOTEN naechsterGeben()],
 	[HOTELIER|KNOTEN erster|int gewichtGeben();void ersterSetzen(KNOTEN k)]
-
-<p class="date">11.10.2010</p>
 
 Sequenzdiagramme:
 
@@ -560,3 +558,34 @@ Weitere Methoden:
 		}
 		// ...
 	}
+
+<p class="date">16.11.2010</p>
+
+#### Dynamische lineare Datenstrukturen
+
+* Stapel (LIFO)
+  * `vorneEinfuegen`
+  * `vorneEntnehmen`
+  * z.B. Kofferraum, Aktenstapel
+* Warteschlange (FIFO)
+  * `hintenEinfuegen`
+  * `vorneEntnehmen`
+  * z.B. Taxistand, Restaurantküche, Kasse
+
+<div class="exercise">
+S. 36 Nr. 6
+
+Klassen:
+
+* BETRIEBSFEST
+* LKW
+* KISTE
+* STAPEL
+^
+	#yuml
+	[BETRIEBSFEST]<>-hat 4>[STAPEL],
+	[BETRIEBSFEST]<>-hat 1>[LKW],
+	[STAPEL]<>-enthält 0..n>[KISTEN],
+	[LKW]<>-enthält 0..n>[KISTEN]
+
+</div>

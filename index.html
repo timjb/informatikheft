@@ -199,7 +199,7 @@ a:hover {
 
 <p>Objektdiagramm (sich bitte runde Ecken denken!):</p>
 
-<pre><code>#YUML dir:lr
+<pre><code>#yuml dir:lr
 [stativ{bg:lightblue}]-erster&gt;[knoten1],
 [stativ{bg:lightblue}]-letzter&gt;[knoten3],
 [knoten1{bg:green}]-enthält&gt;[element1],
@@ -302,8 +302,6 @@ a:hover {
 [KNOTEN|KNOTEN naechster;PERSON inhalt|int inhaltGewichtGeben();void inhaltSetzen(PERSON p);KNOTEN naechsterGeben()],
 [HOTELIER|KNOTEN erster|int gewichtGeben();void ersterSetzen(KNOTEN k)]
 </code></pre>
-
-  <p class="date">11.10.2010</p>
 
   <p>Sequenzdiagramme:</p>
 
@@ -719,6 +717,45 @@ deactivate stativ0
     <span class="c1">// ...</span>
 <span class="o">}</span>
 </pre></div>
+
+<p class="date">16.11.2010</p>
+
+<h4 id="dynamische-lineare-datenstrukturen">Dynamische lineare Datenstrukturen</h4>
+
+<ul>
+<li>Stapel (LIFO)
+    <ul>
+<li><code>vorneEinfuegen</code></li>
+      <li><code>vorneEntnehmen</code></li>
+      <li>z.B. Kofferraum, Aktenstapel</li>
+    </ul>
+</li>
+  <li>Warteschlange (FIFO)
+    <ul>
+<li><code>hintenEinfuegen</code></li>
+      <li><code>vorneEntnehmen</code></li>
+      <li>z.B. Taxistand, Restaurantküche, Kasse</li>
+    </ul>
+</li>
+</ul><div class="exercise">
+  <p>S. 36 Nr. 6</p>
+
+  <p>Klassen:</p>
+
+  <ul>
+<li>BETRIEBSFEST</li>
+    <li>LKW</li>
+    <li>KISTE</li>
+    <li>STAPEL</li>
+  </ul>
+<pre><code>#yuml
+[BETRIEBSFEST]&lt;&gt;-hat 4&gt;[STAPEL],
+[BETRIEBSFEST]&lt;&gt;-hat 1&gt;[LKW],
+[STAPEL]&lt;&gt;-enthält 0..n&gt;[KISTEN],
+[LKW]&lt;&gt;-enthält 0..n&gt;[KISTEN]
+</code></pre>
+
+</div>
 </div>
 <script>
 (function(win, doc) {
