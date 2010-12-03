@@ -589,3 +589,17 @@ Klassen:
 	[LKW]<>-enthält 0..n>[KISTEN]
 
 </div>
+
+<p class="date">29.11.2010</p>
+
+<div class="exercise">
+S. 39 Nr. 1 a)
+
+* LISTE: Container
+* abstract LISTENELEMENT: Bauteil
+* DATENKNOTEN: Schubladenbox
+* ABSCHLUSS: Rollgestell
+* abstract DATENELEMENT: Werkzeug
+* DATENELEMENTUNTERKLASSEN: Hammer, Rohrzange, Bohrer
+
+</div>
