@@ -603,3 +603,44 @@ S. 39 Nr. 1 a)
 * DATENELEMENTUNTERKLASSEN: Hammer, Rohrzange, Bohrer
 
 </div>
+
+<p class="date">6.12.2010</p>
+
+#### Sortierte Listen
+
+Sortieren mögl. nach Zahl, Text, Datum
+
+Wir wollen `sortiertEinfuegen`, `sortiertSuchen` (?), `sortiertEntfernen` (alle rekursiv)
+
+In DATENKNOTEN:
+
+	public DATENKNOTEN sortiertEinfuegen(DATENELEMENT inhaltNeu) {
+		if (inhalt.compare(inhaltNeu)) {
+			DATENKNOTEN k = new DATENKNOTEN(inhaltNeu);
+			k.naechsterSetzen(this);
+			return k;
+		} else {
+			naechster = naechster.sortiertEinfuegen(inhaltNeu);
+			return this;
+		}
+	}
+
+In ABSCHLUSS:
+
+	public DATENKNOTEN sortiertEinfuegen(DATENELEMENT inhaltNeu) {
+		DATENKNOTEN k = new DATENKNOTEN(inhaltNeu);
+		k.naechsterSetzen(this);
+		return k;
+	}
+
+In DATENELEMENT:
+
+	public abstract boolean istKleiner(DATENELEMENT e);
+
+Neue Klasse ANZUG:
+
+	class ANZUG extends DATENELEMENT {
+		public boolean istKleiner(DATENELEMENT e) {
+			return groesse < ((ANZUG) e).groesse;
+		}
+	}

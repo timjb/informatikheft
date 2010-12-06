@@ -771,6 +771,51 @@ deactivate stativ0
     <li>DATENELEMENTUNTERKLASSEN: Hammer, Rohrzange, Bohrer</li>
   </ul>
 </div>
+
+<p class="date">6.12.2010</p>
+
+<h4 id="sortierte-listen">Sortierte Listen</h4>
+
+<p>Sortieren mögl. nach Zahl, Text, Datum</p>
+
+<p>Wir wollen <code>sortiertEinfuegen</code>, <code>sortiertSuchen</code> (?), <code>sortiertEntfernen</code> (alle rekursiv)</p>
+
+<p>In DATENKNOTEN:</p>
+
+<pre><code>public DATENKNOTEN sortiertEinfuegen(DATENELEMENT inhaltNeu) {
+	if (inhalt.compare(inhaltNeu)) {
+		DATENKNOTEN k = new DATENKNOTEN(inhaltNeu);
+		k.naechsterSetzen(this);
+		return k;
+	} else {
+		naechster = naechster.sortiertEinfuegen(inhaltNeu);
+		return this;
+	}
+}
+</code></pre>
+
+<p>In ABSCHLUSS:</p>
+
+<pre><code>public DATENKNOTEN sortiertEinfuegen(DATENELEMENT inhaltNeu) {
+	DATENKNOTEN k = new DATENKNOTEN(inhaltNeu);
+	k.naechsterSetzen(this);
+	return k;
+}
+</code></pre>
+
+<p>In DATENELEMENT:</p>
+
+<pre><code>public abstract boolean istKleiner(DATENELEMENT e);
+</code></pre>
+
+<p>Neue Klasse ANZUG:</p>
+
+<pre><code>class ANZUG extends DATENELEMENT {
+	public boolean istKleiner(DATENELEMENT e) {
+		return groesse &lt; ((ANZUG) e).groesse;
+	}
+}
+</code></pre>
 </div>
 <script>
 (function(win, doc) {
