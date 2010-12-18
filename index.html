@@ -32,12 +32,12 @@ h1, h2, h3, h4, h5, h6 { font-family: Helvetica, Arial, sans-serif; line-height:
 h1 { font-size: 52px; margin: 0 0 15px; }
 h2 { font-size: 38px; }
 h3 { font-size: 28px; }
+h4, h5, h6 { color: #777; }
 h4 { font-size: 22px; }
-h5, h6 { color: #777; }
 h5 { font-size: 18px; }
 h6 { font-size: 15px; }
 
-ul, ol, p, pre, #index, img.diagram, div.exercise, .wsd img {
+ul, ol, p, pre, #index, img.diagram, div.exercise, .wsd img, dl {
 	margin-bottom: 18px;
 }
 
@@ -59,6 +59,12 @@ ul, ol {
 ul ul, ul ol, ol ul, ol ol {
 	margin-bottom: 0;
 }
+
+dt, dd {
+	display: block;
+}
+dt { font-weight: bold; }
+dd { padding-left: 17px; }
 
 code, pre {
 	background: #eee;
@@ -162,11 +168,9 @@ a:hover {
 
 <h2 id="listen">Listen</h2>
 
-<h3 id="einfach-verkettete-listen">Einfach verkettete Listen</h3>
+<h3 id="warteschlangen-mit-feld">Warteschlangen mit Feld</h3>
 
-<h4 id="warteschlange">Warteschlange</h4>
-
-<h5 id="eigenschaften">Eigenschaften</h5>
+<h4 id="eigenschaften">Eigenschaften</h4>
 
 <ul>
 <li>Länge begrenzt</li>
@@ -174,7 +178,7 @@ a:hover {
   <li>
 <a href="http://de.wikipedia.org/wiki/First_In_%E2%80%93_First_Out">FIFO</a> (first in – first out)</li>
   <li>Zwei Klassen, eine für die Inhalte, eine für Koordination notwendig</li>
-</ul><h5 id="nachteile">Nachteile</h5>
+</ul><h4 id="nachteile">Nachteile</h4>
 
 <ul>
 <li>Länge des Feldes ist begrenzt, das bedeutet
@@ -184,9 +188,9 @@ a:hover {
     </ul>
 </li>
   <li>Beim Entfernen müssen alle Elemente aufgerückt werden ⇒ schlechte Performance</li>
-</ul><h4 id="polonaisehttpwwwyoutubecomwatchv-mf3jc13bpe"><a href="http://www.youtube.com/watch?v=-Mf3Jc13BpE">Polonaise</a></h4>
+</ul><h3 id="einfach-verkettete-listen">Einfach verkettete Listen</h3>
 
-<p>Beispiel: Polonese im Klassenzimmer. Alex, der letzer Mann ist, soll den ersten, Frank, bitten, langsamer zu gehen. Lösung: Alex wendet sich an seinen Vordermann und bittet diesen langsamer zu gehen, wenn dieser der erste ist, oder die ganze Nachricht wiederum an seinen Vordermann weiterzugeben.</p>
+<p>Beispiel: <a href="http://www.youtube.com/watch?v=-Mf3Jc13BpE">Polonaise</a> im Klassenzimmer. Alex, der letzer Mann ist, soll den ersten, Frank, bitten, langsamer zu gehen. Lösung: Alex wendet sich an seinen Vordermann und bittet diesen langsamer zu gehen, wenn dieser der erste ist, oder die ganze Nachricht wiederum an seinen Vordermann weiterzugeben.</p>
 
 <p>Pseudo-Code (mit <a href="http://python.org/">Python</a>-Syntax):</p>
 
@@ -199,27 +203,21 @@ a:hover {
 
 <p>Objektdiagramm (sich bitte runde Ecken denken!):</p>
 
-<pre><code>#yuml dir:lr
-[stativ{bg:lightblue}]-erster&gt;[knoten1],
+<pre data-dir="lr" class="yuml">[stativ{bg:lightblue}]-erster&gt;[knoten1],
 [stativ{bg:lightblue}]-letzter&gt;[knoten3],
 [knoten1{bg:green}]-enthält&gt;[element1],
 [knoten2{bg:green}]-enthält&gt;[element2],
 [knoten3{bg:green}]-enthält&gt;[element3],
 [knoten1{bg:green}]-nächster&gt;[knoten2{bg:green}],
-[knoten2{bg:green}]-nächster&gt;[knoten3{bg:green}]
-</code></pre>
+[knoten2{bg:green}]-nächster&gt;[knoten3{bg:green}]</pre>
 
 <p>Klassendiagramm:</p>
 
-<pre><code>#yuml dir:lr
-[STATIV{bg:lightblue}]&lt;&gt;hat als erster-1&gt;[KNOTEN{bg:green}],
+<pre data-dir="lr" class="yuml">[STATIV{bg:lightblue}]&lt;&gt;hat als erster-1&gt;[KNOTEN{bg:green}],
 [KNOTEN{bg:green}]&lt;&gt;nächster-0..1&gt;[KNOTEN{bg:green}],
-[KNOTEN{bg:green}]&lt;&gt;enthält-&gt;[ELEMENT],
-</code></pre>
-<pre><code>#yuml dir:lr
-[KNOTEN|KNOTEN naechster;ELEMENT inhalt],
-[STATIV|KNOTEN erster;int anzahlKnoten|void hintenAnfuegen()],
-</code></pre>
+[KNOTEN{bg:green}]&lt;&gt;enthält-&gt;[ELEMENT],</pre>
+<pre data-dir="lr" class="yuml">[KNOTEN|KNOTEN naechster;ELEMENT inhalt],
+[STATIV|KNOTEN erster;int anzahlKnoten|void hintenAnfuegen()],</pre>
 
 <p class="date">28.9.2010</p>
 
@@ -287,26 +285,21 @@ a:hover {
 
   <p>Eckiges Objektdiagramm:</p>
 
-  <pre><code>#yuml dir:lr
-[hotelier0{bg:lightblue}]-erster&gt;[knoten0{bg:green}],
+  <pre data-dir="lr" class="yuml">[hotelier0{bg:lightblue}]-erster&gt;[knoten0{bg:green}],
 [knoten0{bg:green}]-enthält&gt;[person0],
 [knoten0{bg:green}]-nächster&gt;[knoten1{bg:green}],
 [knoten1{bg:green}]-enthält&gt;[person1],
 [knoten1{bg:green}]-nächster&gt;[knoten2{bg:green}],
 [knoten2{bg:green}]-enthält&gt;[person2],
 [knoten2{bg:green}]-nächster&gt;[knoten3{bg:green}],
-[knoten3{bg:green}]-enthält&gt;[person3]
-</code></pre>
-  <pre><code>#yuml dir:lr
-[PERSON|int gewicht;String name|int gewichtGeben();String nameGeben()],
+[knoten3{bg:green}]-enthält&gt;[person3]</pre>
+  <pre data-dir="lr" class="yuml">[PERSON|int gewicht;String name|int gewichtGeben();String nameGeben()],
 [KNOTEN|KNOTEN naechster;PERSON inhalt|int inhaltGewichtGeben();void inhaltSetzen(PERSON p);KNOTEN naechsterGeben()],
-[HOTELIER|KNOTEN erster|int gewichtGeben();void ersterSetzen(KNOTEN k)]
-</code></pre>
+[HOTELIER|KNOTEN erster|int gewichtGeben();void ersterSetzen(KNOTEN k)]</pre>
 
   <p>Sequenzdiagramme:</p>
 
-  <pre><code>#websequencediagram
-(Benutzer)-&gt;stativ0: datenAusgeben()
+  <pre class="websequencediagram">(Benutzer)-&gt;stativ0: datenAusgeben()
 activate stativ0
 stativ0-&gt;knoten1: datenAusgeben()
 activate knoten1
@@ -336,8 +329,7 @@ activate knoten2
 knoten2--&gt;stativ0: null
 deactivate knoten1
 deactivate stativ0
-stativ0--&gt;(Benutzer): ""
-</code></pre>
+stativ0--&gt;(Benutzer): ""</pre>
 
   <p>Und in Java:</p>
 
@@ -352,10 +344,10 @@ stativ0--&gt;(Benutzer): ""
 
 </div>
 
-<h4 id="rekursive-funktionen">Rekursive Funktionen</h4>
+<h3 id="rekursive-funktionen">Rekursive Funktionen</h3>
 
-<h5 id="die-fibonacci-folgehttpdewikipediaorgwikifibonacci-folge">Die <a href="http://de.wikipedia.org/wiki/Fibonacci-Folge">Fibonacci-Folge</a>
-</h5>
+<h4 id="beispiel-die-fibonacci-folgehttpdewikipediaorgwikifibonacci-folge">Beispiel: Die <a href="http://de.wikipedia.org/wiki/Fibonacci-Folge">Fibonacci-Folge</a>
+</h4>
 
 <p>A(0) = 0<br>
 A(1) = 1<br>
@@ -368,9 +360,9 @@ fib(n) = fib(n-2) + fib(n-1)</p>
 
 <p>In Worten: Die n-te Fibonacci-Zahl ist die Summe ihrer beiden Vorgänger. Die 0-te Fibonacci-Zahl ist 0, die 1-te 1.</p>
 
-<h5 id="rekursive-funktionen-1">Rekursive Funktionen</h5>
+<h4 id="definition">Definition</h4>
 
-<p>Definition: <strong>Rekursive Funktionen</strong> enthalten in ihrem Funktionsterm mindestens einmal den eigenen Funktionsbezeichner. Ein Funktionsaufruf endet nur dann nach einer endlichen Anzahl von Berechnungsschritten, wenn die Abbruchbedingung erfüllt ist.</p>
+<p><strong>Rekursive Funktionen</strong> enthalten in ihrem Funktionsterm mindestens einmal den eigenen Funktionsbezeichner. Ein Funktionsaufruf endet nur dann nach einer endlichen Anzahl von Berechnungsschritten, wenn die Abbruchbedingung erfüllt ist.</p>
 
 <pre><code>fib(5) = fib(4)          + fib(3)
        = fib(3) + fib(2) + fib(2) + fib(1)
@@ -425,7 +417,7 @@ A(1) = 1</p>
 </code></pre>
 </div>
 
-<h4 id="rekursive-methoden-einer-liste">Rekursive Methoden einer Liste</h4>
+<h3 id="rekursive-methoden-einer-liste">Rekursive Methoden einer Liste</h3>
 
 <p>Rekursive Funktionen: im Funktionsterm steht mindestens ein Mal der eigene Funktionsbezeichner<br>
 Rekursive Methoden: Innerhalb der Definition (Methodenrumpf); Aufruf der gleichnamigen Methode eines referenzierten Objekts<br>
@@ -443,7 +435,7 @@ Rekursiver Aufbau in der Klasse KNOTEN:</p>
 
 <p>Aufgabe: Implementiere <code>anzahlKnotenGeben()</code>!</p>
 
-<h5 id="ohne-rekursion">Ohne Rekursion</h5>
+<h4 id="ohne-rekursion">Ohne Rekursion</h4>
 
 <p>STATIV:</p>
 
@@ -457,8 +449,7 @@ Rekursiver Aufbau in der Klasse KNOTEN:</p>
     <span class="k">return</span> <span class="n">zaehler</span><span class="o">;</span>
 <span class="o">}</span>
 </pre></div>
-<pre><code>#websequencediagram
-(Benutzer)-&gt;stativ0: anzahlKnotenGeben()
+<pre class="websequencediagram">(Benutzer)-&gt;stativ0: anzahlKnotenGeben()
 activate stativ0
 stativ0-&gt;stativ0: Zähler erhöhen
 stativ0-&gt;knoten1: naechsterGeben()
@@ -476,10 +467,9 @@ activate knoten3
 knoten3--&gt;stativ0: null
 deactivate knoten3
 stativ0--&gt;(Benutzer): 3
-deactivate stativ0
-</code></pre>
+deactivate stativ0</pre>
 
-<h5 id="mit-rekursion">Mit Rekursion</h5>
+<h4 id="mit-rekursion">Mit Rekursion</h4>
 
 <p>STATIV:</p>
 
@@ -500,8 +490,7 @@ deactivate stativ0
     <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">.</span><span class="na">anzahlGeben</span><span class="o">()</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
 <span class="o">}</span>
 </pre></div>
-<pre><code>#websequencediagram
-(Benutzer)-&gt;stativ0: anzahlKnotenGeben()
+<pre class="websequencediagram">(Benutzer)-&gt;stativ0: anzahlKnotenGeben()
 activate stativ0
 stativ0-&gt;knoten1: anzahlGeben()
 activate knoten1
@@ -516,8 +505,7 @@ deactivate knoten2
 knoten1--&gt;stativ0: 3
 deactivate knoten1
 stativ0--&gt;(Benutzer): 3
-deactivate stativ0
-</code></pre>
+deactivate stativ0</pre>
 
 <p>Das bedeutet:</p>
 
@@ -528,15 +516,13 @@ deactivate stativ0
 
 <p>Objektdiagramm:</p>
 
-<pre><code>#yuml
-[stativ0]-erster&gt;[knoten1],
+<pre class="yuml">[stativ0]-erster&gt;[knoten1],
 [knoten1]-inhalt&gt;[element1],
 [knoten1]-naechster&gt;[knoten2],
 [knoten2]-inhalt&gt;[element2],
 [knoten2]-naechster&gt;[knoten3],
 [knoten3]-inhalt&gt;[element3],
-[knoten3]-naechster&gt;[abschluss0]
-</code></pre>
+[knoten3]-naechster&gt;[abschluss0]</pre>
 
 <p><strong>Vorteil</strong>: Bei Methoden der Klasse <code>KNOTEN</code> keine Fallunterscheidung mehr notwendig.<br><strong>Nachteil</strong>: Zwei Klassen (<code>DATENKNOTEN</code> und <code>ABSCHLUSS</code>)</p>
 
@@ -563,14 +549,12 @@ deactivate stativ0
 
 <p>Klassendiagramm:</p>
 
-<pre><code>#yuml
-[note: LISTENELEMENT + ABSCHLUSS + DATENKNOTEN: Kompositum{bg:cornsilk}],
+<pre class="yuml">[note: LISTENELEMENT + ABSCHLUSS + DATENKNOTEN: Kompositum{bg:cornsilk}],
 [LISTE]&lt;&gt;erster-1&gt;[LISTENELEMENT],
 [LISTENELEMENT]^-[ABSCHLUSS],
 [LISTENELEMENT]^-[DATENKNOTEN],
 [DATENKNOTEN]&lt;&gt;naechster-1&gt;[LISTENELEMENT],
-[DATENKNOTEN]&lt;&gt;inhalt-1&gt;[DATENELEMENT]
-</code></pre>
+[DATENKNOTEN]&lt;&gt;inhalt-1&gt;[DATENELEMENT]</pre>
 
 <p class="date">19.10.2010</p>
 
@@ -639,7 +623,7 @@ deactivate stativ0
   <li><code>datenknotenGeben(String datenwert)</code></li>
 </ul><p class="date">8.11.2010</p>
 
-<h5 id="die-methode-hintenentnehmen-der-einfach-verketteten-liste">Die Methode <code>hintenEntnehmen</code> der einfach verketteten Liste:</h5>
+<h4 id="die-methode-hintenentnehmen-der-einfach-verketteten-liste">Die Methode <code>hintenEntnehmen</code> der einfach verketteten Liste:</h4>
 
 <ul>
 <li>Inhalt des letzten Knoten wird für entnehmen benötigt</li>
@@ -720,7 +704,7 @@ deactivate stativ0
 
 <p class="date">16.11.2010</p>
 
-<h4 id="dynamische-lineare-datenstrukturen">Dynamische lineare Datenstrukturen</h4>
+<h3 id="dynamische-lineare-datenstrukturen">Dynamische lineare Datenstrukturen</h3>
 
 <ul>
 <li>Stapel (LIFO)
@@ -748,12 +732,10 @@ deactivate stativ0
     <li>KISTE</li>
     <li>STAPEL</li>
   </ul>
-<pre><code>#yuml
-[BETRIEBSFEST]&lt;&gt;-hat 4&gt;[STAPEL],
+<pre class="yuml">[BETRIEBSFEST]&lt;&gt;-hat 4&gt;[STAPEL],
 [BETRIEBSFEST]&lt;&gt;-hat 1&gt;[LKW],
 [STAPEL]&lt;&gt;-enthält 0..n&gt;[KISTEN],
-[LKW]&lt;&gt;-enthält 0..n&gt;[KISTEN]
-</code></pre>
+[LKW]&lt;&gt;-enthält 0..n&gt;[KISTEN]</pre>
 
 </div>
 
@@ -772,9 +754,13 @@ deactivate stativ0
   </ul>
 </div>
 
+<h3 id="heterogene-listen">Heterogene Listen</h3>
+
+<p>Die Grundidee von heterogenen Listen ist, das man ja manchmal Listen mit verschiedenen Objekten haben möchte. Darum definiert man <code>DATENELEMENT</code> abstrakt und erstellt dann Unterklassen davon.</p>
+
 <p class="date">6.12.2010</p>
 
-<h4 id="sortierte-listen">Sortierte Listen</h4>
+<h3 id="sortierte-listen">Sortierte Listen</h3>
 
 <p>Sortieren mögl. nach Zahl, Text, Datum</p>
 
@@ -782,44 +768,102 @@ deactivate stativ0
 
 <p>In DATENKNOTEN:</p>
 
-<pre><code>public DATENKNOTEN sortiertEinfuegen(DATENELEMENT inhaltNeu) {
-	if (inhalt.compare(inhaltNeu)) {
-		DATENKNOTEN k = new DATENKNOTEN(inhaltNeu);
-		k.naechsterSetzen(this);
-		return k;
-	} else {
-		naechster = naechster.sortiertEinfuegen(inhaltNeu);
-		return this;
-	}
-}
-</code></pre>
+<div class="highlight"><pre><span class="kd">public</span> <span class="n">DATENKNOTEN</span> <span class="nf">sortiertEinfuegen</span><span class="o">(</span><span class="n">DATENELEMENT</span> <span class="n">inhaltNeu</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">inhalt</span><span class="o">.</span><span class="na">compare</span><span class="o">(</span><span class="n">inhaltNeu</span><span class="o">))</span> <span class="o">{</span>
+        <span class="n">DATENKNOTEN</span> <span class="n">k</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DATENKNOTEN</span><span class="o">(</span><span class="n">inhaltNeu</span><span class="o">);</span>
+        <span class="n">k</span><span class="o">.</span><span class="na">naechsterSetzen</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">k</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="n">naechster</span> <span class="o">=</span> <span class="n">naechster</span><span class="o">.</span><span class="na">sortiertEinfuegen</span><span class="o">(</span><span class="n">inhaltNeu</span><span class="o">);</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
 
 <p>In ABSCHLUSS:</p>
 
-<pre><code>public DATENKNOTEN sortiertEinfuegen(DATENELEMENT inhaltNeu) {
-	DATENKNOTEN k = new DATENKNOTEN(inhaltNeu);
-	k.naechsterSetzen(this);
-	return k;
-}
-</code></pre>
+<div class="highlight"><pre><span class="kd">public</span> <span class="n">DATENKNOTEN</span> <span class="nf">sortiertEinfuegen</span><span class="o">(</span><span class="n">DATENELEMENT</span> <span class="n">inhaltNeu</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">DATENKNOTEN</span> <span class="n">k</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DATENKNOTEN</span><span class="o">(</span><span class="n">inhaltNeu</span><span class="o">);</span>
+    <span class="n">k</span><span class="o">.</span><span class="na">naechsterSetzen</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">k</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
 
 <p>In DATENELEMENT:</p>
 
-<pre><code>public abstract boolean istKleiner(DATENELEMENT e);
-</code></pre>
+<div class="highlight"><pre><span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">boolean</span> <span class="nf">istKleiner</span><span class="o">(</span><span class="n">DATENELEMENT</span> <span class="n">e</span><span class="o">);</span>
+</pre></div>
 
 <p>Neue Klasse ANZUG:</p>
 
-<pre><code>class ANZUG extends DATENELEMENT {
-	public boolean istKleiner(DATENELEMENT e) {
-		return groesse &lt; ((ANZUG) e).groesse;
-	}
-}
-</code></pre>
+<div class="highlight"><pre><span class="kd">class</span> <span class="nc">ANZUG</span> <span class="kd">extends</span> <span class="n">DATENELEMENT</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">istKleiner</span><span class="o">(</span><span class="n">DATENELEMENT</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">groesse</span> <span class="o">&lt;</span> <span class="o">((</span><span class="n">ANZUG</span><span class="o">)</span> <span class="n">e</span><span class="o">).</span><span class="na">groesse</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+<p class="date">7.12.2010</p>
+
+<p>ZEITSCHRIFT:</p>
+
+<div class="highlight"><pre><span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">istKleiner</span><span class="o">(</span><span class="n">DATENELEMENT</span> <span class="n">vg</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">name</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(((</span><span class="n">ZEITSCHRIFT</span><span class="o">)</span> <span class="n">vg</span><span class="o">).</span><span class="na">name</span><span class="o">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+
+<p class="date">14.12.2010</p>
+
+<h2 id="bume">Bäume</h2>
+
+<p>Bäume zählen wie die Listen zu den sehr häufig verwendeten Datenstrukturen in der Informatik. Wie Listen bestehen Sie aus Knoten. Allerdings hat ein Knoten nicht nur einen, sondern viele Nachfolger. So ergibt sich eine Struktur wie z.B. in Stammbäumen.</p>
+
+<h3 id="binre-weihnachts--bume">Binäre (Weihnachts-) Bäume</h3>
+
+<p><img src="assets/christmas-binary-tree.png" alt="Binärer Weihnachtsbaum"></p>
+
+<p>(XKCD’s <a href="http://xkcd.com/835/">Tree</a> by Randall Munroe; <strong>euch allen übrigens an dieser Stelle frohe Weihnachten und einen guten Rutsch!</strong>)</p>
+
+<p>In Binärbäumen hat jedes Objekt also höchstens zwei Nachfolger.</p>
+
+<h4 id="ausgeben-eines-binrbaums">Ausgeben eines Binärbaums</h4>
+
+<p>Wenn alle Knoten eines Binärsbaums ausgegeben werden sollen, so gibt es drei Möglichkeiten:</p>
+
+<dl>
+<dt>Preorder</dt>
+  <dd>Zuerst wird der Datenwert des Knotens ausgegeben, dann rekursiv der linke, dann der rechte Nachfolger.</dd>
+  <dt>Inorder</dt>
+  <dd>Zuerst wird rekursiv der linke Nachfolger, dann der Datenwert des Knotens, dann der rechte Nachfolger ausgegeben.</dd>
+  <dt>Postorder</dt>
+  <dd>Zuerst wird der linke und rechte Nachfolger, dann der Datenwert des Knotens ausgegeben.</dd>
+</dl><h5 id="beispiel">Beispiel</h5>
+
+<pre data-dir="td" class="yuml">[8]-rechts&gt;[13],
+[8]-links&gt;[3],
+[3]-rechts&gt;[2000],
+[3]-links&gt;[99],
+[99]-rechts&gt;[5],
+[99]-links&gt;[1],
+[2000]-links&gt;[2],
+[13]-links&gt;[42],
+[42]-rechts&gt;[7],
+[42]-links&gt;[4]</pre>
+
+<dl>
+<dt>Preorder</dt>
+  <dd>8, 3, 99, 1, 5, 2000, 2, 13, 42, 4, 7</dd>
+  <dt>Inorder</dt>
+  <dd>1, 99, 5, 3, 2, 2000, 8, 4, 42, 7, 13</dd>
+  <dt>Postorder</dt>
+  <dd>1, 5, 99, 2, 2000, 3, 4, 7, 42, 13, 8</dd>
+</dl>
 </div>
 <script>
 (function(win, doc) {
-	var headers = doc.querySelectorAll('h2, h3, h4');
+	var headers = doc.querySelectorAll('h2, h3');
 	var numbers = [0];
 	
 	// Create index
@@ -873,32 +917,28 @@ deactivate stativ0
 })(window, document);
 
 (function(win, doc) {
-	var pres_live = doc.getElementsByTagName('pre');
-	var pres = [];
-	for(var i = 0, l = pres_live.length; i < l; i++) {
-		pres[i] = pres_live[i];
-	}
-	for(var i = 0, l = pres.length; i < l; i++) {
+	var pres = doc.querySelectorAll('.yuml');
+	for (var i = 0, l = pres.length; i < l; i++) {
 		var pre = pres[i];
-		var code = pre.getElementsByTagName('code')[0];
-		if(!code) {
-			continue;
-		}
-		var content = code.innerHTML;
-		var lines = content.split('\n');
-		if(lines[0].match(/#yuml/i)) {
-			var url = 'http://yuml.me/diagram/scruffy;dir:lr/class/' + encodeURIComponent(lines.slice(1).join('\n'));
-			var img = doc.createElement('img');
-			img.className = 'diagram';
-			img.src = url;
-			pre.parentNode.replaceChild(img, pre);
-		} else if(lines[0].match(/#websequencediagram/i)) {
-			var div = doc.createElement('div');
-			div.className = 'wsd';
-			div.setAttribute('wsd_style', 'modern-blue');
-			pre.parentNode.replaceChild(div, pre);
-			div.appendChild(pre);
-		}
+		var code = pre.innerHTML;
+		var dir = pre.getAttribute('data-dir') || 'lr';
+		var url = 'http://yuml.me/diagram/scruffy;dir:' + dir + '/class/' + encodeURIComponent(code);
+		var img = doc.createElement('img');
+		img.className = 'diagram';
+		img.src = url;
+		pre.parentNode.replaceChild(img, pre);
+	}
+})(window, document);
+
+(function(win, doc) {
+	var pres = doc.querySelectorAll('.websequencediagram');
+	for (var i = 0, l = pres.length; i < l; i++) {
+		var pre = pres[i];
+		var div = doc.createElement('div');
+		div.className = 'wsd';
+		div.setAttribute('wsd_style', 'modern-blue');
+		pre.parentNode.replaceChild(div, pre);
+		div.appendChild(pre);
 	}
 })(window, document);
 </script>

@@ -8,27 +8,25 @@ Verbesserungen bitte an [tim@timbaumann.info](mailto:tim@timbaumann.info).
 
 ## Listen
 
-### Einfach verkettete Listen
+### Warteschlangen mit Feld
 
-#### Warteschlange
-
-##### Eigenschaften
+#### Eigenschaften
 
 * Länge begrenzt
 * verwendet Feld (Array)
 * [FIFO](http://de.wikipedia.org/wiki/First_In_%E2%80%93_First_Out) (first in – first out)
 * Zwei Klassen, eine für die Inhalte, eine für Koordination notwendig
 
-##### Nachteile
+#### Nachteile
 
 * Länge des Feldes ist begrenzt, das bedeutet
   * entweder gibt es zu wenig Platz
   * oder Speicherplatz wird verschwendet.
 * Beim Entfernen müssen alle Elemente aufgerückt werden ⇒ schlechte Performance
 
-#### [Polonaise](http://www.youtube.com/watch?v=-Mf3Jc13BpE)
+### Einfach verkettete Listen
 
-Beispiel: Polonese im Klassenzimmer. Alex, der letzer Mann ist, soll den ersten, Frank, bitten, langsamer zu gehen. Lösung: Alex wendet sich an seinen Vordermann und bittet diesen langsamer zu gehen, wenn dieser der erste ist, oder die ganze Nachricht wiederum an seinen Vordermann weiterzugeben.
+Beispiel: [Polonaise](http://www.youtube.com/watch?v=-Mf3Jc13BpE) im Klassenzimmer. Alex, der letzer Mann ist, soll den ersten, Frank, bitten, langsamer zu gehen. Lösung: Alex wendet sich an seinen Vordermann und bittet diesen langsamer zu gehen, wenn dieser der erste ist, oder die ganze Nachricht wiederum an seinen Vordermann weiterzugeben.
 
 Pseudo-Code (mit [Python](http://python.org/)-Syntax):
 
@@ -193,9 +191,9 @@ Und in Java:
 </div>
 
 
-#### Rekursive Funktionen
+### Rekursive Funktionen
 
-##### Die [Fibonacci-Folge](http://de.wikipedia.org/wiki/Fibonacci-Folge)
+#### Beispiel: Die [Fibonacci-Folge](http://de.wikipedia.org/wiki/Fibonacci-Folge)
 
 A(0) = 0  
 A(1) = 1  
@@ -208,9 +206,9 @@ fib(n) = fib(n-2) + fib(n-1)
 
 In Worten: Die n-te Fibonacci-Zahl ist die Summe ihrer beiden Vorgänger. Die 0-te Fibonacci-Zahl ist 0, die 1-te 1.
 
-##### Rekursive Funktionen
+#### Definition
 
-Definition: **Rekursive Funktionen** enthalten in ihrem Funktionsterm mindestens einmal den eigenen Funktionsbezeichner. Ein Funktionsaufruf endet nur dann nach einer endlichen Anzahl von Berechnungsschritten, wenn die Abbruchbedingung erfüllt ist.
+**Rekursive Funktionen** enthalten in ihrem Funktionsterm mindestens einmal den eigenen Funktionsbezeichner. Ein Funktionsaufruf endet nur dann nach einer endlichen Anzahl von Berechnungsschritten, wenn die Abbruchbedingung erfüllt ist.
 
 	fib(5) = fib(4)          + fib(3)
 	       = fib(3) + fib(2) + fib(2) + fib(1)
@@ -264,7 +262,7 @@ b)
 	     = 9
 </div>
 
-#### Rekursive Methoden einer Liste
+### Rekursive Methoden einer Liste
 
 Rekursive Funktionen: im Funktionsterm steht mindestens ein Mal der eigene Funktionsbezeichner  
 Rekursive Methoden: Innerhalb der Definition (Methodenrumpf); Aufruf der gleichnamigen Methode eines referenzierten Objekts  
@@ -282,7 +280,7 @@ Rekursiver Aufbau in der Klasse KNOTEN:
 
 Aufgabe: Implementiere `anzahlKnotenGeben()`!
 
-##### Ohne Rekursion
+#### Ohne Rekursion
 
 STATIV:
 
@@ -318,7 +316,7 @@ STATIV:
 	stativ0-->(Benutzer): 3
 	deactivate stativ0
 
-##### Mit Rekursion
+#### Mit Rekursion
 
 STATIV:
 
@@ -477,7 +475,7 @@ Weitere Methoden:
 
 <p class="date">8.11.2010</p>
 
-##### Die Methode `hintenEntnehmen` der einfach verketteten Liste:
+#### Die Methode `hintenEntnehmen` der einfach verketteten Liste:
 
 * Inhalt des letzten Knoten wird für entnehmen benötigt
 * Suche nach inhaltLetzter mit inhaltLetzterGeben
@@ -561,7 +559,7 @@ Weitere Methoden:
 
 <p class="date">16.11.2010</p>
 
-#### Dynamische lineare Datenstrukturen
+### Dynamische lineare Datenstrukturen
 
 * Stapel (LIFO)
   * `vorneEinfuegen`
@@ -604,9 +602,13 @@ S. 39 Nr. 1 a)
 
 </div>
 
+### Heterogene Listen
+
+Die Grundidee von heterogenen Listen ist, das man ja manchmal Listen mit verschiedenen Objekten haben möchte. Darum definiert man `DATENELEMENT` abstrakt und erstellt dann Unterklassen davon.
+
 <p class="date">6.12.2010</p>
 
-#### Sortierte Listen
+### Sortierte Listen
 
 Sortieren mögl. nach Zahl, Text, Datum
 
@@ -614,6 +616,7 @@ Wir wollen `sortiertEinfuegen`, `sortiertSuchen` (?), `sortiertEntfernen` (alle 
 
 In DATENKNOTEN:
 
+	#highlight java
 	public DATENKNOTEN sortiertEinfuegen(DATENELEMENT inhaltNeu) {
 		if (inhalt.compare(inhaltNeu)) {
 			DATENKNOTEN k = new DATENKNOTEN(inhaltNeu);
@@ -627,6 +630,7 @@ In DATENKNOTEN:
 
 In ABSCHLUSS:
 
+	#highlight java
 	public DATENKNOTEN sortiertEinfuegen(DATENELEMENT inhaltNeu) {
 		DATENKNOTEN k = new DATENKNOTEN(inhaltNeu);
 		k.naechsterSetzen(this);
@@ -635,12 +639,75 @@ In ABSCHLUSS:
 
 In DATENELEMENT:
 
+	#highlight java
 	public abstract boolean istKleiner(DATENELEMENT e);
 
 Neue Klasse ANZUG:
 
+	#highlight java
 	class ANZUG extends DATENELEMENT {
 		public boolean istKleiner(DATENELEMENT e) {
 			return groesse < ((ANZUG) e).groesse;
 		}
 	}
+
+<p class="date">7.12.2010</p>
+
+ZEITSCHRIFT:
+
+	#highlight java
+	private String name;
+	
+	public boolean istKleiner(DATENELEMENT vg) {
+		return name.compareTo(((ZEITSCHRIFT) vg).name) == -1;
+	}
+
+<p class="date">14.12.2010</p>
+
+## Bäume
+
+Bäume zählen wie die Listen zu den sehr häufig verwendeten Datenstrukturen in der Informatik. Wie Listen bestehen Sie aus Knoten. Allerdings hat ein Knoten nicht nur einen, sondern viele Nachfolger. So ergibt sich eine Struktur wie z.B. in Stammbäumen.
+
+### Binäre (Weihnachts-) Bäume
+
+![Binärer Weihnachtsbaum](assets/christmas-binary-tree.png)
+
+(XKCD's [Tree](http://xkcd.com/835/) by Randall Munroe; **euch allen übrigens an dieser Stelle frohe Weihnachten und einen guten Rutsch!**)
+
+In Binärbäumen hat jedes Objekt also höchstens zwei Nachfolger.
+
+#### Ausgeben eines Binärbaums
+
+Wenn alle Knoten eines Binärsbaums ausgegeben werden sollen, so gibt es drei Möglichkeiten:
+
+Preorder
+: Zuerst wird der Datenwert des Knotens ausgegeben, dann rekursiv der linke, dann der rechte Nachfolger.
+
+Inorder
+: Zuerst wird rekursiv der linke Nachfolger, dann der Datenwert des Knotens, dann der rechte Nachfolger ausgegeben.
+
+Postorder
+: Zuerst wird der linke und rechte Nachfolger, dann der Datenwert des Knotens ausgegeben.
+
+##### Beispiel
+
+	#yuml dir:td
+	[8]-rechts>[13],
+	[8]-links>[3],
+	[3]-rechts>[2000],
+	[3]-links>[99],
+	[99]-rechts>[5],
+	[99]-links>[1],
+	[2000]-links>[2],
+	[13]-links>[42],
+	[42]-rechts>[7],
+	[42]-links>[4]
+
+Preorder
+: 8, 3, 99, 1, 5, 2000, 2, 13, 42, 4, 7
+
+Inorder
+: 1, 99, 5, 3, 2, 2000, 8, 4, 42, 7, 13
+
+Postorder
+: 1, 5, 99, 2, 2000, 3, 4, 7, 42, 13, 8

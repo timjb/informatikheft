@@ -32,12 +32,12 @@ h1, h2, h3, h4, h5, h6 { font-family: Helvetica, Arial, sans-serif; line-height:
 h1 { font-size: 52px; margin: 0 0 15px; }
 h2 { font-size: 38px; }
 h3 { font-size: 28px; }
+h4, h5, h6 { color: #777; }
 h4 { font-size: 22px; }
-h5, h6 { color: #777; }
 h5 { font-size: 18px; }
 h6 { font-size: 15px; }
 
-ul, ol, p, pre, #index, img.diagram, div.exercise, .wsd img {
+ul, ol, p, pre, #index, img.diagram, div.exercise, .wsd img, dl {
 	margin-bottom: 18px;
 }
 
@@ -59,6 +59,12 @@ ul, ol {
 ul ul, ul ol, ol ul, ol ol {
 	margin-bottom: 0;
 }
+
+dt, dd {
+	display: block;
+}
+dt { font-weight: bold; }
+dd { padding-left: 17px; }
 
 code, pre {
 	background: #eee;
@@ -156,7 +162,7 @@ a:hover {
 </div>
 <script>
 (function(win, doc) {
-	var headers = doc.querySelectorAll('h2, h3, h4');
+	var headers = doc.querySelectorAll('h2, h3');
 	var numbers = [0];
 	
 	// Create index
@@ -210,32 +216,28 @@ a:hover {
 })(window, document);
 
 (function(win, doc) {
-	var pres_live = doc.getElementsByTagName('pre');
-	var pres = [];
-	for(var i = 0, l = pres_live.length; i < l; i++) {
-		pres[i] = pres_live[i];
-	}
-	for(var i = 0, l = pres.length; i < l; i++) {
+	var pres = doc.querySelectorAll('.yuml');
+	for (var i = 0, l = pres.length; i < l; i++) {
 		var pre = pres[i];
-		var code = pre.getElementsByTagName('code')[0];
-		if(!code) {
-			continue;
-		}
-		var content = code.innerHTML;
-		var lines = content.split('\n');
-		if(lines[0].match(/#yuml/i)) {
-			var url = 'http://yuml.me/diagram/scruffy;dir:lr/class/' + encodeURIComponent(lines.slice(1).join('\n'));
-			var img = doc.createElement('img');
-			img.className = 'diagram';
-			img.src = url;
-			pre.parentNode.replaceChild(img, pre);
-		} else if(lines[0].match(/#websequencediagram/i)) {
-			var div = doc.createElement('div');
-			div.className = 'wsd';
-			div.setAttribute('wsd_style', 'modern-blue');
-			pre.parentNode.replaceChild(div, pre);
-			div.appendChild(pre);
-		}
+		var code = pre.innerHTML;
+		var dir = pre.getAttribute('data-dir') || 'lr';
+		var url = 'http://yuml.me/diagram/scruffy;dir:' + dir + '/class/' + encodeURIComponent(code);
+		var img = doc.createElement('img');
+		img.className = 'diagram';
+		img.src = url;
+		pre.parentNode.replaceChild(img, pre);
+	}
+})(window, document);
+
+(function(win, doc) {
+	var pres = doc.querySelectorAll('.websequencediagram');
+	for (var i = 0, l = pres.length; i < l; i++) {
+		var pre = pres[i];
+		var div = doc.createElement('div');
+		div.className = 'wsd';
+		div.setAttribute('wsd_style', 'modern-blue');
+		pre.parentNode.replaceChild(div, pre);
+		div.appendChild(pre);
 	}
 })(window, document);
 </script>

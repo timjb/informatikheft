@@ -57,10 +57,19 @@ task :default do
     content = pre.content
     lines = content.split("\n")
     if lines[0].match /^#yuml/i
-      #lines[0].sub!(/^#yuml\s*/i, '')
-      #options = lines.shift
+      lines[0].sub!(/^#yuml\s*/i, '')
+      lines.shift.strip.split(/\s+/).each do |option|
+        key, value = option.split(':')
+        pre.set_attribute('data-'+key, value)
+      end
+      pre.content = lines.join("\n")
+      pre.set_attribute('class', 'yuml')
       #file_name = yuml_img(lines.join("\n"), options)
       #pre.replace "<img class=\"diagram\" alt=\"Klassendiagramm\" src=\"#{file_name}\" />"
+    elsif lines[0].match /^#websequencediagram/i
+      lines.shift
+      pre.content = lines.join("\n")
+      pre.set_attribute('class', 'websequencediagram')
     elsif lines[0].match /^#highlight/i
       lines[0].sub!(/^#highlight\s*/i, '')
       language = lines.shift
