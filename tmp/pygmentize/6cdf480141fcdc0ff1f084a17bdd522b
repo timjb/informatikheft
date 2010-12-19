@@ -1,0 +1,9 @@
+<div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">hintenEinfuegen</span><span class="o">(</span><span class="n">ELEMENT</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">naechster</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">naechster</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KNOTEN</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+        <span class="c1">// Anzahl der Knoten erhoehen</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="n">nachster</span><span class="o">.</span><span class="na">hintenEinfuegen</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>

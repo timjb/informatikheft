@@ -1,0 +1,2 @@
+<div class="highlight"><pre><span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">boolean</span> <span class="nf">istKleiner</span><span class="o">(</span><span class="n">DATENELEMENT</span> <span class="n">e</span><span class="o">);</span>
+</pre></div>

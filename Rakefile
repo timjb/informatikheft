@@ -9,37 +9,46 @@ require 'nokogiri'
 
 #require 'curb'
 
-#def yuml_img(yuml_code, options)
-#  #yuml_code.gsub!("\t", "")
-#  #yuml_code.gsub!("\n", "")
-#  yuml_code = CGI.escape(yuml_code).gsub('+', '%20')
-#  if not options.empty?
-#    options = ';' + options
-#  end
-#  md5 = Digest::MD5.new.hexdigest yuml_code
-#  
-#  # Grab the ID, and then download img and save to disk
-#  file_name = "media/#{md5}.png"
-#  if not FileTest.exists?(file_name)
-#    Net::HTTP.start("yuml.me") do |http|
-#      print "Loading yuml.me diagram: #{yuml_code}\n"
-#      resp = http.get("/diagram/plain#{options}/class/#{yuml_code}")
-#      open(file_name, "wb") do |file|
-#        file.write(resp.body)
-#       end
-#    end
-#  end
-#  file_name
-#end
+def yuml_img(yuml_code, options)
+  #yuml_code.gsub!("\t", "")
+  #yuml_code.gsub!("\n", "")
+  yuml_code = CGI.escape(yuml_code).gsub('+', '%20')
+  if not options.empty?
+    options = ';' + options
+  end
+  md5 = Digest::MD5.new.hexdigest yuml_code
+  
+  # Grab the ID, and then download img and save to disk
+  file_name = "assets/yuml/#{md5}.png"
+  if not FileTest.exists?(file_name)
+    Net::HTTP.start("yuml.me") do |http|
+      print "Loading yuml.me diagram: #{yuml_code}\n"
+      resp = http.get("/diagram/plain#{options}/class/#{yuml_code}")
+      open(file_name, "wb") do |file|
+        file.write(resp.body)
+       end
+    end
+  end
+  file_name
+end
 
 # install pygments:
 # - sudo apt-get install python-pip
 # - sudo easy_install Pygments
-def pygmentize(code, language, params={})
-  IO.popen("pygmentize -l #{language} -f html", "r+") do |io|
-    io.write(code)
-    io.close_write
-    return io.read
+def pygmentize(code, language)
+  md5 = Digest::MD5.new.hexdigest(code + ' language: ' + language);
+  file_name = "tmp/pygmentize/#{md5}"
+  if FileTest.exists?(file_name)
+    File.open(file_name, 'r').read
+  else
+    output = ""
+    IO.popen("pygmentize -l #{language} -f html", "r+") do |io|
+      io.write(code)
+      io.close_write
+      output = io.read
+    end
+    File.new(file_name, 'w').write output
+    output
   end
 end
 
@@ -58,14 +67,15 @@ task :default do
     lines = content.split("\n")
     if lines[0].match /^#yuml/i
       lines[0].sub!(/^#yuml\s*/i, '')
-      lines.shift.strip.split(/\s+/).each do |option|
-        key, value = option.split(':')
-        pre.set_attribute('data-'+key, value)
-      end
-      pre.content = lines.join("\n")
-      pre.set_attribute('class', 'yuml')
-      #file_name = yuml_img(lines.join("\n"), options)
-      #pre.replace "<img class=\"diagram\" alt=\"Klassendiagramm\" src=\"#{file_name}\" />"
+      options = lines[0].strip
+      #lines.shift.strip.split(/\s+/).each do |option|
+      #  key, value = option.split(':')
+      #  pre.set_attribute('data-'+key, value)
+      #end
+      #pre.content = lines.join("\n")
+      #pre.set_attribute('class', 'yuml')
+      file_name = yuml_img(lines.join("\n"), options)
+      pre.replace "<img class=\"diagram\" alt=\"Klassendiagramm\" src=\"#{file_name}\" />"
     elsif lines[0].match /^#websequencediagram/i
       lines.shift
       pre.content = lines.join("\n")

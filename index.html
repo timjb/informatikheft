@@ -203,21 +203,12 @@ a:hover {
 
 <p>Objektdiagramm (sich bitte runde Ecken denken!):</p>
 
-<pre data-dir="lr" class="yuml">[stativ{bg:lightblue}]-erster&gt;[knoten1],
-[stativ{bg:lightblue}]-letzter&gt;[knoten3],
-[knoten1{bg:green}]-enthält&gt;[element1],
-[knoten2{bg:green}]-enthält&gt;[element2],
-[knoten3{bg:green}]-enthält&gt;[element3],
-[knoten1{bg:green}]-nächster&gt;[knoten2{bg:green}],
-[knoten2{bg:green}]-nächster&gt;[knoten3{bg:green}]</pre>
+<img class="diagram" alt="Klassendiagramm" src="assets/yuml/344c37f13b1269399da9d9d8c166f169.png">
 
 <p>Klassendiagramm:</p>
 
-<pre data-dir="lr" class="yuml">[STATIV{bg:lightblue}]&lt;&gt;hat als erster-1&gt;[KNOTEN{bg:green}],
-[KNOTEN{bg:green}]&lt;&gt;nächster-0..1&gt;[KNOTEN{bg:green}],
-[KNOTEN{bg:green}]&lt;&gt;enthält-&gt;[ELEMENT],</pre>
-<pre data-dir="lr" class="yuml">[KNOTEN|KNOTEN naechster;ELEMENT inhalt],
-[STATIV|KNOTEN erster;int anzahlKnoten|void hintenAnfuegen()],</pre>
+<img class="diagram" alt="Klassendiagramm" src="assets/yuml/4265f76ac602730fbb95a9214678efd0.png">
+<img class="diagram" alt="Klassendiagramm" src="assets/yuml/d5eb8629fed32f89567c0945a50eed7e.png">
 
 <p class="date">28.9.2010</p>
 
@@ -285,17 +276,8 @@ a:hover {
 
   <p>Eckiges Objektdiagramm:</p>
 
-  <pre data-dir="lr" class="yuml">[hotelier0{bg:lightblue}]-erster&gt;[knoten0{bg:green}],
-[knoten0{bg:green}]-enthält&gt;[person0],
-[knoten0{bg:green}]-nächster&gt;[knoten1{bg:green}],
-[knoten1{bg:green}]-enthält&gt;[person1],
-[knoten1{bg:green}]-nächster&gt;[knoten2{bg:green}],
-[knoten2{bg:green}]-enthält&gt;[person2],
-[knoten2{bg:green}]-nächster&gt;[knoten3{bg:green}],
-[knoten3{bg:green}]-enthält&gt;[person3]</pre>
-  <pre data-dir="lr" class="yuml">[PERSON|int gewicht;String name|int gewichtGeben();String nameGeben()],
-[KNOTEN|KNOTEN naechster;PERSON inhalt|int inhaltGewichtGeben();void inhaltSetzen(PERSON p);KNOTEN naechsterGeben()],
-[HOTELIER|KNOTEN erster|int gewichtGeben();void ersterSetzen(KNOTEN k)]</pre>
+  <img class="diagram" alt="Klassendiagramm" src="assets/yuml/ad4385c9c176ce53c40b4d7021ee12b2.png">
+  <img class="diagram" alt="Klassendiagramm" src="assets/yuml/242064c1f9ddccb153f754af3d8ffc6c.png">
 
   <p>Sequenzdiagramme:</p>
 
@@ -516,13 +498,7 @@ deactivate stativ0</pre>
 
 <p>Objektdiagramm:</p>
 
-<pre class="yuml">[stativ0]-erster&gt;[knoten1],
-[knoten1]-inhalt&gt;[element1],
-[knoten1]-naechster&gt;[knoten2],
-[knoten2]-inhalt&gt;[element2],
-[knoten2]-naechster&gt;[knoten3],
-[knoten3]-inhalt&gt;[element3],
-[knoten3]-naechster&gt;[abschluss0]</pre>
+<img class="diagram" alt="Klassendiagramm" src="assets/yuml/d225439168483b46c6294de62aa6f5d4.png">
 
 <p><strong>Vorteil</strong>: Bei Methoden der Klasse <code>KNOTEN</code> keine Fallunterscheidung mehr notwendig.<br><strong>Nachteil</strong>: Zwei Klassen (<code>DATENKNOTEN</code> und <code>ABSCHLUSS</code>)</p>
 
@@ -549,12 +525,7 @@ deactivate stativ0</pre>
 
 <p>Klassendiagramm:</p>
 
-<pre class="yuml">[note: LISTENELEMENT + ABSCHLUSS + DATENKNOTEN: Kompositum{bg:cornsilk}],
-[LISTE]&lt;&gt;erster-1&gt;[LISTENELEMENT],
-[LISTENELEMENT]^-[ABSCHLUSS],
-[LISTENELEMENT]^-[DATENKNOTEN],
-[DATENKNOTEN]&lt;&gt;naechster-1&gt;[LISTENELEMENT],
-[DATENKNOTEN]&lt;&gt;inhalt-1&gt;[DATENELEMENT]</pre>
+<img class="diagram" alt="Klassendiagramm" src="assets/yuml/34417d955d3019b96f81286bfd9a8862.png">
 
 <p class="date">19.10.2010</p>
 
@@ -732,10 +703,7 @@ deactivate stativ0</pre>
     <li>KISTE</li>
     <li>STAPEL</li>
   </ul>
-<pre class="yuml">[BETRIEBSFEST]&lt;&gt;-hat 4&gt;[STAPEL],
-[BETRIEBSFEST]&lt;&gt;-hat 1&gt;[LKW],
-[STAPEL]&lt;&gt;-enthält 0..n&gt;[KISTEN],
-[LKW]&lt;&gt;-enthält 0..n&gt;[KISTEN]</pre>
+<img class="diagram" alt="Klassendiagramm" src="assets/yuml/48572d18f6c2f8a896bbb5b788c216df.png">
 
 </div>
 
@@ -841,16 +809,7 @@ deactivate stativ0</pre>
   <dd>Zuerst wird der linke und rechte Nachfolger, dann der Datenwert des Knotens ausgegeben.</dd>
 </dl><h5 id="beispiel">Beispiel</h5>
 
-<pre data-dir="td" class="yuml">[8]-rechts&gt;[13],
-[8]-links&gt;[3],
-[3]-rechts&gt;[2000],
-[3]-links&gt;[99],
-[99]-rechts&gt;[5],
-[99]-links&gt;[1],
-[2000]-links&gt;[2],
-[13]-links&gt;[42],
-[42]-rechts&gt;[7],
-[42]-links&gt;[4]</pre>
+<img class="diagram" alt="Klassendiagramm" src="assets/yuml/916c76530a386f4e85a3b607cb391eeb.png">
 
 <dl>
 <dt>Preorder</dt>

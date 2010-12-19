@@ -1,0 +1,7 @@
+<div class="highlight"><pre><span class="kd">public</span> <span class="kt">int</span> <span class="nf">anzahlKnotenGeben</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">erster</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">erster</span><span class="o">.</span><span class="na">anzahlGeben</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></div>
