@@ -6,6 +6,7 @@ require 'rubygems'
 require 'kramdown'
 require 'mustache'
 require 'nokogiri'
+require 'ftpsync/ftp_sync.rb'
 
 #require 'curb'
 
@@ -96,9 +97,39 @@ task :default do
   File.new('index.html', 'w').write site
 end
 
+#def ftp_sync_up(ftp, src_path, dest_path)
+  #begin
+    #ftp.mkdir(dest_path)
+  #rescue Net::FTPPermError; end
+  
+  #dest_ls = ftp.list(dest_path).map |entry| do
+    # parse line
+  #end
+  #puts dest_ls.join("\n")
+  #Dir.foreach(src_path) do |entry|
+    #next if entry =~ /^\.{1,2}$/
+    #puts entry
+  #end
+  
+  #ftp.mkdir(dest_path) if 
+   #do |line|
+    #puts line
+    #line.split(/\s+/)
+  #end
+#end
+
 task :upload do
-  Net::FTP.open('timbaumann.info') do |ftp|
-    ftp.login 'w00b12dc', 'servereiderjoe'
+  SERVER = 'timbaumann.info'
+  USER = 'w00b12dc'
+  PASS = 'servereiderjoe'
+  
+  # Upload index
+  Net::FTP.open(SERVER) do |ftp|
+    ftp.login USER, PASS
     ftp.puttextfile 'index.html', 'subdomains/informatik/index.html'
   end
+  
+  # Upload assets
+  syncer = FtpSync.new(SERVER, USER, PASS)
+  syncer.sync(File.join(File.dirname(__FILE__), 'assets'), '/subdomains/informatik/assets/')
 end
