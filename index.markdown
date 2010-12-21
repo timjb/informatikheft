@@ -711,3 +711,19 @@ Inorder
 
 Postorder
 : 1, 5, 99, 2, 2000, 3, 4, 7, 42, 13, 8
+
+<p class="date">20.12.2010</p>
+
+Klassendiagramm für einen Binärbaum:
+
+	#yuml
+	[BINAERBAUM]<>wurzel-1>[BAUMELEMENT],
+	[DATENKNOTEN]->[BAUMELEMENT],
+	[ABSCHLUSS]->[BAUMELEMENT],
+	[DATENKNOTEN]<>-2>[BAUMELEMENT],
+	[DATENKNOTEN]<>inhalt-1>[DATENELEMENT]
+
+Baumelement und Datenelement sind abstrakt. In unserem Fall (Aufgabe im Buch) erstellen wir folgende Unterklasse von Datenelement:
+
+	#yuml
+	[TAENZER|Farbe;Geschlecht;Bezeichner]
