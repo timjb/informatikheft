@@ -727,3 +727,21 @@ Baumelement und Datenelement sind abstrakt. In unserem Fall (Aufgabe im Buch) er
 
 	#yuml
 	[TAENZER|Farbe;Geschlecht;Bezeichner]
+
+<p class="date">10.1.2010</p>
+
+Preorder ausgeben:
+
+Binaerbaum:
+
+	#highlight java
+	wurzel.datenAusgeben();
+
+Datenknoten:
+
+	#highlight java
+	inhalt.datenAusgeben();
+	links.datenAusgeben();
+	rechts.datenAusgeben();
+
+Abschluss: nichts machen
