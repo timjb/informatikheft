@@ -745,3 +745,49 @@ Datenknoten:
 	rechts.datenAusgeben();
 
 Abschluss: nichts machen
+
+<p class="date">10.1.2010</p>
+
+S. 62 oben
+
+### Geordnete Binärbäume
+
+S. 62 oben
+
+nicht geordnet:
+
+* 1-2
+* 1-3
+* 2-4
+* 2-6
+* 4-5
+* 4-7
+* 6-10
+* 6-12
+* 3-8
+* 3-9
+* 8-14
+* 8-15
+* 9-13
+* 9-11
+
+Suche nach 13: maximal 15 Vergleiche
+
+geordnet:
+
+* 8-4
+* 4-2
+* 2-1
+* 2-3
+* 4-6
+* 6-5
+* 6-7
+* 8-12
+* 12-10
+* 10-9
+* 10-11
+* 12-14
+* 14-13
+* 14-15
+
+Suche: maximal 4 Vergleiche

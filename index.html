@@ -224,6 +224,7 @@ a:hover {
 <span class="o">}</span>
 </pre></div>
 
+
 <p class="date">4.10.2010</p>
 
 <p>Klasse STATIV:</p>
@@ -238,6 +239,7 @@ a:hover {
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
+
 <div class="highlight"><pre><span class="kd">public</span> <span class="n">KNOTEN</span> <span class="nf">vorneEntfernen</span><span class="o">()</span> <span class="o">{</span>
     <span class="k">if</span> <span class="o">(</span><span class="n">erster</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
         <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
@@ -249,6 +251,7 @@ a:hover {
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
+
 <div class="highlight"><pre><span class="kd">public</span> <span class="n">KNOTEN</span> <span class="nf">knotenGeben</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">KNOTEN</span> <span class="n">aktuell</span> <span class="o">=</span> <span class="n">erster</span><span class="o">;</span>
     <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">position</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
@@ -257,6 +260,7 @@ a:hover {
     <span class="k">return</span> <span class="n">aktuell</span><span class="o">;</span>
 <span class="o">}</span>
 </pre></div>
+
 <div class="highlight"><pre><span class="kd">public</span> <span class="n">KNOTEN</span> <span class="nf">knotenLoeschen</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">)</span> <span class="o">{</span>
     <span class="k">if</span> <span class="o">(</span><span class="n">position</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
         <span class="k">return</span> <span class="nf">vorneEntfernen</span><span class="o">();</span>
@@ -268,6 +272,7 @@ a:hover {
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
+
 
 <p class="date">5.10.2010</p>
 
@@ -324,6 +329,7 @@ stativ0--&gt;(Benutzer): ""</pre>
 <span class="o">}</span>
 </pre></div>
 
+
 </div>
 
 <h3 id="rekursive-funktionen">Rekursive Funktionen</h3>
@@ -359,6 +365,7 @@ fib(n) = fib(n-2) + fib(n-1)</p>
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
+
 
 <div class="exercise">
   <p>S. 24/3 a)</p>
@@ -415,6 +422,7 @@ Rekursiver Aufbau in der Klasse KNOTEN:</p>
 <span class="o">}</span>
 </pre></div>
 
+
 <p>Aufgabe: Implementiere <code>anzahlKnotenGeben()</code>!</p>
 
 <h4 id="ohne-rekursion">Ohne Rekursion</h4>
@@ -431,6 +439,7 @@ Rekursiver Aufbau in der Klasse KNOTEN:</p>
     <span class="k">return</span> <span class="n">zaehler</span><span class="o">;</span>
 <span class="o">}</span>
 </pre></div>
+
 <pre class="websequencediagram">(Benutzer)-&gt;stativ0: anzahlKnotenGeben()
 activate stativ0
 stativ0-&gt;stativ0: Zähler erhöhen
@@ -463,6 +472,7 @@ deactivate stativ0</pre>
 <span class="o">}</span>
 </pre></div>
 
+
 <p>KNOTEN:</p>
 
 <div class="highlight"><pre><span class="kd">public</span> <span class="kt">int</span> <span class="nf">anzahlGeben</span><span class="o">()</span> <span class="o">{</span>
@@ -472,6 +482,7 @@ deactivate stativ0</pre>
     <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">.</span><span class="na">anzahlGeben</span><span class="o">()</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
 <span class="o">}</span>
 </pre></div>
+
 <pre class="websequencediagram">(Benutzer)-&gt;stativ0: anzahlKnotenGeben()
 activate stativ0
 stativ0-&gt;knoten1: anzahlGeben()
@@ -509,6 +520,7 @@ deactivate stativ0</pre>
 <span class="o">}</span>
 </pre></div>
 
+
 <p>DATENKNOTEN:</p>
 
 <div class="highlight"><pre><span class="kd">public</span> <span class="kt">int</span> <span class="nf">anzahlGeben</span><span class="o">()</span> <span class="o">{</span>
@@ -516,12 +528,14 @@ deactivate stativ0</pre>
 <span class="o">}</span>
 </pre></div>
 
+
 <p>ABSCHLUSS:</p>
 
 <div class="highlight"><pre><span class="kd">public</span> <span class="kt">int</span> <span class="nf">anzahlGeben</span><span class="o">()</span> <span class="o">{</span>
     <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
 <span class="o">}</span>
 </pre></div>
+
 
 <p>Klassendiagramm:</p>
 
@@ -537,6 +551,7 @@ deactivate stativ0</pre>
 <span class="o">}</span>
 </pre></div>
 
+
 <p class="date">25.10.2010</p>
 
 <p>LISTE:</p>
@@ -546,6 +561,7 @@ deactivate stativ0</pre>
 <span class="o">}</span>
 </pre></div>
 
+
 <p>DATENKNOTEN:</p>
 
 <div class="highlight"><pre><span class="kd">public</span> <span class="n">DATENELEMENT</span> <span class="nf">inhaltLetzterGeben</span><span class="o">(</span><span class="n">DATENELEMENT</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
@@ -553,12 +569,14 @@ deactivate stativ0</pre>
 <span class="o">}</span>
 </pre></div>
 
+
 <p>ABSCHLUSS:</p>
 
 <div class="highlight"><pre><span class="kd">public</span> <span class="n">DATENELEMENT</span> <span class="nf">inhaltLetzterGeben</span><span class="o">(</span><span class="n">DATENELEMENT</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
     <span class="k">return</span> <span class="n">e</span><span class="o">;</span>
 <span class="o">}</span>
 </pre></div>
+
 
 <p class="date">26.10.2010</p>
 
@@ -570,6 +588,7 @@ deactivate stativ0</pre>
 <span class="o">}</span>
 </pre></div>
 
+
 <p>DATENKNOTEN:</p>
 
 <div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">listendatenAusgeben</span><span class="o">()</span> <span class="o">{</span>
@@ -578,12 +597,14 @@ deactivate stativ0</pre>
 <span class="o">}</span>
 </pre></div>
 
+
 <p>ABSCHLUSS:</p>
 
 <div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">listendatenAusgeben</span><span class="o">()</span> <span class="o">{</span>
     <span class="c1">// Nichts zu tun ...</span>
 <span class="o">}</span>
 </pre></div>
+
 
 <p>Weitere Methoden:</p>
 
@@ -621,6 +642,7 @@ deactivate stativ0</pre>
     <span class="c1">// ...</span>
 <span class="o">}</span>
 </pre></div>
+
 <div class="highlight"><pre><span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Listenelement</span> <span class="o">{</span>
     <span class="c1">// ...</span>
     <span class="kd">public</span> <span class="kd">abstract</span> <span class="n">Listenelement</span> <span class="nf">entfernen</span><span class="o">(</span><span class="n">String</span> <span class="n">suchwert</span><span class="o">);</span>
@@ -629,6 +651,7 @@ deactivate stativ0</pre>
     <span class="c1">// ...</span>
 <span class="o">}</span>
 </pre></div>
+
 <div class="highlight"><pre><span class="kd">public</span> <span class="n">Datenknoten</span> <span class="kd">extends</span> <span class="n">Listenelement</span> <span class="o">{</span>
     <span class="c1">// ...</span>
     <span class="kd">public</span> <span class="n">Listenelement</span> <span class="nf">entfernen</span><span class="o">(</span><span class="n">String</span> <span class="n">suchwert</span><span class="o">)</span> <span class="o">{</span>
@@ -656,6 +679,7 @@ deactivate stativ0</pre>
     <span class="c1">// ...</span>
 <span class="o">}</span>
 </pre></div>
+
 <div class="highlight"><pre><span class="kd">public</span> <span class="n">Abschluss</span> <span class="kd">extends</span> <span class="n">Listenelement</span> <span class="o">{</span>
     <span class="c1">// ...</span>
     <span class="kd">public</span> <span class="n">Listenelement</span> <span class="nf">entfernen</span><span class="o">(</span><span class="n">String</span> <span class="n">suchwert</span><span class="o">)</span> <span class="o">{</span>
@@ -672,6 +696,7 @@ deactivate stativ0</pre>
     <span class="c1">// ...</span>
 <span class="o">}</span>
 </pre></div>
+
 
 <p class="date">16.11.2010</p>
 
@@ -748,6 +773,7 @@ deactivate stativ0</pre>
 <span class="o">}</span>
 </pre></div>
 
+
 <p>In ABSCHLUSS:</p>
 
 <div class="highlight"><pre><span class="kd">public</span> <span class="n">DATENKNOTEN</span> <span class="nf">sortiertEinfuegen</span><span class="o">(</span><span class="n">DATENELEMENT</span> <span class="n">inhaltNeu</span><span class="o">)</span> <span class="o">{</span>
@@ -757,10 +783,12 @@ deactivate stativ0</pre>
 <span class="o">}</span>
 </pre></div>
 
+
 <p>In DATENELEMENT:</p>
 
 <div class="highlight"><pre><span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">boolean</span> <span class="nf">istKleiner</span><span class="o">(</span><span class="n">DATENELEMENT</span> <span class="n">e</span><span class="o">);</span>
 </pre></div>
+
 
 <p>Neue Klasse ANZUG:</p>
 
@@ -770,6 +798,7 @@ deactivate stativ0</pre>
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
+
 
 <p class="date">7.12.2010</p>
 
@@ -781,6 +810,7 @@ deactivate stativ0</pre>
     <span class="k">return</span> <span class="n">name</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(((</span><span class="n">ZEITSCHRIFT</span><span class="o">)</span> <span class="n">vg</span><span class="o">).</span><span class="na">name</span><span class="o">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
 <span class="o">}</span>
 </pre></div>
+
 
 <p class="date">14.12.2010</p>
 
@@ -837,6 +867,7 @@ deactivate stativ0</pre>
 <div class="highlight"><pre><span class="n">wurzel</span><span class="o">.</span><span class="na">datenAusgeben</span><span class="o">();</span>
 </pre></div>
 
+
 <p>Datenknoten:</p>
 
 <div class="highlight"><pre><span class="n">inhalt</span><span class="o">.</span><span class="na">datenAusgeben</span><span class="o">();</span>
@@ -844,7 +875,54 @@ deactivate stativ0</pre>
 <span class="n">rechts</span><span class="o">.</span><span class="na">datenAusgeben</span><span class="o">();</span>
 </pre></div>
 
+
 <p>Abschluss: nichts machen</p>
+
+<p class="date">10.1.2010</p>
+
+<p>S. 62 oben</p>
+
+<h3 id="geordnete-binrbume">Geordnete Binärbäume</h3>
+
+<p>S. 62 oben</p>
+
+<p>nicht geordnet:</p>
+
+<ul>
+<li>1-2</li>
+  <li>1-3</li>
+  <li>2-4</li>
+  <li>2-6</li>
+  <li>4-5</li>
+  <li>4-7</li>
+  <li>6-10</li>
+  <li>6-12</li>
+  <li>3-8</li>
+  <li>3-9</li>
+  <li>8-14</li>
+  <li>8-15</li>
+  <li>9-13</li>
+  <li>9-11</li>
+</ul><p>Suche nach 13: maximal 15 Vergleiche</p>
+
+<p>geordnet:</p>
+
+<ul>
+<li>8-4</li>
+  <li>4-2</li>
+  <li>2-1</li>
+  <li>2-3</li>
+  <li>4-6</li>
+  <li>6-5</li>
+  <li>6-7</li>
+  <li>8-12</li>
+  <li>12-10</li>
+  <li>10-9</li>
+  <li>10-11</li>
+  <li>12-14</li>
+  <li>14-13</li>
+  <li>14-15</li>
+</ul><p>Suche: maximal 4 Vergleiche</p>
 </div>
 <script>
 (function(win, doc) {
