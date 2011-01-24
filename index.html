@@ -903,7 +903,7 @@ deactivate stativ0</pre>
   <li>8-15</li>
   <li>9-13</li>
   <li>9-11</li>
-</ul><p>Suche nach 13: maximal 15 Vergleiche</p>
+</ul><p>Suche nach 13: maximal 15 Vergleiche.</p>
 
 <p>geordnet:</p>
 
@@ -923,6 +923,20 @@ deactivate stativ0</pre>
   <li>14-13</li>
   <li>14-15</li>
 </ul><p>Suche: maximal 4 Vergleiche</p>
+
+<p class="date">24.1.2010</p>
+
+<pre><code>funktion baumErzeugen(liste)
+	wenn nicht liste.leer()
+		linkeHaelfte, rechteHaelfte = liste.splitten()
+		knotenNeu = linkeHaelfte.letzterEntnehmen()
+		knotenNeu.naechsterLinks  = baumErzeugen(linkeHaelfte)
+		knotenNeu.naechsterRechts = baumErzeugen(rechteHaelfte)
+		return knotenNeu
+	ende
+	return neuer Abschluss
+ende
+</code></pre>
 </div>
 <script>
 (function(win, doc) {

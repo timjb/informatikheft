@@ -771,7 +771,7 @@ nicht geordnet:
 * 9-13
 * 9-11
 
-Suche nach 13: maximal 15 Vergleiche
+Suche nach 13: maximal 15 Vergleiche.
 
 geordnet:
 
@@ -791,3 +791,16 @@ geordnet:
 * 14-15
 
 Suche: maximal 4 Vergleiche
+
+<p class="date">24.1.2010</p>
+
+	funktion baumErzeugen(liste)
+		wenn nicht liste.leer()
+			linkeHaelfte, rechteHaelfte = liste.splitten()
+			knotenNeu = linkeHaelfte.letzterEntnehmen()
+			knotenNeu.naechsterLinks  = baumErzeugen(linkeHaelfte)
+			knotenNeu.naechsterRechts = baumErzeugen(rechteHaelfte)
+			return knotenNeu
+		ende
+		return neuer Abschluss
+	ende

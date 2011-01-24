@@ -6,7 +6,7 @@ require 'rubygems'
 require 'kramdown'
 require 'mustache'
 require 'nokogiri'
-require 'ftpsync/ftp_sync.rb'
+require './ftpsync/ftp_sync.rb'
 
 #require 'curb'
 
