@@ -39,24 +39,24 @@ Pseudo-Code (mit [Python](http://python.org/)-Syntax):
 Objektdiagramm (sich bitte runde Ecken denken!):
 
 	#yuml dir:lr
-	[stativ{bg:lightblue}]-erster>[knoten1],
-	[stativ{bg:lightblue}]-letzter>[knoten3],
-	[knoten1{bg:green}]-enthält>[element1],
-	[knoten2{bg:green}]-enthält>[element2],
-	[knoten3{bg:green}]-enthält>[element3],
-	[knoten1{bg:green}]-nächster>[knoten2{bg:green}],
+	[stativ{bg:lightblue}]-erster>[knoten1]
+	[stativ{bg:lightblue}]-letzter>[knoten3]
+	[knoten1{bg:green}]-enthält>[element1]
+	[knoten2{bg:green}]-enthält>[element2]
+	[knoten3{bg:green}]-enthält>[element3]
+	[knoten1{bg:green}]-nächster>[knoten2{bg:green}]
 	[knoten2{bg:green}]-nächster>[knoten3{bg:green}]
 
 Klassendiagramm:
 
 	#yuml dir:lr
-	[STATIV{bg:lightblue}]<>hat als erster-1>[KNOTEN{bg:green}],
-	[KNOTEN{bg:green}]<>nächster-0..1>[KNOTEN{bg:green}],
-	[KNOTEN{bg:green}]<>enthält->[ELEMENT],
+	[STATIV{bg:lightblue}]<>hat als erster-1>[KNOTEN{bg:green}]
+	[KNOTEN{bg:green}]<>nächster-0..1>[KNOTEN{bg:green}]
+	[KNOTEN{bg:green}]<>enthält->[ELEMENT]
 ^
 	#yuml dir:lr
-	[KNOTEN|KNOTEN naechster;ELEMENT inhalt],
-	[STATIV|KNOTEN erster;int anzahlKnoten|void hintenAnfuegen()],
+	[KNOTEN|KNOTEN naechster;ELEMENT inhalt]
+	[STATIV|KNOTEN erster;int anzahlKnoten|void hintenAnfuegen()]
 
 <p class="date">28.9.2010</p>
 
@@ -128,18 +128,18 @@ Buch S. 21/6
 Eckiges Objektdiagramm:
 
 	#yuml dir:lr
-	[hotelier0{bg:lightblue}]-erster>[knoten0{bg:green}],
-	[knoten0{bg:green}]-enthält>[person0],
-	[knoten0{bg:green}]-nächster>[knoten1{bg:green}],
-	[knoten1{bg:green}]-enthält>[person1],
-	[knoten1{bg:green}]-nächster>[knoten2{bg:green}],
-	[knoten2{bg:green}]-enthält>[person2],
-	[knoten2{bg:green}]-nächster>[knoten3{bg:green}],
+	[hotelier0{bg:lightblue}]-erster>[knoten0{bg:green}]
+	[knoten0{bg:green}]-enthält>[person0]
+	[knoten0{bg:green}]-nächster>[knoten1{bg:green}]
+	[knoten1{bg:green}]-enthält>[person1]
+	[knoten1{bg:green}]-nächster>[knoten2{bg:green}]
+	[knoten2{bg:green}]-enthält>[person2]
+	[knoten2{bg:green}]-nächster>[knoten3{bg:green}]
 	[knoten3{bg:green}]-enthält>[person3]
 ^
 	#yuml dir:lr
-	[PERSON|int gewicht;String name|int gewichtGeben();String nameGeben()],
-	[KNOTEN|KNOTEN naechster;PERSON inhalt|int inhaltGewichtGeben();void inhaltSetzen(PERSON p);KNOTEN naechsterGeben()],
+	[PERSON|int gewicht;String name|int gewichtGeben();String nameGeben()]
+	[KNOTEN|KNOTEN naechster;PERSON inhalt|int inhaltGewichtGeben();void inhaltSetzen(PERSON p);KNOTEN naechsterGeben()]
 	[HOTELIER|KNOTEN erster|int gewichtGeben();void ersterSetzen(KNOTEN k)]
 
 Sequenzdiagramme:
@@ -366,12 +366,12 @@ Das bedeutet:
 Objektdiagramm:
 
 	#yuml
-	[stativ0]-erster>[knoten1],
-	[knoten1]-inhalt>[element1],
-	[knoten1]-naechster>[knoten2],
-	[knoten2]-inhalt>[element2],
-	[knoten2]-naechster>[knoten3],
-	[knoten3]-inhalt>[element3],
+	[stativ0]-erster>[knoten1]
+	[knoten1]-inhalt>[element1]
+	[knoten1]-naechster>[knoten2]
+	[knoten2]-inhalt>[element2]
+	[knoten2]-naechster>[knoten3]
+	[knoten3]-inhalt>[element3]
 	[knoten3]-naechster>[abschluss0]
 
 **Vorteil**: Bei Methoden der Klasse `KNOTEN` keine Fallunterscheidung mehr notwendig.  
@@ -401,11 +401,11 @@ ABSCHLUSS:
 Klassendiagramm:
 
 	#yuml
-	[note: LISTENELEMENT + ABSCHLUSS + DATENKNOTEN: Kompositum{bg:cornsilk}],
-	[LISTE]<>erster-1>[LISTENELEMENT],
-	[LISTENELEMENT]^-[ABSCHLUSS],
-	[LISTENELEMENT]^-[DATENKNOTEN],
-	[DATENKNOTEN]<>naechster-1>[LISTENELEMENT],
+	[note: LISTENELEMENT + ABSCHLUSS + DATENKNOTEN: Kompositum{bg:cornsilk}]
+	[LISTE]<>erster-1>[LISTENELEMENT]
+	[LISTENELEMENT]^-[ABSCHLUSS]
+	[LISTENELEMENT]^-[DATENKNOTEN]
+	[DATENKNOTEN]<>naechster-1>[LISTENELEMENT]
 	[DATENKNOTEN]<>inhalt-1>[DATENELEMENT]
 
 <p class="date">19.10.2010</p>
@@ -581,9 +581,9 @@ Klassen:
 * STAPEL
 ^
 	#yuml
-	[BETRIEBSFEST]<>-hat 4>[STAPEL],
-	[BETRIEBSFEST]<>-hat 1>[LKW],
-	[STAPEL]<>-enthält 0..n>[KISTEN],
+	[BETRIEBSFEST]<>-hat 4>[STAPEL]
+	[BETRIEBSFEST]<>-hat 1>[LKW]
+	[STAPEL]<>-enthält 0..n>[KISTEN]
 	[LKW]<>-enthält 0..n>[KISTEN]
 
 </div>
@@ -692,15 +692,15 @@ Postorder
 ##### Beispiel
 
 	#yuml dir:td
-	[8]-rechts>[13],
-	[8]-links>[3],
-	[3]-rechts>[2000],
-	[3]-links>[99],
-	[99]-rechts>[5],
-	[99]-links>[1],
-	[2000]-links>[2],
-	[13]-links>[42],
-	[42]-rechts>[7],
+	[8]-rechts>[13]
+	[8]-links>[3]
+	[3]-rechts>[2000]
+	[3]-links>[99]
+	[99]-rechts>[5]
+	[99]-links>[1]
+	[2000]-links>[2]
+	[13]-links>[42]
+	[42]-rechts>[7]
 	[42]-links>[4]
 
 Preorder
@@ -717,10 +717,10 @@ Postorder
 Klassendiagramm für einen Binärbaum:
 
 	#yuml
-	[BINAERBAUM]<>wurzel-1>[BAUMELEMENT],
-	[DATENKNOTEN]->[BAUMELEMENT],
-	[ABSCHLUSS]->[BAUMELEMENT],
-	[DATENKNOTEN]<>-2>[BAUMELEMENT],
+	[BINAERBAUM]<>wurzel-1>[BAUMELEMENT]
+	[DATENKNOTEN]->[BAUMELEMENT]
+	[ABSCHLUSS]->[BAUMELEMENT]
+	[DATENKNOTEN]<>-2>[BAUMELEMENT]
 	[DATENKNOTEN]<>inhalt-1>[DATENELEMENT]
 
 Baumelement und Datenelement sind abstrakt. In unserem Fall (Aufgabe im Buch) erstellen wir folgende Unterklasse von Datenelement:
@@ -756,39 +756,41 @@ S. 62 oben
 
 nicht geordnet:
 
-* 1-2
-* 1-3
-* 2-4
-* 2-6
-* 4-5
-* 4-7
-* 6-10
-* 6-12
-* 3-8
-* 3-9
-* 8-14
-* 8-15
-* 9-13
-* 9-11
+	#yuml dir:td
+	[1]-links>[2]
+	[1]-rechts>[3]
+	[2]-links>[4]
+	[2]-rechts>[6]
+	[4]-links>[5]
+	[4]-rechts>[7]
+	[6]-links>[10]
+	[6]-rechts>[12]
+	[3]-links>[8]
+	[3]-rechts>[9]
+	[8]-links>[14]
+	[8]-rechts>[15]
+	[9]-links>[13]
+	[9]-rechts>[11]
 
 Suche nach 13: maximal 15 Vergleiche.
 
 geordnet:
 
-* 8-4
-* 4-2
-* 2-1
-* 2-3
-* 4-6
-* 6-5
-* 6-7
-* 8-12
-* 12-10
-* 10-9
-* 10-11
-* 12-14
-* 14-13
-* 14-15
+	#yuml dir:td
+	[8]-links>[4]
+	[4]-links>[2]
+	[2]-links>[1]
+	[2]-rechts>[3]
+	[4]-rechts>[6]
+	[6]-links>[5]
+	[6]-links>[7]
+	[8]-rechts>[12]
+	[12]-links>[10]
+	[10]-links>[9]
+	[10]-rechts>[11]
+	[12]-rechts>[14]
+	[14]-links>[13]
+	[14]-rechts>[15]
 
 Suche: maximal 4 Vergleiche
 
@@ -804,3 +806,67 @@ Suche: maximal 4 Vergleiche
 		ende
 		return neuer Abschluss
 	ende
+
+<p class="date">7.2.2010</p>
+
+### Aufbau und Erweiterung von Suchbäumen
+
+#### Beispiel
+
+Ausgangssituation:
+
+	#yuml
+	[Melone]-links>[Erdbeere]
+	[Melone]-rechts>[Quitte]
+	[Erdbeere]-links>[Abschluss1]
+	[Erdbeere]-rechts>[Abschluss2]
+	[Quitte]-links>[Abschluss3]
+	[Quitte]-rechts>[Abschluss4]
+
+Nun soll eine Pflaume eingefügt werden.
+
+Schritt 1 (nur der Teil mit der Quitte):
+
+	#yuml
+	[Quitte]-links>[Abschluss3]
+	[Abschluss3]-.->[Pflaume]
+	[Pflaume]-links>[Abschluss3]
+	[Pflaume]-rechts>[Abschluss5]
+
+Schritt 2:
+
+	#yuml
+	[Quitte]-links>[Pflaume]
+	[Pflaume]-links>[Abschluss3]
+	[Pflaume]-rechts>[Abschluss5]
+	[Quitte]-rechts>[Abschluss4]
+
+<p class="date">15.3.2010</p>
+
+Graphen
+-------
+
+Graphen können folgende Eigenschaften besitzen:
+
+* gerichtet
+* gewichtet
+* zusammenhängend
+
+Sie können die folgenden Formen einnehmen:
+
+* Stern
+* Ring
+* vollständig
+
+### Adjazenzmatrix
+
+            | Augsb. | Bob. | Inningen | Königsb. | Merching | Mering | Obo.
+----------------------------------------------------------------------------
+Augsburg    | -      | -1   | 7        | 12       | -1       | -1     | -1  
+Bobingen    |        | -    | 5        | 5        | -1       | -1     | 6,5 
+Inningen    |        |      | -        | 8,7      | -1       | -1     | -1  
+Königsbrunn |        |      |          | -        | 10,5     | 9,1    | 4,5 
+Merching    |        |      |          |          | -        | 3      | -1  
+Mering      |        |      |          |          |          | -      | -1  
+Oberottm.   |        |      |          |          |          |        | -   
+
