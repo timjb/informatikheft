@@ -1,33 +1,31 @@
 % title Informatik Q11 2010/2011
 % author Tim Baumann
 
-# Informatik Q11 2010/2011
-
 Verbesserungen bitte an [tim@timbaumann.info](mailto:tim@timbaumann.info).
 
 <!--<p id="leading">Dies ist mein öffentliches Schulheft im Fach Informatik. Ich hoffe sie sind nützlich für meine Mitschüler und sonst für jeden, der das hier liest. Wie immer gilt: Wer einen Fehler findet, der kann ihn behalten. Lieber wär es mir jedoch, wenn ihr mich einfach in der Schule darauf anspricht. Danken möchte ich noch Frau Huber, meiner Informatiklehrerin für die Erlaubnis, im Unterricht unsere Notebooks benützen zu dürfen.</p>-->
 
 <p class="date">27.9.2010</p>
 
-## Listen
+# Listen
 
-### Warteschlangen mit Feld
+## Warteschlangen mit Feld
 
-#### Eigenschaften
+### Eigenschaften
 
 * Länge begrenzt
 * verwendet Feld (Array)
 * [FIFO](http://de.wikipedia.org/wiki/First_In_%E2%80%93_First_Out) (first in – first out)
 * Zwei Klassen, eine für die Inhalte, eine für Koordination notwendig
 
-#### Nachteile
+### Nachteile
 
 * Länge des Feldes ist begrenzt, das bedeutet
   * entweder gibt es zu wenig Platz
   * oder Speicherplatz wird verschwendet.
 * Beim Entfernen müssen alle Elemente aufgerückt werden ⇒ schlechte Performance
 
-### Einfach verkettete Listen
+## Einfach verkettete Listen
 
 Beispiel: [Polonaise](http://www.youtube.com/watch?v=-Mf3Jc13BpE) im Klassenzimmer. Alex, der letzer Mann ist, soll den ersten, Frank, bitten, langsamer zu gehen. Lösung: Alex wendet sich an seinen Vordermann und bittet diesen langsamer zu gehen, wenn dieser der erste ist, oder die ganze Nachricht wiederum an seinen Vordermann weiterzugeben.
 
@@ -220,9 +218,9 @@ public void datenAusgeben() {
 </div>
 
 
-### Rekursive Funktionen
+## Rekursive Funktionen
 
-#### Beispiel: Die [Fibonacci-Folge](http://de.wikipedia.org/wiki/Fibonacci-Folge)
+### Beispiel: Die [Fibonacci-Folge](http://de.wikipedia.org/wiki/Fibonacci-Folge)
 
 A(0) = 0  
 A(1) = 1  
@@ -235,7 +233,7 @@ fib(n) = fib(n-2) + fib(n-1)
 
 In Worten: Die n-te Fibonacci-Zahl ist die Summe ihrer beiden Vorgänger. Die 0-te Fibonacci-Zahl ist 0, die 1-te 1.
 
-#### Definition
+### Definition
 
 **Rekursive Funktionen** enthalten in ihrem Funktionsterm mindestens einmal den eigenen Funktionsbezeichner. Ein Funktionsaufruf endet nur dann nach einer endlichen Anzahl von Berechnungsschritten, wenn die Abbruchbedingung erfüllt ist.
 
@@ -298,7 +296,7 @@ A(3) = A(2) + 4
 
 </div>
 
-### Rekursive Methoden einer Liste
+## Rekursive Methoden einer Liste
 
 Rekursive Funktionen: im Funktionsterm steht mindestens ein Mal der eigene Funktionsbezeichner  
 Rekursive Methoden: Innerhalb der Definition (Methodenrumpf); Aufruf der gleichnamigen Methode eines referenzierten Objekts  
@@ -318,7 +316,7 @@ public void hintenEinfuegen(ELEMENT e) {
 
 Aufgabe: Implementiere `anzahlKnotenGeben()`!
 
-#### Ohne Rekursion
+### Ohne Rekursion
 
 STATIV:
 
@@ -358,7 +356,7 @@ stativ0-->(Benutzer): 3
 deactivate stativ0
 ~~~
 
-#### Mit Rekursion
+### Mit Rekursion
 
 STATIV:
 
@@ -547,7 +545,7 @@ Weitere Methoden:
 
 <p class="date">8.11.2010</p>
 
-#### Die Methode `hintenEntnehmen` der einfach verketteten Liste:
+### Die Methode `hintenEntnehmen` der einfach verketteten Liste:
 
 * Inhalt des letzten Knoten wird für entnehmen benötigt
 * Suche nach inhaltLetzter mit inhaltLetzterGeben
@@ -639,7 +637,7 @@ public Abschluss extends Listenelement {
 
 <p class="date">16.11.2010</p>
 
-### Dynamische lineare Datenstrukturen
+## Dynamische lineare Datenstrukturen
 
 * Stapel (LIFO)
   * `vorneEinfuegen`
@@ -684,13 +682,13 @@ S. 39 Nr. 1 a)
 
 </div>
 
-### Heterogene Listen
+## Heterogene Listen
 
 Die Grundidee von heterogenen Listen ist, das man ja manchmal Listen mit verschiedenen Objekten haben möchte. Darum definiert man `DATENELEMENT` abstrakt und erstellt dann Unterklassen davon.
 
 <p class="date">6.12.2010</p>
 
-### Sortierte Listen
+## Sortierte Listen
 
 Sortieren mögl. nach Zahl, Text, Datum
 
@@ -756,11 +754,11 @@ public boolean istKleiner(DATENELEMENT vg) {
 
 <p class="date">14.12.2010</p>
 
-## Bäume
+# Bäume
 
 Bäume zählen wie die Listen zu den sehr häufig verwendeten Datenstrukturen in der Informatik. Wie Listen bestehen Sie aus Knoten. Allerdings hat ein Knoten nicht nur einen, sondern viele Nachfolger. So ergibt sich eine Struktur wie z.B. in Stammbäumen.
 
-### Binäre (Weihnachts-) Bäume
+## Binäre (Weihnachts-) Bäume
 
 ![Binärer Weihnachtsbaum](assets/christmas-binary-tree.png)
 
@@ -768,7 +766,7 @@ Bäume zählen wie die Listen zu den sehr häufig verwendeten Datenstrukturen in
 
 In Binärbäumen hat jedes Objekt also höchstens zwei Nachfolger.
 
-#### Ausgeben eines Binärbaums
+### Ausgeben eines Binärbaums
 
 Wenn alle Knoten eines Binärsbaums ausgegeben werden sollen, so gibt es drei Möglichkeiten:
 
@@ -779,7 +777,7 @@ Inorder
 Postorder
   ~ Zuerst wird der linke und rechte Nachfolger, dann der Datenwert des Knotens ausgegeben.
 
-##### Beispiel
+#### Beispiel
 
 ~~~
 #yuml dir:td
@@ -848,7 +846,7 @@ Abschluss: nichts machen
 
 S. 62 oben
 
-### Geordnete Binärbäume
+## Geordnete Binärbäume
 
 S. 62 oben
 
@@ -913,9 +911,9 @@ ende
 
 <p class="date">7.2.2010</p>
 
-### Aufbau und Erweiterung von Suchbäumen
+## Aufbau und Erweiterung von Suchbäumen
 
-#### Beispiel
+### Beispiel
 
 Ausgangssituation:
 
@@ -968,7 +966,7 @@ Sie können die folgenden Formen einnehmen:
 * Ring
 * vollständig
 
-### Adjazenzmatrix
+## Adjazenzmatrix
 
               Augsb. Bob. Inningen Königsb. Merching Mering Obo.
 ------------ ------- ---- -------- -------- -------- ------ ----

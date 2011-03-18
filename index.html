@@ -145,7 +145,44 @@ a:hover {
 </style>
 <body>
 <div id=wrapper>
-	<h1 id="informatik-q11-20102011">Informatik Q11 2010/2011</h1>
+	
+<h1 class="title">title Informatik Q11 2010/2011</h1>
+<div id="TOC">
+<ul>
+<li><a href="#listen">Listen</a><ul>
+<li><a href="#warteschlangen-mit-feld">Warteschlangen mit Feld</a><ul>
+<li><a href="#eigenschaften">Eigenschaften</a></li>
+<li><a href="#nachteile">Nachteile</a></li>
+</ul></li>
+<li><a href="#einfach-verkettete-listen">Einfach verkettete Listen</a></li>
+<li><a href="#rekursive-funktionen">Rekursive Funktionen</a><ul>
+<li><a href="#beispiel-die-fibonacci-folge">Beispiel: Die <a href="http://de.wikipedia.org/wiki/Fibonacci-Folge">Fibonacci-Folge</a></a></li>
+<li><a href="#definition">Definition</a></li>
+</ul></li>
+<li><a href="#rekursive-methoden-einer-liste">Rekursive Methoden einer Liste</a><ul>
+<li><a href="#ohne-rekursion">Ohne Rekursion</a></li>
+<li><a href="#mit-rekursion">Mit Rekursion</a></li>
+<li><a href="#die-methode-hintenentnehmen-der-einfach-verketteten-liste">Die Methode <code>hintenEntnehmen</code> der einfach verketteten Liste:</a></li>
+</ul></li>
+<li><a href="#dynamische-lineare-datenstrukturen">Dynamische lineare Datenstrukturen</a></li>
+<li><a href="#heterogene-listen">Heterogene Listen</a></li>
+<li><a href="#sortierte-listen">Sortierte Listen</a></li>
+</ul></li>
+<li><a href="#bäume">Bäume</a><ul>
+<li><a href="#binäre-weihnachts--bäume">Binäre (Weihnachts-) Bäume</a><ul>
+<li><a href="#ausgeben-eines-binärbaums">Ausgeben eines Binärbaums</a><ul>
+<li><a href="#beispiel">Beispiel</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#geordnete-binärbäume">Geordnete Binärbäume</a></li>
+<li><a href="#aufbau-und-erweiterung-von-suchbäumen">Aufbau und Erweiterung von Suchbäumen</a><ul>
+<li><a href="#beispiel-1">Beispiel</a></li>
+</ul></li>
+<li><a href="#graphen">Graphen</a></li>
+<li><a href="#adjazenzmatrix">Adjazenzmatrix</a></li>
+</ul></li>
+</ul>
+</div>
 <p>Verbesserungen bitte an <script type="text/javascript">
 <!--
 h='&#116;&#x69;&#x6d;&#98;&#x61;&#x75;&#x6d;&#x61;&#110;&#110;&#46;&#x69;&#110;&#102;&#x6f;';a='&#64;';n='&#116;&#x69;&#x6d;';e=n+a+h;
@@ -158,23 +195,23 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'<code>'+e+'</code>'+'<\/'+
 27.9.2010
 </p>
 
-<h2 id="listen">Listen</h2>
-<h3 id="warteschlangen-mit-feld">Warteschlangen mit Feld</h3>
-<h4 id="eigenschaften">Eigenschaften</h4>
+<h1 id="listen"><a href="#TOC">Listen</a></h1>
+<h2 id="warteschlangen-mit-feld"><a href="#TOC">Warteschlangen mit Feld</a></h2>
+<h3 id="eigenschaften"><a href="#TOC">Eigenschaften</a></h3>
 <ul>
 <li>Länge begrenzt</li>
 <li>verwendet Feld (Array)</li>
 <li><a href="http://de.wikipedia.org/wiki/First_In_%E2%80%93_First_Out">FIFO</a> (first in – first out)</li>
 <li>Zwei Klassen, eine für die Inhalte, eine für Koordination notwendig</li>
 </ul>
-<h4 id="nachteile">Nachteile</h4>
+<h3 id="nachteile"><a href="#TOC">Nachteile</a></h3>
 <ul>
 <li>Länge des Feldes ist begrenzt, das bedeutet</li>
 <li>entweder gibt es zu wenig Platz</li>
 <li>oder Speicherplatz wird verschwendet.</li>
 <li>Beim Entfernen müssen alle Elemente aufgerückt werden ⇒ schlechte Performance</li>
 </ul>
-<h3 id="einfach-verkettete-listen">Einfach verkettete Listen</h3>
+<h2 id="einfach-verkettete-listen"><a href="#TOC">Einfach verkettete Listen</a></h2>
 <p>Beispiel: <a href="http://www.youtube.com/watch?v=-Mf3Jc13BpE">Polonaise</a> im Klassenzimmer. Alex, der letzer Mann ist, soll den ersten, Frank, bitten, langsamer zu gehen. Lösung: Alex wendet sich an seinen Vordermann und bittet diesen langsamer zu gehen, wenn dieser der erste ist, oder die ganze Nachricht wiederum an seinen Vordermann weiterzugeben.</p>
 <p>Pseudo-Code (mit <a href="http://python.org/">Python</a>-Syntax):</p>
 <pre><code>methode langsamer():
@@ -307,11 +344,11 @@ stativ0--&gt;(Benutzer): &quot;&quot;
 </div>
 
 
-<h3 id="rekursive-funktionen">Rekursive Funktionen</h3>
-<h4 id="beispiel-die-fibonacci-folge">Beispiel: Die <a href="http://de.wikipedia.org/wiki/Fibonacci-Folge">Fibonacci-Folge</a></h4>
+<h2 id="rekursive-funktionen"><a href="#TOC">Rekursive Funktionen</a></h2>
+<h3 id="beispiel-die-fibonacci-folge"><a href="#TOC">Beispiel: Die <a href="http://de.wikipedia.org/wiki/Fibonacci-Folge">Fibonacci-Folge</a></a></h3>
 <p>A(0) = 0<br>A(1) = 1<br>A(2) = 1 = 0 + 1<br>A(3) = 2 = 1 + 1<br>A(4) = 3 = 1 + 2<br>A(5) = 5 = 2 + 3<br>A(6) = 8 = 3 + 5<br>fib(n) = fib(n-2) + fib(n-1)</p>
 <p>In Worten: Die n-te Fibonacci-Zahl ist die Summe ihrer beiden Vorgänger. Die 0-te Fibonacci-Zahl ist 0, die 1-te 1.</p>
-<h4 id="definition">Definition</h4>
+<h3 id="definition"><a href="#TOC">Definition</a></h3>
 <p><strong>Rekursive Funktionen</strong> enthalten in ihrem Funktionsterm mindestens einmal den eigenen Funktionsbezeichner. Ein Funktionsaufruf endet nur dann nach einer endlichen Anzahl von Berechnungsschritten, wenn die Abbruchbedingung erfüllt ist.</p>
 <pre><code>fib(5) = fib(4)          + fib(3)
        = fib(3) + fib(2) + fib(2) + fib(1)
@@ -351,7 +388,7 @@ Abbruchbedingung:<br>A(0) = 300
 </code></pre>
 </div>
 
-<h3 id="rekursive-methoden-einer-liste">Rekursive Methoden einer Liste</h3>
+<h2 id="rekursive-methoden-einer-liste"><a href="#TOC">Rekursive Methoden einer Liste</a></h2>
 <p>Rekursive Funktionen: im Funktionsterm steht mindestens ein Mal der eigene Funktionsbezeichner<br>Rekursive Methoden: Innerhalb der Definition (Methodenrumpf); Aufruf der gleichnamigen Methode eines referenzierten Objekts<br>Bereits bekannt: <code>hintenEinfuegen(ELEMENT e)</code><br>Rekursiver Aufbau in der Klasse KNOTEN:</p>
 <div><div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">hintenEinfuegen</span><span class="o">(</span><span class="n">ELEMENT</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
   <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">naechster</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
@@ -363,7 +400,7 @@ Abbruchbedingung:<br>A(0) = 300
 </pre></div>
 </div>
 <p>Aufgabe: Implementiere <code>anzahlKnotenGeben()</code>!</p>
-<h4 id="ohne-rekursion">Ohne Rekursion</h4>
+<h3 id="ohne-rekursion"><a href="#TOC">Ohne Rekursion</a></h3>
 <p>STATIV:</p>
 <div><div class="highlight"><pre><span class="kd">public</span> <span class="kt">int</span> <span class="nf">anzahlKnotenGeben</span><span class="o">()</span> <span class="o">{</span>
   <span class="n">KNOTEN</span> <span class="n">aktuell</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">;</span>
@@ -396,7 +433,7 @@ deactivate knoten3
 stativ0--&gt;(Benutzer): 3
 deactivate stativ0
 </pre>
-<h4 id="mit-rekursion">Mit Rekursion</h4>
+<h3 id="mit-rekursion"><a href="#TOC">Mit Rekursion</a></h3>
 <p>STATIV:</p>
 <div><div class="highlight"><pre><span class="kd">public</span> <span class="kt">int</span> <span class="nf">anzahlKnotenGeben</span><span class="o">()</span> <span class="o">{</span>
   <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">erster</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
@@ -530,7 +567,7 @@ deactivate stativ0
 8.11.2010
 </p>
 
-<h4 id="die-methode-hintenentnehmen-der-einfach-verketteten-liste">Die Methode <code>hintenEntnehmen</code> der einfach verketteten Liste:</h4>
+<h3 id="die-methode-hintenentnehmen-der-einfach-verketteten-liste"><a href="#TOC">Die Methode <code>hintenEntnehmen</code> der einfach verketteten Liste:</a></h3>
 <ul>
 <li>Inhalt des letzten Knoten wird für entnehmen benötigt</li>
 <li>Suche nach inhaltLetzter mit inhaltLetzterGeben</li>
@@ -616,7 +653,7 @@ deactivate stativ0
 16.11.2010
 </p>
 
-<h3 id="dynamische-lineare-datenstrukturen">Dynamische lineare Datenstrukturen</h3>
+<h2 id="dynamische-lineare-datenstrukturen"><a href="#TOC">Dynamische lineare Datenstrukturen</a></h2>
 <ul>
 <li>Stapel (LIFO)</li>
 <li><code>vorneEinfuegen</code></li>
@@ -655,13 +692,13 @@ deactivate stativ0
 </ul>
 </div>
 
-<h3 id="heterogene-listen">Heterogene Listen</h3>
+<h2 id="heterogene-listen"><a href="#TOC">Heterogene Listen</a></h2>
 <p>Die Grundidee von heterogenen Listen ist, das man ja manchmal Listen mit verschiedenen Objekten haben möchte. Darum definiert man <code>DATENELEMENT</code> abstrakt und erstellt dann Unterklassen davon.</p>
 <p class="date">
 6.12.2010
 </p>
 
-<h3 id="sortierte-listen">Sortierte Listen</h3>
+<h2 id="sortierte-listen"><a href="#TOC">Sortierte Listen</a></h2>
 <p>Sortieren mögl. nach Zahl, Text, Datum</p>
 <p>Wir wollen <code>sortiertEinfuegen</code>, <code>sortiertSuchen</code> (?), <code>sortiertEntfernen</code> (alle rekursiv)</p>
 <p>In DATENKNOTEN:</p>
@@ -713,15 +750,15 @@ deactivate stativ0
 14.12.2010
 </p>
 
-<h2 id="bäume">Bäume</h2>
+<h1 id="bäume"><a href="#TOC">Bäume</a></h1>
 <p>Bäume zählen wie die Listen zu den sehr häufig verwendeten Datenstrukturen in der Informatik. Wie Listen bestehen Sie aus Knoten. Allerdings hat ein Knoten nicht nur einen, sondern viele Nachfolger. So ergibt sich eine Struktur wie z.B. in Stammbäumen.</p>
-<h3 id="binäre-weihnachts--bäume">Binäre (Weihnachts-) Bäume</h3>
+<h2 id="binäre-weihnachts--bäume"><a href="#TOC">Binäre (Weihnachts-) Bäume</a></h2>
 <div class="figure">
 <img src="assets/christmas-binary-tree.png" alt="Binärer Weihnachtsbaum"><p class="caption">Binärer Weihnachtsbaum</p>
 </div>
 <p>(XKCD's <a href="http://xkcd.com/835/">Tree</a> by Randall Munroe; <strong>euch allen übrigens an dieser Stelle frohe Weihnachten und einen guten Rutsch!</strong>)</p>
 <p>In Binärbäumen hat jedes Objekt also höchstens zwei Nachfolger.</p>
-<h4 id="ausgeben-eines-binärbaums">Ausgeben eines Binärbaums</h4>
+<h3 id="ausgeben-eines-binärbaums"><a href="#TOC">Ausgeben eines Binärbaums</a></h3>
 <p>Wenn alle Knoten eines Binärsbaums ausgegeben werden sollen, so gibt es drei Möglichkeiten:</p>
 <dl>
 <dt>Preorder</dt>
@@ -734,7 +771,7 @@ deactivate stativ0
 <dd>Zuerst wird der linke und rechte Nachfolger, dann der Datenwert des Knotens ausgegeben.
 </dd>
 </dl>
-<h5 id="beispiel">Beispiel</h5>
+<h4 id="beispiel"><a href="#TOC">Beispiel</a></h4>
 <img class="diagram" alt="Class diagram" src="assets/yuml/6c79e194a789774fbecd795cb17b9c01.png">
 <dl>
 <dt>Preorder</dt>
@@ -776,7 +813,7 @@ deactivate stativ0
 </p>
 
 <p>S. 62 oben</p>
-<h3 id="geordnete-binärbäume">Geordnete Binärbäume</h3>
+<h2 id="geordnete-binärbäume"><a href="#TOC">Geordnete Binärbäume</a></h2>
 <p>S. 62 oben</p>
 <p>nicht geordnet:</p>
 <img class="diagram" alt="Class diagram" src="assets/yuml/538b4c67f4d4f2653bf2ddffffa7b5e1.png">
@@ -803,8 +840,8 @@ ende
 7.2.2010
 </p>
 
-<h3 id="aufbau-und-erweiterung-von-suchbäumen">Aufbau und Erweiterung von Suchbäumen</h3>
-<h4 id="beispiel-1">Beispiel</h4>
+<h2 id="aufbau-und-erweiterung-von-suchbäumen"><a href="#TOC">Aufbau und Erweiterung von Suchbäumen</a></h2>
+<h3 id="beispiel-1"><a href="#TOC">Beispiel</a></h3>
 <p>Ausgangssituation:</p>
 <img class="diagram" alt="Class diagram" src="assets/yuml/deab0309783fe2038fd42768a5271f77.png">
 <p>Nun soll eine Pflaume eingefügt werden.</p>
@@ -816,7 +853,7 @@ ende
 15.3.2010
 </p>
 
-<h2 id="graphen">Graphen</h2>
+<h2 id="graphen"><a href="#TOC">Graphen</a></h2>
 <p>Graphen können folgende Eigenschaften besitzen:</p>
 <ul>
 <li>gerichtet</li>
@@ -829,7 +866,7 @@ ende
 <li>Ring</li>
 <li>vollständig</li>
 </ul>
-<h3 id="adjazenzmatrix">Adjazenzmatrix</h3>
+<h2 id="adjazenzmatrix"><a href="#TOC">Adjazenzmatrix</a></h2>
 <table>
 <thead>
 <tr class="header">
@@ -919,60 +956,7 @@ ende
 
 </div>
 <script>
-(function(win, doc) {
-	var headers = doc.querySelectorAll('h2, h3');
-	var numbers = [0];
-	
-	// Create index
-	var index = doc.createElement('div');
-	index.id = 'index';
-	var ul = doc.createElement('ul');
-	ul.style.display = 'block';
-	var close_link = doc.createElement('a');
-	close_link.href = '#';
-	var toggle_close_link = function(evt) {
-		if(ul.style.display == 'block') {
-			ul.style.display = 'none';
-			close_link.innerHTML = 'Navigation anzeigen';
-		} else {
-			ul.style.display = 'block';
-			close_link.innerHTML = 'Navigation ausblenden';
-		}
-		if(evt) evt.preventDefault();
-		return false;
-	};
-	close_link.onclick = toggle_close_link;
-	toggle_close_link();
-	index.appendChild(close_link);
-	index.appendChild(ul);
-	
-	for(var i = 0, l = headers.length; i < l; i++) {
-		var header = headers[i];
-		var level = parseInt(header.nodeName.charAt(1)) - 1;
-		numbers.length = level;
-		numbers[level-1] = (numbers[level-1] || 0) + 1;
-		var header_string = header.innerText;
-		var header_id = 'header' + numbers.join('_');
-		var level_string = numbers.join('. ') + '. ';
-		
-		// Update header
-		header.insertBefore(doc.createTextNode(level_string), header.firstChild);
-		header.id = header_id;
-		
-		// Update index
-		var li = doc.createElement('li');
-		var a  = doc.createElement('a');
-		a.href = '#' + header_id;
-		a.innerHTML = level_string + header_string;
-		li.appendChild(a);
-		ul.appendChild(li);
-	}
-	
-	// Insert index
-	var h1 = document.getElementsByTagName('h1')[0];
-	h1.parentNode.insertBefore(index, h1.nextSibling);
-})(window, document);
-(function(win, doc) {
+/*(function(win, doc) {
 	var pres = doc.querySelectorAll('.yuml');
 	for (var i = 0, l = pres.length; i < l; i++) {
 		var pre = pres[i];
@@ -984,7 +968,7 @@ ende
 		img.src = url;
 		pre.parentNode.replaceChild(img, pre);
 	}
-})(window, document);
+})(window, document);*/
 (function(win, doc) {
 	var pres = doc.querySelectorAll('.websequencediagram');
 	for (var i = 0, l = pres.length; i < l; i++) {

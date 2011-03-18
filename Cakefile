@@ -113,7 +113,7 @@ applyTemplate = (view, callback) ->
 
 task 'compile', ->
   async.waterfall [
-    (cb) -> child_process.exec "pandoc index.markdown", cb
+    (cb) -> child_process.exec "pandoc --toc --standalone index.markdown", cb
     (html, _, cb) -> jsdom.env html, cb
     (window, cb) ->
       document = window._document

@@ -161,61 +161,7 @@ a:hover {
 	{{{html}}}
 </div>
 <script>
-(function(win, doc) {
-	var headers = doc.querySelectorAll('h2, h3');
-	var numbers = [0];
-	
-	// Create index
-	var index = doc.createElement('div');
-	index.id = 'index';
-	var ul = doc.createElement('ul');
-	ul.style.display = 'block';
-	var close_link = doc.createElement('a');
-	close_link.href = '#';
-	var toggle_close_link = function(evt) {
-		if(ul.style.display == 'block') {
-			ul.style.display = 'none';
-			close_link.innerHTML = 'Navigation anzeigen';
-		} else {
-			ul.style.display = 'block';
-			close_link.innerHTML = 'Navigation ausblenden';
-		}
-		if(evt) evt.preventDefault();
-		return false;
-	};
-	close_link.onclick = toggle_close_link;
-	toggle_close_link();
-	index.appendChild(close_link);
-	index.appendChild(ul);
-	
-	for(var i = 0, l = headers.length; i < l; i++) {
-		var header = headers[i];
-		var level = parseInt(header.nodeName.charAt(1)) - 1;
-		numbers.length = level;
-		numbers[level-1] = (numbers[level-1] || 0) + 1;
-		var header_string = header.innerText;
-		var header_id = 'header' + numbers.join('_');
-		var level_string = numbers.join('. ') + '. ';
-		
-		// Update header
-		header.insertBefore(doc.createTextNode(level_string), header.firstChild);
-		header.id = header_id;
-		
-		// Update index
-		var li = doc.createElement('li');
-		var a  = doc.createElement('a');
-		a.href = '#' + header_id;
-		a.innerHTML = level_string + header_string;
-		li.appendChild(a);
-		ul.appendChild(li);
-	}
-	
-	// Insert index
-	var h1 = document.getElementsByTagName('h1')[0];
-	h1.parentNode.insertBefore(index, h1.nextSibling);
-})(window, document);
-
-(function(win, doc) {
+/*(function(win, doc) {
 	var pres = doc.querySelectorAll('.yuml');
 	for (var i = 0, l = pres.length; i < l; i++) {
 		var pre = pres[i];
@@ -227,7 +173,7 @@ a:hover {
 		img.src = url;
 		pre.parentNode.replaceChild(img, pre);
 	}
-})(window, document);
+})(window, document);*/
 
 (function(win, doc) {
 	var pres = doc.querySelectorAll('.websequencediagram');
