@@ -1,3 +1,6 @@
+% title Informatik Q11 2010/2011
+% author Tim Baumann
+
 # Informatik Q11 2010/2011
 
 Verbesserungen bitte an [tim@timbaumann.info](mailto:tim@timbaumann.info).
@@ -30,95 +33,113 @@ Beispiel: [Polonaise](http://www.youtube.com/watch?v=-Mf3Jc13BpE) im Klassenzimm
 
 Pseudo-Code (mit [Python](http://python.org/)-Syntax):
 
-	methode langsamer():
-	    wenn selbst.vordermann:
-	        selbst.vordermann.langsamer()
-	    ansonsten:
-	        selbst.geschwindigkeit--
+~~~
+methode langsamer():
+  wenn selbst.vordermann:
+    selbst.vordermann.langsamer()
+  ansonsten:
+    selbst.geschwindigkeit--
+~~~
 
 Objektdiagramm (sich bitte runde Ecken denken!):
 
-	#yuml dir:lr
-	[stativ{bg:lightblue}]-erster>[knoten1]
-	[stativ{bg:lightblue}]-letzter>[knoten3]
-	[knoten1{bg:green}]-enthält>[element1]
-	[knoten2{bg:green}]-enthält>[element2]
-	[knoten3{bg:green}]-enthält>[element3]
-	[knoten1{bg:green}]-nächster>[knoten2{bg:green}]
-	[knoten2{bg:green}]-nächster>[knoten3{bg:green}]
+~~~
+#yuml dir:lr
+[stativ{bg:lightblue}]-erster>[knoten1]
+[stativ{bg:lightblue}]-letzter>[knoten3]
+[knoten1{bg:green}]-enthält>[element1]
+[knoten2{bg:green}]-enthält>[element2]
+[knoten3{bg:green}]-enthält>[element3]
+[knoten1{bg:green}]-nächster>[knoten2{bg:green}]
+[knoten2{bg:green}]-nächster>[knoten3{bg:green}]
+~~~
 
 Klassendiagramm:
 
-	#yuml dir:lr
-	[STATIV{bg:lightblue}]<>hat als erster-1>[KNOTEN{bg:green}]
-	[KNOTEN{bg:green}]<>nächster-0..1>[KNOTEN{bg:green}]
-	[KNOTEN{bg:green}]<>enthält->[ELEMENT]
-^
-	#yuml dir:lr
-	[KNOTEN|KNOTEN naechster;ELEMENT inhalt]
-	[STATIV|KNOTEN erster;int anzahlKnoten|void hintenAnfuegen()]
+~~~
+#yuml dir:lr
+[STATIV{bg:lightblue}]<>hat als erster-1>[KNOTEN{bg:green}]
+[KNOTEN{bg:green}]<>nächster-0..1>[KNOTEN{bg:green}]
+[KNOTEN{bg:green}]<>enthält->[ELEMENT]
+~~~
+
+~~~
+#yuml dir:lr
+[KNOTEN|KNOTEN naechster;ELEMENT inhalt]
+[STATIV|KNOTEN erster;int anzahlKnoten|void hintenAnfuegen()]
+~~~
 
 <p class="date">28.9.2010</p>
 
 Und das ganze in Java:
 
-	#highlight java
-	public void hintenEinfuegen(ELEMENT e) {
-		if (naechster == null) {
-			naechster = new KNOTEN(e);
-			// Anzahl der Knoten erhoehen
-		} else {
-			nachster.hintenEinfuegen(e);
-		}
-	}
+~~~
+#highlight java
+public void hintenEinfuegen(ELEMENT e) {
+  if (naechster == null) {
+    naechster = new KNOTEN(e);
+    // Anzahl der Knoten erhoehen
+  } else {
+    nachster.hintenEinfuegen(e);
+  }
+}
+~~~
 
 <p class="date">4.10.2010</p>
 
 Klasse STATIV:
 
-	#highlight java
-	public void vorneEinfuegen(ELEMENT e) {
-		if (erster == null) {
-			erster = new KNOTEN(e);
-		} else {
-			KNOTEN knotenNeu = new KNOTEN(e);
-			knotenNeu.naechsterSetzen(knotenNeu);
-			erster = knotenNeu;
-		}
-	}
-^
-	#highlight java
-	public KNOTEN vorneEntfernen() {
-		if (erster == null) {
-			return null;
-		} else {
-			KNOTEN weg = erster;
-			weg.setzeNaechsten(null);
-			erster = erster.gibNaechsten();
-			return weg;
-		}
-	}
-^
-	#highlight java
-	public KNOTEN knotenGeben(int position) {
-		KNOTEN aktuell = erster;
-		for(int i = 0; i < position; i++) {
-			aktuell = aktuell.gibNaechsten();
-		}
-		return aktuell;
-	}
-^
-	#highlight java
-	public KNOTEN knotenLoeschen(int position) {
-		if (position == 0) {
-			return vorneEntfernen();
-		} else {
-			KNOTEN weg = knotenGeben(position);
-			knotenGeben(position - 1).setzeNaechsten(weg.gibNaechsten);
-			weg.setzeNaechsten(null);
-			return weg;
-		}
-	}
+~~~
+#highlight java
+public void vorneEinfuegen(ELEMENT e) {
+  if (erster == null) {
+    erster = new KNOTEN(e);
+  } else {
+    KNOTEN knotenNeu = new KNOTEN(e);
+    knotenNeu.naechsterSetzen(knotenNeu);
+    erster = knotenNeu;
+  }
+}
+~~~
+
+~~~
+#highlight java
+public KNOTEN vorneEntfernen() {
+  if (erster == null) {
+    return null;
+  } else {
+    KNOTEN weg = erster;
+    weg.setzeNaechsten(null);
+    erster = erster.gibNaechsten();
+    return weg;
+  }
+}
+~~~
+
+~~~
+#highlight java
+public KNOTEN knotenGeben(int position) {
+  KNOTEN aktuell = erster;
+  for(int i = 0; i < position; i++) {
+    aktuell = aktuell.gibNaechsten();
+  }
+  return aktuell;
+}
+~~~
+
+~~~
+#highlight java
+public KNOTEN knotenLoeschen(int position) {
+  if (position == 0) {
+    return vorneEntfernen();
+  } else {
+    KNOTEN weg = knotenGeben(position);
+    knotenGeben(position - 1).setzeNaechsten(weg.gibNaechsten);
+    weg.setzeNaechsten(null);
+    return weg;
+  }
+}
+~~~
 
 <p class="date">5.10.2010</p>
 
@@ -127,66 +148,74 @@ Buch S. 21/6
 
 Eckiges Objektdiagramm:
 
-	#yuml dir:lr
-	[hotelier0{bg:lightblue}]-erster>[knoten0{bg:green}]
-	[knoten0{bg:green}]-enthält>[person0]
-	[knoten0{bg:green}]-nächster>[knoten1{bg:green}]
-	[knoten1{bg:green}]-enthält>[person1]
-	[knoten1{bg:green}]-nächster>[knoten2{bg:green}]
-	[knoten2{bg:green}]-enthält>[person2]
-	[knoten2{bg:green}]-nächster>[knoten3{bg:green}]
-	[knoten3{bg:green}]-enthält>[person3]
-^
-	#yuml dir:lr
-	[PERSON|int gewicht;String name|int gewichtGeben();String nameGeben()]
-	[KNOTEN|KNOTEN naechster;PERSON inhalt|int inhaltGewichtGeben();void inhaltSetzen(PERSON p);KNOTEN naechsterGeben()]
-	[HOTELIER|KNOTEN erster|int gewichtGeben();void ersterSetzen(KNOTEN k)]
+~~~
+#yuml dir:lr
+[hotelier0{bg:lightblue}]-erster>[knoten0{bg:green}]
+[knoten0{bg:green}]-enthält>[person0]
+[knoten0{bg:green}]-nächster>[knoten1{bg:green}]
+[knoten1{bg:green}]-enthält>[person1]
+[knoten1{bg:green}]-nächster>[knoten2{bg:green}]
+[knoten2{bg:green}]-enthält>[person2]
+[knoten2{bg:green}]-nächster>[knoten3{bg:green}]
+[knoten3{bg:green}]-enthält>[person3]
+~~~
+
+~~~
+#yuml dir:lr
+[PERSON|int gewicht;String name|int gewichtGeben();String nameGeben()]
+[KNOTEN|KNOTEN naechster;PERSON inhalt|int inhaltGewichtGeben();void inhaltSetzen(PERSON p);KNOTEN naechsterGeben()]
+[HOTELIER|KNOTEN erster|int gewichtGeben();void ersterSetzen(KNOTEN k)]
+~~~
 
 Sequenzdiagramme:
 
-	#websequencediagram
-	(Benutzer)->stativ0: datenAusgeben()
-	activate stativ0
-	stativ0->knoten1: datenAusgeben()
-	activate knoten1
-	knoten1->element1: datenGeben()
-	activate element1
-	element1-->knoten1: "\"Apfel gruen\""
-	deactivate element1
-	knoten1-->stativ0: "\"Apfel gruen\""
-	deactivate knoten1
-	stativ0->stativ0: Ausgabe mit System.out.println
-	stativ0->knoten1: naechsterGeben()
-	activate knoten1
-	knoten1-->stativ0: knoten2
-	deactivate knoten1
-	stativ0->knoten2: datenAusgeben()
-	activate stativ0
-	activate knoten2
-	knoten2->element2: datenGeben()
-	activate element2
-	element2-->knoten2: "\"Banane gelb\""
-	deactivate element2
-	knoten2-->stativ0: "\"Banane gelb\""
-	deactivate knoten2
-	stativ0->stativ0: Ausgabe mit System.out.println
-	stativ0->knoten2: naechsterGeben()
-	activate knoten2
-	knoten2-->stativ0: null
-	deactivate knoten1
-	deactivate stativ0
-	stativ0-->(Benutzer): ""
+~~~
+#websequencediagram
+(Benutzer)->stativ0: datenAusgeben()
+activate stativ0
+stativ0->knoten1: datenAusgeben()
+activate knoten1
+knoten1->element1: datenGeben()
+activate element1
+element1-->knoten1: "\"Apfel gruen\""
+deactivate element1
+knoten1-->stativ0: "\"Apfel gruen\""
+deactivate knoten1
+stativ0->stativ0: Ausgabe mit System.out.println
+stativ0->knoten1: naechsterGeben()
+activate knoten1
+knoten1-->stativ0: knoten2
+deactivate knoten1
+stativ0->knoten2: datenAusgeben()
+activate stativ0
+activate knoten2
+knoten2->element2: datenGeben()
+activate element2
+element2-->knoten2: "\"Banane gelb\""
+deactivate element2
+knoten2-->stativ0: "\"Banane gelb\""
+deactivate knoten2
+stativ0->stativ0: Ausgabe mit System.out.println
+stativ0->knoten2: naechsterGeben()
+activate knoten2
+knoten2-->stativ0: null
+deactivate knoten1
+deactivate stativ0
+stativ0-->(Benutzer): ""
+~~~
 
 Und in Java:
 
-	#highlight java
-	public void datenAusgeben() {
-		KNOTEN k = this.erster;
-		while(k != null) {
-			System.out.println(k.datenAusgeben());
-			k = k.naechsterGeben();
-		}
-	}
+~~~
+#highlight java
+public void datenAusgeben() {
+  KNOTEN k = this.erster;
+  while(k != null) {
+    System.out.println(k.datenAusgeben());
+    k = k.naechsterGeben();
+  }
+}
+~~~
 
 </div>
 
@@ -210,19 +239,23 @@ In Worten: Die n-te Fibonacci-Zahl ist die Summe ihrer beiden Vorgänger. Die 0-
 
 **Rekursive Funktionen** enthalten in ihrem Funktionsterm mindestens einmal den eigenen Funktionsbezeichner. Ein Funktionsaufruf endet nur dann nach einer endlichen Anzahl von Berechnungsschritten, wenn die Abbruchbedingung erfüllt ist.
 
-	fib(5) = fib(4)          + fib(3)
-	       = fib(3) + fib(2) + fib(2) + fib(1)
-	       …
-	       = 5
-^
-	#highlight java
-	public int fib(int n) {
-		if (n == 0 || n == 1) {
-			return n;
-		} else {
-			return fib(n-1) + fib(n-2);
-		}
-	}
+~~~
+fib(5) = fib(4)          + fib(3)
+       = fib(3) + fib(2) + fib(2) + fib(1)
+       …
+       = 5
+~~~
+
+~~~
+#highlight java
+public int fib(int n) {
+  if (n == 0 || n == 1) {
+    return n;
+  } else {
+    return fib(n-1) + fib(n-2);
+  }
+}
+~~~
 
 <div class="exercise">
 S. 24/3 a)
@@ -256,10 +289,13 @@ oder: A(n) = 1 + 4(n-1)
 
 b)
 
-	A(3) = A(2) + 4  
-	     = A(1) + 4 + 4
-	     = 1 + 4 + 4
-	     = 9
+~~~
+A(3) = A(2) + 4  
+     = A(1) + 4 + 4
+     = 1 + 4 + 4
+     = 9
+~~~
+
 </div>
 
 ### Rekursive Methoden einer Liste
@@ -269,14 +305,16 @@ Rekursive Methoden: Innerhalb der Definition (Methodenrumpf); Aufruf der gleichn
 Bereits bekannt: `hintenEinfuegen(ELEMENT e)`  
 Rekursiver Aufbau in der Klasse KNOTEN:
 
-	#highlight java
-	public void hintenEinfuegen(ELEMENT e) {
-		if (this.naechster != null) {
-			this.naechster.hintenEinfuegen(e);
-		} else {
-			this.naechster = new KNOTEN(e);
-		}
-	}
+~~~
+#highlight java
+public void hintenEinfuegen(ELEMENT e) {
+  if (this.naechster != null) {
+    this.naechster.hintenEinfuegen(e);
+  } else {
+    this.naechster = new KNOTEN(e);
+  }
+}
+~~~
 
 Aufgabe: Implementiere `anzahlKnotenGeben()`!
 
@@ -284,77 +322,87 @@ Aufgabe: Implementiere `anzahlKnotenGeben()`!
 
 STATIV:
 
-	#highlight java
-	public int anzahlKnotenGeben() {
-		KNOTEN aktuell = this.naechster;
-		int zaehler = 0;
-		while (aktuell != null) {
-			zaehler++; // Um eins hochzaehlen
-			aktuell = aktuell.naechsterGeben();
-		}
-		return zaehler;
-	}
-^
-	#websequencediagram
-	(Benutzer)->stativ0: anzahlKnotenGeben()
-	activate stativ0
-	stativ0->stativ0: Zähler erhöhen
-	stativ0->knoten1: naechsterGeben()
-	activate knoten1
-	knoten1-->stativ0: knoten2
-	deactivate knoten1
-	stativ0->stativ0: Zähler erhöhen
-	stativ0->knoten2: naechsterGeben()
-	activate knoten2
-	knoten2-->stativ0: knoten3
-	deactivate knoten2
-	stativ0->stativ0: Zähler erhöhen
-	stativ0->knoten3: naechsterGeben()
-	activate knoten3
-	knoten3-->stativ0: null
-	deactivate knoten3
-	stativ0-->(Benutzer): 3
-	deactivate stativ0
+~~~
+#highlight java
+public int anzahlKnotenGeben() {
+  KNOTEN aktuell = this.naechster;
+  int zaehler = 0;
+  while (aktuell != null) {
+    zaehler++; // Um eins hochzaehlen
+    aktuell = aktuell.naechsterGeben();
+  }
+  return zaehler;
+}
+~~~
+
+~~~
+#websequencediagram
+(Benutzer)->stativ0: anzahlKnotenGeben()
+activate stativ0
+stativ0->stativ0: Zähler erhöhen
+stativ0->knoten1: naechsterGeben()
+activate knoten1
+knoten1-->stativ0: knoten2
+deactivate knoten1
+stativ0->stativ0: Zähler erhöhen
+stativ0->knoten2: naechsterGeben()
+activate knoten2
+knoten2-->stativ0: knoten3
+deactivate knoten2
+stativ0->stativ0: Zähler erhöhen
+stativ0->knoten3: naechsterGeben()
+activate knoten3
+knoten3-->stativ0: null
+deactivate knoten3
+stativ0-->(Benutzer): 3
+deactivate stativ0
+~~~
 
 #### Mit Rekursion
 
 STATIV:
 
-	#highlight java
-	public int anzahlKnotenGeben() {
-		if (this.erster == null) {
-			return 0;
-		}
-		return this.erster.anzahlGeben();
-	}
+~~~
+#highlight java
+public int anzahlKnotenGeben() {
+  if (this.erster == null) {
+    return 0;
+  }
+  return this.erster.anzahlGeben();
+}
+~~~
 
 KNOTEN:
 
-	#highlight java
-	public int anzahlGeben() {
-		if (this.naechster == null) { // Abbruchbedingung
-			return 1;
-		}
-		return this.naechster.anzahlGeben() + 1;
-	}
-^
-	#websequencediagram
-	(Benutzer)->stativ0: anzahlKnotenGeben()
-	activate stativ0
-	stativ0->knoten1: anzahlGeben()
-	activate knoten1
-	knoten1->knoten2: anzahlGeben()
-	activate knoten2
-	knoten2->knoten3: anzahlGeben()
-	activate knoten3
-	knoten3-->knoten2: 1
-	deactivate knoten3
-	knoten2-->knoten1: 2
-	deactivate knoten2
-	knoten1-->stativ0: 3
-	deactivate knoten1
-	stativ0-->(Benutzer): 3
-	deactivate stativ0
+~~~
+#highlight java
+public int anzahlGeben() {
+  if (this.naechster == null) { // Abbruchbedingung
+    return 1;
+  }
+  return this.naechster.anzahlGeben() + 1;
+}
+~~~
+
+~~~
+#websequencediagram
+(Benutzer)->stativ0: anzahlKnotenGeben()
+activate stativ0
+stativ0->knoten1: anzahlGeben()
+activate knoten1
+knoten1->knoten2: anzahlGeben()
+activate knoten2
+knoten2->knoten3: anzahlGeben()
+activate knoten3
+knoten3-->knoten2: 1
+deactivate knoten3
+knoten2-->knoten1: 2
+deactivate knoten2
+knoten1-->stativ0: 3
+deactivate knoten1
+stativ0-->(Benutzer): 3
+deactivate stativ0
+~~~
 
 Das bedeutet:
 
@@ -365,106 +413,130 @@ Das bedeutet:
 
 Objektdiagramm:
 
-	#yuml
-	[stativ0]-erster>[knoten1]
-	[knoten1]-inhalt>[element1]
-	[knoten1]-naechster>[knoten2]
-	[knoten2]-inhalt>[element2]
-	[knoten2]-naechster>[knoten3]
-	[knoten3]-inhalt>[element3]
-	[knoten3]-naechster>[abschluss0]
+~~~
+#yuml
+[stativ0]-erster>[knoten1]
+[knoten1]-inhalt>[element1]
+[knoten1]-naechster>[knoten2]
+[knoten2]-inhalt>[element2]
+[knoten2]-naechster>[knoten3]
+[knoten3]-inhalt>[element3]
+[knoten3]-naechster>[abschluss0]
+~~~
 
 **Vorteil**: Bei Methoden der Klasse `KNOTEN` keine Fallunterscheidung mehr notwendig.  
 **Nachteil**: Zwei Klassen (`DATENKNOTEN` und `ABSCHLUSS`)
 
 STATIV:
 
-	#highlight java
-	public int anzahlKnoten() {
-		return this.erster.anzahlGeben();
-	}
+~~~
+#highlight java
+public int anzahlKnoten() {
+  return this.erster.anzahlGeben();
+}
+~~~
 
 DATENKNOTEN:
 
-	#highlight java
-	public int anzahlGeben() {
-		return this.naechster.anzahlGeben() + 1;
-	}
+~~~
+#highlight java
+public int anzahlGeben() {
+  return this.naechster.anzahlGeben() + 1;
+}
+~~~
 
 ABSCHLUSS:
 
-	#highlight java
-	public int anzahlGeben() {
-		return 0;
-	}
+~~~
+#highlight java
+public int anzahlGeben() {
+  return 0;
+}
+~~~
 
 Klassendiagramm:
 
-	#yuml
-	[note: LISTENELEMENT + ABSCHLUSS + DATENKNOTEN: Kompositum{bg:cornsilk}]
-	[LISTE]<>erster-1>[LISTENELEMENT]
-	[LISTENELEMENT]^-[ABSCHLUSS]
-	[LISTENELEMENT]^-[DATENKNOTEN]
-	[DATENKNOTEN]<>naechster-1>[LISTENELEMENT]
-	[DATENKNOTEN]<>inhalt-1>[DATENELEMENT]
+~~~
+#yuml
+[note: LISTENELEMENT + ABSCHLUSS + DATENKNOTEN: Kompositum{bg:cornsilk}]
+[LISTE]<>erster-1>[LISTENELEMENT]
+[LISTENELEMENT]^-[ABSCHLUSS]
+[LISTENELEMENT]^-[DATENKNOTEN]
+[DATENKNOTEN]<>naechster-1>[LISTENELEMENT]
+[DATENKNOTEN]<>inhalt-1>[DATENELEMENT]
+~~~
 
 <p class="date">19.10.2010</p>
 
-	#highlight java
-	public abstract class LISTENELEMENT {
-		public abstract int anzahlKnoten();
-	}
-	public class DATENKNOTEN extends LISTENELEMENT {
-		...
-	}
+~~~
+#highlight java
+public abstract class LISTENELEMENT {
+  public abstract int anzahlKnoten();
+}
+public class DATENKNOTEN extends LISTENELEMENT {
+  ...
+}
+~~~
 
 <p class="date">25.10.2010</p>
 
 LISTE:
 
-	#highlight java
-	public DATENELEMENT inhaltLetzterGeben() {
-		return this.erster.inhaltLetzterGeben(null);
-	}
+~~~
+#highlight java
+public DATENELEMENT inhaltLetzterGeben() {
+  return this.erster.inhaltLetzterGeben(null);
+}
+~~~
 
 DATENKNOTEN:
 
-	#highlight java
-	public DATENELEMENT inhaltLetzterGeben(DATENELEMENT e) {
-		return this.naechster.inhaltLetzterGeben(this.inhalt);
-	}
+~~~
+#highlight java
+public DATENELEMENT inhaltLetzterGeben(DATENELEMENT e) {
+  return this.naechster.inhaltLetzterGeben(this.inhalt);
+}
+~~~
 
 ABSCHLUSS:
 
-	#highlight java
-	public DATENELEMENT inhaltLetzterGeben(DATENELEMENT e) {
-		return e;
-	}
+~~~
+#highlight java
+public DATENELEMENT inhaltLetzterGeben(DATENELEMENT e) {
+  return e;
+}
+~~~
 
 <p class="date">26.10.2010</p>
 
 LISTE:
 
-	#highlight java
-	public void listendatenAusgeben() {
-		System.out.println("In der Liste ist gespeichert: ");
-		erster.listendatenAusgeben();
-	}
+~~~
+#highlight java
+public void listendatenAusgeben() {
+  System.out.println("In der Liste ist gespeichert: ");
+  erster.listendatenAusgeben();
+}
+~~~
 
 DATENKNOTEN:
 
-	#highlight java
-	public void listendatenAusgeben() {
-		System.out.println(this.inhalt.datenGeben());
-		this.naechster.listendatenAusgeben();
-	}
+~~~
+#highlight java
+public void listendatenAusgeben() {
+  System.out.println(this.inhalt.datenGeben());
+  this.naechster.listendatenAusgeben();
+}
+~~~
 
 ABSCHLUSS:
 
-	#highlight java
-	public void listendatenAusgeben() {
-		// Nichts zu tun ...
-	}
+~~~
+#highlight java
+public void listendatenAusgeben() {
+  // Nichts zu tun ...
+}
+~~~
 
 Weitere Methoden:
 
@@ -481,81 +553,89 @@ Weitere Methoden:
 * Suche nach inhaltLetzter mit inhaltLetzterGeben
 * Datenwert von inhaltLetzter kann der Methode entnehmen übergeben werden
 * Rückgabewert von entnehmen(inhaltLetzter) liefert Inhalt des ehemals letzten Knoten
-^
-	#highlight java
-	class Liste {
-		// ...
-		public Datenelement hintenEntnehmen() {
-			Datenelement inhaltLetzter = erster.inhaltLetzterGeben(erster.inhaltGeben());
-			return entnehmen(inhaltLetzter.datenwertGeben());
-		}
-		
-		public Datenelement entnehmen(String datenwert) {
-			// alten Knoteninhalt festhalten
-			Datenelement alterKnoteninhalt = datenknotenGeben(datenwert).inhaltGeben();
-			erster.entfernen(datenwert);
-			return alterKnoteninhalt; // Knoteninhalt zurueckgeben
-		}
-		
-		public Datenknoten datenknotenGeben(String datenwert) {
-			return this.erster.datenknotenGeben(datenwert);
-		}
-		// ...
-	}
-^
-	#highlight java
-	abstract class Listenelement {
-		// ...
-		public abstract Listenelement entfernen(String suchwert);
-		public abstract Datenelement inhaltLetzterGeben(Datenelement aktInhalt);
-		public abstract Datenknoten datenknotenGeben(String suchwert);
-		// ...
-	}
-^
-	#highlight java
-	public Datenknoten extends Listenelement {
-		// ...
-		public Listenelement entfernen(String suchwert) {
-			// wenn datenwert von inhalt mit suchwert ueberein-
-			// stimmt, soll der Knoten entfernt werden
-			if (this.inhalt.datenwertGeben() == suchwert) {
-				return this.naechster;
-			} else {
-				this.naechster = this.naechster.entfernen(suchwert);
-				return this;
-			}
-		}
-		
-		public Datenelement inhaltLetzterGeben(Datenelement aktInhalt) {
-			return this.naechster.inhaltLetzterGeben(this.inhalt);
-		}
-		
-		public Datenknoten datenknotenGeben(String suchwert) {
-			if (this.inhalt.datenwertGeben() == suchwert) {
-				return this;
-			} else {
-				return this.naechster.datenwertGeben(suchwert);
-			}
-		}
-		// ...
-	}
-^
-	#highlight java
-	public Abschluss extends Listenelement {
-		// ...
-		public Listenelement entfernen(String suchwert) {
-			return this;
-		}
-		
-		public Datenelement inhaltLetzterGeben(Datenelement aktInhalt) {
-			return aktInhalt;
-		}
-		
-		public Datenknoten datenknotenGeben(String suchwert) {
-			return null;
-		}
-		// ...
-	}
+
+~~~
+#highlight java
+class Liste {
+  // ...
+  public Datenelement hintenEntnehmen() {
+    Datenelement inhaltLetzter = erster.inhaltLetzterGeben(erster.inhaltGeben());
+    return entnehmen(inhaltLetzter.datenwertGeben());
+  }
+  
+  public Datenelement entnehmen(String datenwert) {
+    // alten Knoteninhalt festhalten
+    Datenelement alterKnoteninhalt = datenknotenGeben(datenwert).inhaltGeben();
+    erster.entfernen(datenwert);
+    return alterKnoteninhalt; // Knoteninhalt zurueckgeben
+  }
+  
+  public Datenknoten datenknotenGeben(String datenwert) {
+    return this.erster.datenknotenGeben(datenwert);
+  }
+  // ...
+}
+~~~
+
+~~~
+#highlight java
+abstract class Listenelement {
+  // ...
+  public abstract Listenelement entfernen(String suchwert);
+  public abstract Datenelement inhaltLetzterGeben(Datenelement aktInhalt);
+  public abstract Datenknoten datenknotenGeben(String suchwert);
+  // ...
+}
+~~~
+
+~~~
+#highlight java
+public Datenknoten extends Listenelement {
+  // ...
+  public Listenelement entfernen(String suchwert) {
+    // wenn datenwert von inhalt mit suchwert ueberein-
+    // stimmt, soll der Knoten entfernt werden
+    if (this.inhalt.datenwertGeben() == suchwert) {
+      return this.naechster;
+    } else {
+      this.naechster = this.naechster.entfernen(suchwert);
+      return this;
+    }
+  }
+  
+  public Datenelement inhaltLetzterGeben(Datenelement aktInhalt) {
+    return this.naechster.inhaltLetzterGeben(this.inhalt);
+  }
+  
+  public Datenknoten datenknotenGeben(String suchwert) {
+    if (this.inhalt.datenwertGeben() == suchwert) {
+      return this;
+    } else {
+      return this.naechster.datenwertGeben(suchwert);
+    }
+  }
+  // ...
+}
+~~~
+
+~~~
+#highlight java
+public Abschluss extends Listenelement {
+  // ...
+  public Listenelement entfernen(String suchwert) {
+    return this;
+  }
+  
+  public Datenelement inhaltLetzterGeben(Datenelement aktInhalt) {
+    return aktInhalt;
+  }
+  
+  public Datenknoten datenknotenGeben(String suchwert) {
+    return null;
+  }
+  // ...
+}
+~~~
 
 <p class="date">16.11.2010</p>
 
@@ -579,12 +659,14 @@ Klassen:
 * LKW
 * KISTE
 * STAPEL
-^
-	#yuml
-	[BETRIEBSFEST]<>-hat 4>[STAPEL]
-	[BETRIEBSFEST]<>-hat 1>[LKW]
-	[STAPEL]<>-enthält 0..n>[KISTEN]
-	[LKW]<>-enthält 0..n>[KISTEN]
+
+~~~
+#yuml
+[BETRIEBSFEST]<>-hat 4>[STAPEL]
+[BETRIEBSFEST]<>-hat 1>[LKW]
+[STAPEL]<>-enthält 0..n>[KISTEN]
+[LKW]<>-enthält 0..n>[KISTEN]
+~~~
 
 </div>
 
@@ -616,51 +698,61 @@ Wir wollen `sortiertEinfuegen`, `sortiertSuchen` (?), `sortiertEntfernen` (alle 
 
 In DATENKNOTEN:
 
-	#highlight java
-	public DATENKNOTEN sortiertEinfuegen(DATENELEMENT inhaltNeu) {
-		if (inhalt.compare(inhaltNeu)) {
-			DATENKNOTEN k = new DATENKNOTEN(inhaltNeu);
-			k.naechsterSetzen(this);
-			return k;
-		} else {
-			naechster = naechster.sortiertEinfuegen(inhaltNeu);
-			return this;
-		}
-	}
+~~~
+#highlight java
+public DATENKNOTEN sortiertEinfuegen(DATENELEMENT inhaltNeu) {
+  if (inhalt.compare(inhaltNeu)) {
+    DATENKNOTEN k = new DATENKNOTEN(inhaltNeu);
+    k.naechsterSetzen(this);
+    return k;
+  } else {
+    naechster = naechster.sortiertEinfuegen(inhaltNeu);
+    return this;
+  }
+}
+~~~
 
 In ABSCHLUSS:
 
-	#highlight java
-	public DATENKNOTEN sortiertEinfuegen(DATENELEMENT inhaltNeu) {
-		DATENKNOTEN k = new DATENKNOTEN(inhaltNeu);
-		k.naechsterSetzen(this);
-		return k;
-	}
+~~~
+#highlight java
+public DATENKNOTEN sortiertEinfuegen(DATENELEMENT inhaltNeu) {
+  DATENKNOTEN k = new DATENKNOTEN(inhaltNeu);
+  k.naechsterSetzen(this);
+  return k;
+}
+~~~
 
 In DATENELEMENT:
 
-	#highlight java
-	public abstract boolean istKleiner(DATENELEMENT e);
+~~~
+#highlight java
+public abstract boolean istKleiner(DATENELEMENT e);
+~~~
 
 Neue Klasse ANZUG:
 
-	#highlight java
-	class ANZUG extends DATENELEMENT {
-		public boolean istKleiner(DATENELEMENT e) {
-			return groesse < ((ANZUG) e).groesse;
-		}
-	}
+~~~
+#highlight java
+class ANZUG extends DATENELEMENT {
+  public boolean istKleiner(DATENELEMENT e) {
+    return groesse < ((ANZUG) e).groesse;
+  }
+}
+~~~
 
 <p class="date">7.12.2010</p>
 
 ZEITSCHRIFT:
 
-	#highlight java
-	private String name;
-	
-	public boolean istKleiner(DATENELEMENT vg) {
-		return name.compareTo(((ZEITSCHRIFT) vg).name) == -1;
-	}
+~~~
+#highlight java
+private String name;
+
+public boolean istKleiner(DATENELEMENT vg) {
+  return name.compareTo(((ZEITSCHRIFT) vg).name) == -1;
+}
+~~~
 
 <p class="date">14.12.2010</p>
 
@@ -681,52 +773,54 @@ In Binärbäumen hat jedes Objekt also höchstens zwei Nachfolger.
 Wenn alle Knoten eines Binärsbaums ausgegeben werden sollen, so gibt es drei Möglichkeiten:
 
 Preorder
-: Zuerst wird der Datenwert des Knotens ausgegeben, dann rekursiv der linke, dann der rechte Nachfolger.
-
+  ~ Zuerst wird der Datenwert des Knotens ausgegeben, dann rekursiv der linke, dann der rechte Nachfolger.
 Inorder
-: Zuerst wird rekursiv der linke Nachfolger, dann der Datenwert des Knotens, dann der rechte Nachfolger ausgegeben.
-
+  ~ Zuerst wird rekursiv der linke Nachfolger, dann der Datenwert des Knotens, dann der rechte Nachfolger ausgegeben.
 Postorder
-: Zuerst wird der linke und rechte Nachfolger, dann der Datenwert des Knotens ausgegeben.
+  ~ Zuerst wird der linke und rechte Nachfolger, dann der Datenwert des Knotens ausgegeben.
 
 ##### Beispiel
 
-	#yuml dir:td
-	[8]-rechts>[13]
-	[8]-links>[3]
-	[3]-rechts>[2000]
-	[3]-links>[99]
-	[99]-rechts>[5]
-	[99]-links>[1]
-	[2000]-links>[2]
-	[13]-links>[42]
-	[42]-rechts>[7]
-	[42]-links>[4]
+~~~
+#yuml dir:td
+[8]-rechts>[13]
+[8]-links>[3]
+[3]-rechts>[2000]
+[3]-links>[99]
+[99]-rechts>[5]
+[99]-links>[1]
+[2000]-links>[2]
+[13]-links>[42]
+[42]-rechts>[7]
+[42]-links>[4]
+~~~
 
 Preorder
-: 8, 3, 99, 1, 5, 2000, 2, 13, 42, 4, 7
-
+  ~ 8, 3, 99, 1, 5, 2000, 2, 13, 42, 4, 7
 Inorder
-: 1, 99, 5, 3, 2, 2000, 8, 4, 42, 7, 13
-
+  ~ 1, 99, 5, 3, 2, 2000, 8, 4, 42, 7, 13
 Postorder
-: 1, 5, 99, 2, 2000, 3, 4, 7, 42, 13, 8
+  ~ 1, 5, 99, 2, 2000, 3, 4, 7, 42, 13, 8
 
 <p class="date">20.12.2010</p>
 
 Klassendiagramm für einen Binärbaum:
 
-	#yuml
-	[BINAERBAUM]<>wurzel-1>[BAUMELEMENT]
-	[DATENKNOTEN]->[BAUMELEMENT]
-	[ABSCHLUSS]->[BAUMELEMENT]
-	[DATENKNOTEN]<>-2>[BAUMELEMENT]
-	[DATENKNOTEN]<>inhalt-1>[DATENELEMENT]
+~~~
+#yuml
+[BINAERBAUM]<>wurzel-1>[BAUMELEMENT]
+[DATENKNOTEN]->[BAUMELEMENT]
+[ABSCHLUSS]->[BAUMELEMENT]
+[DATENKNOTEN]<>-2>[BAUMELEMENT]
+[DATENKNOTEN]<>inhalt-1>[DATENELEMENT]
+~~~
 
 Baumelement und Datenelement sind abstrakt. In unserem Fall (Aufgabe im Buch) erstellen wir folgende Unterklasse von Datenelement:
 
-	#yuml
-	[TAENZER|Farbe;Geschlecht;Bezeichner]
+~~~
+#yuml
+[TAENZER|Farbe;Geschlecht;Bezeichner]
+~~~
 
 <p class="date">10.1.2010</p>
 
@@ -734,15 +828,19 @@ Preorder ausgeben:
 
 Binaerbaum:
 
-	#highlight java
-	wurzel.datenAusgeben();
+~~~
+#highlight java
+wurzel.datenAusgeben();
+~~~
 
 Datenknoten:
 
-	#highlight java
-	inhalt.datenAusgeben();
-	links.datenAusgeben();
-	rechts.datenAusgeben();
+~~~
+#highlight java
+inhalt.datenAusgeben();
+links.datenAusgeben();
+rechts.datenAusgeben();
+~~~
 
 Abschluss: nichts machen
 
@@ -756,56 +854,62 @@ S. 62 oben
 
 nicht geordnet:
 
-	#yuml dir:td
-	[1]-links>[2]
-	[1]-rechts>[3]
-	[2]-links>[4]
-	[2]-rechts>[6]
-	[4]-links>[5]
-	[4]-rechts>[7]
-	[6]-links>[10]
-	[6]-rechts>[12]
-	[3]-links>[8]
-	[3]-rechts>[9]
-	[8]-links>[14]
-	[8]-rechts>[15]
-	[9]-links>[13]
-	[9]-rechts>[11]
+~~~
+#yuml dir:td
+[1]-links>[2]
+[1]-rechts>[3]
+[2]-links>[4]
+[2]-rechts>[6]
+[4]-links>[5]
+[4]-rechts>[7]
+[6]-links>[10]
+[6]-rechts>[12]
+[3]-links>[8]
+[3]-rechts>[9]
+[8]-links>[14]
+[8]-rechts>[15]
+[9]-links>[13]
+[9]-rechts>[11]
+~~~
 
 Suche nach 13: maximal 15 Vergleiche.
 
 geordnet:
 
-	#yuml dir:td
-	[8]-links>[4]
-	[4]-links>[2]
-	[2]-links>[1]
-	[2]-rechts>[3]
-	[4]-rechts>[6]
-	[6]-links>[5]
-	[6]-links>[7]
-	[8]-rechts>[12]
-	[12]-links>[10]
-	[10]-links>[9]
-	[10]-rechts>[11]
-	[12]-rechts>[14]
-	[14]-links>[13]
-	[14]-rechts>[15]
+~~~
+#yuml dir:td
+[8]-links>[4]
+[4]-links>[2]
+[2]-links>[1]
+[2]-rechts>[3]
+[4]-rechts>[6]
+[6]-links>[5]
+[6]-links>[7]
+[8]-rechts>[12]
+[12]-links>[10]
+[10]-links>[9]
+[10]-rechts>[11]
+[12]-rechts>[14]
+[14]-links>[13]
+[14]-rechts>[15]
+~~~
 
 Suche: maximal 4 Vergleiche
 
 <p class="date">24.1.2010</p>
 
-	funktion baumErzeugen(liste)
-		wenn nicht liste.leer()
-			linkeHaelfte, rechteHaelfte = liste.splitten()
-			knotenNeu = linkeHaelfte.letzterEntnehmen()
-			knotenNeu.naechsterLinks  = baumErzeugen(linkeHaelfte)
-			knotenNeu.naechsterRechts = baumErzeugen(rechteHaelfte)
-			return knotenNeu
-		ende
-		return neuer Abschluss
-	ende
+~~~
+funktion baumErzeugen(liste)
+  wenn nicht liste.leer()
+    linkeHaelfte, rechteHaelfte = liste.splitten()
+    knotenNeu = linkeHaelfte.letzterEntnehmen()
+    knotenNeu.naechsterLinks  = baumErzeugen(linkeHaelfte)
+    knotenNeu.naechsterRechts = baumErzeugen(rechteHaelfte)
+    return knotenNeu
+  ende
+  return neuer Abschluss
+ende
+~~~
 
 <p class="date">7.2.2010</p>
 
@@ -815,31 +919,37 @@ Suche: maximal 4 Vergleiche
 
 Ausgangssituation:
 
-	#yuml
-	[Melone]-links>[Erdbeere]
-	[Melone]-rechts>[Quitte]
-	[Erdbeere]-links>[Abschluss1]
-	[Erdbeere]-rechts>[Abschluss2]
-	[Quitte]-links>[Abschluss3]
-	[Quitte]-rechts>[Abschluss4]
+~~~
+#yuml
+[Melone]-links>[Erdbeere]
+[Melone]-rechts>[Quitte]
+[Erdbeere]-links>[Abschluss1]
+[Erdbeere]-rechts>[Abschluss2]
+[Quitte]-links>[Abschluss3]
+[Quitte]-rechts>[Abschluss4]
+~~~
 
 Nun soll eine Pflaume eingefügt werden.
 
 Schritt 1 (nur der Teil mit der Quitte):
 
-	#yuml
-	[Quitte]-links>[Abschluss3]
-	[Abschluss3]-.->[Pflaume]
-	[Pflaume]-links>[Abschluss3]
-	[Pflaume]-rechts>[Abschluss5]
+~~~
+#yuml
+[Quitte]-links>[Abschluss3]
+[Abschluss3]-.->[Pflaume]
+[Pflaume]-links>[Abschluss3]
+[Pflaume]-rechts>[Abschluss5]
+~~~
 
 Schritt 2:
 
-	#yuml
-	[Quitte]-links>[Pflaume]
-	[Pflaume]-links>[Abschluss3]
-	[Pflaume]-rechts>[Abschluss5]
-	[Quitte]-rechts>[Abschluss4]
+~~~
+#yuml
+[Quitte]-links>[Pflaume]
+[Pflaume]-links>[Abschluss3]
+[Pflaume]-rechts>[Abschluss5]
+[Quitte]-rechts>[Abschluss4]
+~~~
 
 <p class="date">15.3.2010</p>
 
@@ -860,13 +970,13 @@ Sie können die folgenden Formen einnehmen:
 
 ### Adjazenzmatrix
 
-            | Augsb. | Bob. | Inningen | Königsb. | Merching | Mering | Obo.
-----------------------------------------------------------------------------
-Augsburg    | -      | -1   | 7        | 12       | -1       | -1     | -1  
-Bobingen    |        | -    | 5        | 5        | -1       | -1     | 6,5 
-Inningen    |        |      | -        | 8,7      | -1       | -1     | -1  
-Königsbrunn |        |      |          | -        | 10,5     | 9,1    | 4,5 
-Merching    |        |      |          |          | -        | 3      | -1  
-Mering      |        |      |          |          |          | -      | -1  
-Oberottm.   |        |      |          |          |          |        | -   
+              Augsb. Bob. Inningen Königsb. Merching Mering Obo.
+------------ ------- ---- -------- -------- -------- ------ ----
+   Augsburg   -      -1   7        12       -1       -1     -1  
+   Bobingen          -    5        5        -1       -1     6,5 
+   Inningen               -        8,7      -1       -1     -1  
+Königsbrunn                        -        10,5     9,1    4,5 
+   Merching                                 -        3      -1  
+     Mering                                          -      -1  
+  Oberottm.                                                 -   
 

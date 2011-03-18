@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-<title>Informatik Q11 2010/2011</title>
+<title></title>
 <meta charset=utf-8>
 <meta name=author content="Tim Baumann">
 <style>
 * { margin: 0; padding: 0; }
-
 body {
 	font: 15px/22px Georgia, serif;
 	background: #2da653;
@@ -27,7 +25,6 @@ body {
 #index ul {
 	margin-bottom: 0;
 }
-
 h1, h2, h3, h4, h5, h6 { font-family: Helvetica, Arial, sans-serif; line-height: 1.5em; margin: 22px 0 10px; }
 h1 { font-size: 52px; margin: 0 0 15px; }
 h2 { font-size: 38px; }
@@ -36,36 +33,30 @@ h4, h5, h6 { color: #777; }
 h4 { font-size: 22px; }
 h5 { font-size: 18px; }
 h6 { font-size: 15px; }
-
 ul, ol, p, pre, #index, img.diagram, div.exercise, .wsd img, dl {
 	margin-bottom: 18px;
 }
-
 p.date {
 	text-align: right;
 	font-size: 17px;
 	color: #2e62bc;
 }
-
 img.diagram, .wsd img {
 	display: block;
 	margin-left: auto; margin-right: auto;
 	max-width: 100%;
 }
-
 ul, ol {
 	margin-left: 20px;
 }
 ul ul, ul ol, ol ul, ol ol {
 	margin-bottom: 0;
 }
-
 dt, dd {
 	display: block;
 }
 dt { font-weight: bold; }
 dd { padding-left: 17px; }
-
 code, pre {
 	background: #eee;
 	font-weight: bold;
@@ -77,7 +68,6 @@ code {
 pre {
 	padding: 10px;
 }
-
 div.exercise {
 	border: 2px solid #ccc;
 	padding: 8px;
@@ -85,14 +75,12 @@ div.exercise {
 div.exercise > *:last-child {
 	margin-bottom: 0;
 }
-
 a {
 	color: #cd4407;
 }
 a:hover {
 	text-decoration: none;
 }
-
 /* http://github.com/icco/pygments-css/raw/master/borland.css */
 .highlight .hll { background-color: #ffffcc }
 .highlight .c { color: #888888 } /* Comment */
@@ -155,146 +143,134 @@ a:hover {
 .highlight .vi { color: #3333bb } /* Name.Variable.Instance */
 .highlight .il { color: #0000DD; font-weight: bold } /* Literal.Number.Integer.Long */
 </style>
-
 <body>
 <div id=wrapper>
 	<h1 id="informatik-q11-20102011">Informatik Q11 2010/2011</h1>
-
-<p>Verbesserungen bitte an <a href="mailto:tim@timbaumann.info">tim@timbaumann.info</a>.</p>
-
+<p>Verbesserungen bitte an <script type="text/javascript">
+<!--
+h='&#116;&#x69;&#x6d;&#98;&#x61;&#x75;&#x6d;&#x61;&#110;&#110;&#46;&#x69;&#110;&#102;&#x6f;';a='&#64;';n='&#116;&#x69;&#x6d;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'<code>'+e+'</code>'+'<\/'+'a'+'>');
+// -->
+</script><noscript>tim at timbaumann dot info</noscript>.</p>
 <!--<p id="leading">Dies ist mein öffentliches Schulheft im Fach Informatik. Ich hoffe sie sind nützlich für meine Mitschüler und sonst für jeden, der das hier liest. Wie immer gilt: Wer einen Fehler findet, der kann ihn behalten. Lieber wär es mir jedoch, wenn ihr mich einfach in der Schule darauf anspricht. Danken möchte ich noch Frau Huber, meiner Informatiklehrerin für die Erlaubnis, im Unterricht unsere Notebooks benützen zu dürfen.</p>-->
 
-<p class="date">27.9.2010</p>
+<p class="date">
+27.9.2010
+</p>
 
 <h2 id="listen">Listen</h2>
-
 <h3 id="warteschlangen-mit-feld">Warteschlangen mit Feld</h3>
-
 <h4 id="eigenschaften">Eigenschaften</h4>
-
 <ul>
 <li>Länge begrenzt</li>
-  <li>verwendet Feld (Array)</li>
-  <li>
-<a href="http://de.wikipedia.org/wiki/First_In_%E2%80%93_First_Out">FIFO</a> (first in – first out)</li>
-  <li>Zwei Klassen, eine für die Inhalte, eine für Koordination notwendig</li>
-</ul><h4 id="nachteile">Nachteile</h4>
-
+<li>verwendet Feld (Array)</li>
+<li><a href="http://de.wikipedia.org/wiki/First_In_%E2%80%93_First_Out">FIFO</a> (first in – first out)</li>
+<li>Zwei Klassen, eine für die Inhalte, eine für Koordination notwendig</li>
+</ul>
+<h4 id="nachteile">Nachteile</h4>
 <ul>
-<li>Länge des Feldes ist begrenzt, das bedeutet
-    <ul>
+<li>Länge des Feldes ist begrenzt, das bedeutet</li>
 <li>entweder gibt es zu wenig Platz</li>
-      <li>oder Speicherplatz wird verschwendet.</li>
-    </ul>
-</li>
-  <li>Beim Entfernen müssen alle Elemente aufgerückt werden ⇒ schlechte Performance</li>
-</ul><h3 id="einfach-verkettete-listen">Einfach verkettete Listen</h3>
-
+<li>oder Speicherplatz wird verschwendet.</li>
+<li>Beim Entfernen müssen alle Elemente aufgerückt werden ⇒ schlechte Performance</li>
+</ul>
+<h3 id="einfach-verkettete-listen">Einfach verkettete Listen</h3>
 <p>Beispiel: <a href="http://www.youtube.com/watch?v=-Mf3Jc13BpE">Polonaise</a> im Klassenzimmer. Alex, der letzer Mann ist, soll den ersten, Frank, bitten, langsamer zu gehen. Lösung: Alex wendet sich an seinen Vordermann und bittet diesen langsamer zu gehen, wenn dieser der erste ist, oder die ganze Nachricht wiederum an seinen Vordermann weiterzugeben.</p>
-
 <p>Pseudo-Code (mit <a href="http://python.org/">Python</a>-Syntax):</p>
-
 <pre><code>methode langsamer():
-    wenn selbst.vordermann:
-        selbst.vordermann.langsamer()
-    ansonsten:
-        selbst.geschwindigkeit--
+  wenn selbst.vordermann:
+    selbst.vordermann.langsamer()
+  ansonsten:
+    selbst.geschwindigkeit--
 </code></pre>
-
 <p>Objektdiagramm (sich bitte runde Ecken denken!):</p>
-
-<img class="diagram" alt="Klassendiagramm" src="assets/yuml/344c37f13b1269399da9d9d8c166f169.png">
-
+<img class="diagram" alt="Class diagram" src="assets/yuml/45d63e398028f1f08b1988304d980e2d.png">
 <p>Klassendiagramm:</p>
-
-<img class="diagram" alt="Klassendiagramm" src="assets/yuml/4265f76ac602730fbb95a9214678efd0.png">
-<img class="diagram" alt="Klassendiagramm" src="assets/yuml/d5eb8629fed32f89567c0945a50eed7e.png">
-
-<p class="date">28.9.2010</p>
+<img class="diagram" alt="Class diagram" src="assets/yuml/d2c49a9a4e61508ff76263528d21e224.png">
+<img class="diagram" alt="Class diagram" src="assets/yuml/f38b14e494db02618b53e074ad2001af.png">
+<p class="date">
+28.9.2010
+</p>
 
 <p>Und das ganze in Java:</p>
-
-<div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">hintenEinfuegen</span><span class="o">(</span><span class="n">ELEMENT</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">naechster</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">naechster</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KNOTEN</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
-        <span class="c1">// Anzahl der Knoten erhoehen</span>
-    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-        <span class="n">nachster</span><span class="o">.</span><span class="na">hintenEinfuegen</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
-    <span class="o">}</span>
+<div><div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">hintenEinfuegen</span><span class="o">(</span><span class="n">ELEMENT</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">naechster</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">naechster</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KNOTEN</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+    <span class="c1">// Anzahl der Knoten erhoehen</span>
+  <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="n">nachster</span><span class="o">.</span><span class="na">hintenEinfuegen</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+  <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
-
-
-<p class="date">4.10.2010</p>
+</div>
+<p class="date">
+4.10.2010
+</p>
 
 <p>Klasse STATIV:</p>
-
-<div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">vorneEinfuegen</span><span class="o">(</span><span class="n">ELEMENT</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">erster</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">erster</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KNOTEN</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
-    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-        <span class="n">KNOTEN</span> <span class="n">knotenNeu</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KNOTEN</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
-        <span class="n">knotenNeu</span><span class="o">.</span><span class="na">naechsterSetzen</span><span class="o">(</span><span class="n">knotenNeu</span><span class="o">);</span>
-        <span class="n">erster</span> <span class="o">=</span> <span class="n">knotenNeu</span><span class="o">;</span>
-    <span class="o">}</span>
+<div><div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">vorneEinfuegen</span><span class="o">(</span><span class="n">ELEMENT</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">erster</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">erster</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KNOTEN</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+  <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="n">KNOTEN</span> <span class="n">knotenNeu</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KNOTEN</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+    <span class="n">knotenNeu</span><span class="o">.</span><span class="na">naechsterSetzen</span><span class="o">(</span><span class="n">knotenNeu</span><span class="o">);</span>
+    <span class="n">erster</span> <span class="o">=</span> <span class="n">knotenNeu</span><span class="o">;</span>
+  <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
-
-<div class="highlight"><pre><span class="kd">public</span> <span class="n">KNOTEN</span> <span class="nf">vorneEntfernen</span><span class="o">()</span> <span class="o">{</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">erster</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
-    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-        <span class="n">KNOTEN</span> <span class="n">weg</span> <span class="o">=</span> <span class="n">erster</span><span class="o">;</span>
-        <span class="n">weg</span><span class="o">.</span><span class="na">setzeNaechsten</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
-        <span class="n">erster</span> <span class="o">=</span> <span class="n">erster</span><span class="o">.</span><span class="na">gibNaechsten</span><span class="o">();</span>
-        <span class="k">return</span> <span class="n">weg</span><span class="o">;</span>
-    <span class="o">}</span>
+</div>
+<div><div class="highlight"><pre><span class="kd">public</span> <span class="n">KNOTEN</span> <span class="nf">vorneEntfernen</span><span class="o">()</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">erster</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="n">KNOTEN</span> <span class="n">weg</span> <span class="o">=</span> <span class="n">erster</span><span class="o">;</span>
+    <span class="n">weg</span><span class="o">.</span><span class="na">setzeNaechsten</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+    <span class="n">erster</span> <span class="o">=</span> <span class="n">erster</span><span class="o">.</span><span class="na">gibNaechsten</span><span class="o">();</span>
+    <span class="k">return</span> <span class="n">weg</span><span class="o">;</span>
+  <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
-
-<div class="highlight"><pre><span class="kd">public</span> <span class="n">KNOTEN</span> <span class="nf">knotenGeben</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">KNOTEN</span> <span class="n">aktuell</span> <span class="o">=</span> <span class="n">erster</span><span class="o">;</span>
-    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">position</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-        <span class="n">aktuell</span> <span class="o">=</span> <span class="n">aktuell</span><span class="o">.</span><span class="na">gibNaechsten</span><span class="o">();</span>
-    <span class="o">}</span>
-    <span class="k">return</span> <span class="n">aktuell</span><span class="o">;</span>
+</div>
+<div><div class="highlight"><pre><span class="kd">public</span> <span class="n">KNOTEN</span> <span class="nf">knotenGeben</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">KNOTEN</span> <span class="n">aktuell</span> <span class="o">=</span> <span class="n">erster</span><span class="o">;</span>
+  <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">position</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="n">aktuell</span> <span class="o">=</span> <span class="n">aktuell</span><span class="o">.</span><span class="na">gibNaechsten</span><span class="o">();</span>
+  <span class="o">}</span>
+  <span class="k">return</span> <span class="n">aktuell</span><span class="o">;</span>
 <span class="o">}</span>
 </pre></div>
-
-<div class="highlight"><pre><span class="kd">public</span> <span class="n">KNOTEN</span> <span class="nf">knotenLoeschen</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">position</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="nf">vorneEntfernen</span><span class="o">();</span>
-    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-        <span class="n">KNOTEN</span> <span class="n">weg</span> <span class="o">=</span> <span class="n">knotenGeben</span><span class="o">(</span><span class="n">position</span><span class="o">);</span>
-        <span class="n">knotenGeben</span><span class="o">(</span><span class="n">position</span> <span class="o">-</span> <span class="mi">1</span><span class="o">).</span><span class="na">setzeNaechsten</span><span class="o">(</span><span class="n">weg</span><span class="o">.</span><span class="na">gibNaechsten</span><span class="o">);</span>
-        <span class="n">weg</span><span class="o">.</span><span class="na">setzeNaechsten</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
-        <span class="k">return</span> <span class="n">weg</span><span class="o">;</span>
-    <span class="o">}</span>
+</div>
+<div><div class="highlight"><pre><span class="kd">public</span> <span class="n">KNOTEN</span> <span class="nf">knotenLoeschen</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">position</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="nf">vorneEntfernen</span><span class="o">();</span>
+  <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="n">KNOTEN</span> <span class="n">weg</span> <span class="o">=</span> <span class="n">knotenGeben</span><span class="o">(</span><span class="n">position</span><span class="o">);</span>
+    <span class="n">knotenGeben</span><span class="o">(</span><span class="n">position</span> <span class="o">-</span> <span class="mi">1</span><span class="o">).</span><span class="na">setzeNaechsten</span><span class="o">(</span><span class="n">weg</span><span class="o">.</span><span class="na">gibNaechsten</span><span class="o">);</span>
+    <span class="n">weg</span><span class="o">.</span><span class="na">setzeNaechsten</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">weg</span><span class="o">;</span>
+  <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
-
-
-<p class="date">5.10.2010</p>
+</div>
+<p class="date">
+5.10.2010
+</p>
 
 <div class="exercise">
-  <p>Buch S. 21/6</p>
-
-  <p>Eckiges Objektdiagramm:</p>
-
-  <img class="diagram" alt="Klassendiagramm" src="assets/yuml/ad4385c9c176ce53c40b4d7021ee12b2.png">
-  <img class="diagram" alt="Klassendiagramm" src="assets/yuml/242064c1f9ddccb153f754af3d8ffc6c.png">
-
-  <p>Sequenzdiagramme:</p>
-
-  <pre class="websequencediagram">(Benutzer)-&gt;stativ0: datenAusgeben()
+<p>Buch S. 21/6</p>
+<p>Eckiges Objektdiagramm:</p>
+<img class="diagram" alt="Class diagram" src="assets/yuml/777679767574ac2a0da7e08d07d3e487.png">
+<img class="diagram" alt="Class diagram" src="assets/yuml/81ff32fbedb2129506c2aba336c6d353.png">
+<p>Sequenzdiagramme:</p>
+<pre class="websequencediagram">(Benutzer)-&gt;stativ0: datenAusgeben()
 activate stativ0
 stativ0-&gt;knoten1: datenAusgeben()
 activate knoten1
 knoten1-&gt;element1: datenGeben()
 activate element1
-element1--&gt;knoten1: "\"Apfel gruen\""
+element1--&gt;knoten1: &quot;\&quot;Apfel gruen\&quot;&quot;
 deactivate element1
-knoten1--&gt;stativ0: "\"Apfel gruen\""
+knoten1--&gt;stativ0: &quot;\&quot;Apfel gruen\&quot;&quot;
 deactivate knoten1
 stativ0-&gt;stativ0: Ausgabe mit System.out.println
 stativ0-&gt;knoten1: naechsterGeben()
@@ -306,9 +282,9 @@ activate stativ0
 activate knoten2
 knoten2-&gt;element2: datenGeben()
 activate element2
-element2--&gt;knoten2: "\"Banane gelb\""
+element2--&gt;knoten2: &quot;\&quot;Banane gelb\&quot;&quot;
 deactivate element2
-knoten2--&gt;stativ0: "\"Banane gelb\""
+knoten2--&gt;stativ0: &quot;\&quot;Banane gelb\&quot;&quot;
 deactivate knoten2
 stativ0-&gt;stativ0: Ausgabe mit System.out.println
 stativ0-&gt;knoten2: naechsterGeben()
@@ -316,90 +292,59 @@ activate knoten2
 knoten2--&gt;stativ0: null
 deactivate knoten1
 deactivate stativ0
-stativ0--&gt;(Benutzer): ""</pre>
-
-  <p>Und in Java:</p>
-
-  <div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">datenAusgeben</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">KNOTEN</span> <span class="n">k</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">erster</span><span class="o">;</span>
-    <span class="k">while</span><span class="o">(</span><span class="n">k</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">k</span><span class="o">.</span><span class="na">datenAusgeben</span><span class="o">());</span>
-        <span class="n">k</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="na">naechsterGeben</span><span class="o">();</span>
-    <span class="o">}</span>
+stativ0--&gt;(Benutzer): &quot;&quot;
+</pre>
+<p>Und in Java:</p>
+<div><div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">datenAusgeben</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">KNOTEN</span> <span class="n">k</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">erster</span><span class="o">;</span>
+  <span class="k">while</span><span class="o">(</span><span class="n">k</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">k</span><span class="o">.</span><span class="na">datenAusgeben</span><span class="o">());</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="na">naechsterGeben</span><span class="o">();</span>
+  <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
-
-
+</div>
 </div>
 
+
 <h3 id="rekursive-funktionen">Rekursive Funktionen</h3>
-
-<h4 id="beispiel-die-fibonacci-folgehttpdewikipediaorgwikifibonacci-folge">Beispiel: Die <a href="http://de.wikipedia.org/wiki/Fibonacci-Folge">Fibonacci-Folge</a>
-</h4>
-
-<p>A(0) = 0<br>
-A(1) = 1<br>
-A(2) = 1 = 0 + 1<br>
-A(3) = 2 = 1 + 1<br>
-A(4) = 3 = 1 + 2<br>
-A(5) = 5 = 2 + 3<br>
-A(6) = 8 = 3 + 5<br>
-fib(n) = fib(n-2) + fib(n-1)</p>
-
+<h4 id="beispiel-die-fibonacci-folge">Beispiel: Die <a href="http://de.wikipedia.org/wiki/Fibonacci-Folge">Fibonacci-Folge</a></h4>
+<p>A(0) = 0<br>A(1) = 1<br>A(2) = 1 = 0 + 1<br>A(3) = 2 = 1 + 1<br>A(4) = 3 = 1 + 2<br>A(5) = 5 = 2 + 3<br>A(6) = 8 = 3 + 5<br>fib(n) = fib(n-2) + fib(n-1)</p>
 <p>In Worten: Die n-te Fibonacci-Zahl ist die Summe ihrer beiden Vorgänger. Die 0-te Fibonacci-Zahl ist 0, die 1-te 1.</p>
-
 <h4 id="definition">Definition</h4>
-
 <p><strong>Rekursive Funktionen</strong> enthalten in ihrem Funktionsterm mindestens einmal den eigenen Funktionsbezeichner. Ein Funktionsaufruf endet nur dann nach einer endlichen Anzahl von Berechnungsschritten, wenn die Abbruchbedingung erfüllt ist.</p>
-
 <pre><code>fib(5) = fib(4)          + fib(3)
        = fib(3) + fib(2) + fib(2) + fib(1)
        …
        = 5
 </code></pre>
-<div class="highlight"><pre><span class="kd">public</span> <span class="kt">int</span> <span class="nf">fib</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">n</span><span class="o">;</span>
-    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="nf">fib</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="n">fib</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="o">);</span>
-    <span class="o">}</span>
+<div><div class="highlight"><pre><span class="kd">public</span> <span class="kt">int</span> <span class="nf">fib</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">n</span><span class="o">;</span>
+  <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="nf">fib</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="n">fib</span><span class="o">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="o">);</span>
+  <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
-
-
+</div>
 <div class="exercise">
-  <p>S. 24/3 a)</p>
-
-  <p>A(0) = 300<br>
-A(1) = 300 + 300 * 0,2 = 360<br>
-A(2) = 360 + 360 * 0,2 = 432</p>
-
-  <p>Allgemein:<br>
-A(t) = A(t-1) + A(t-1) * 0,2 = A(t-1) * 1,2</p>
-
-  <p>Abbruchbedingung:<br>
-A(0) = 300</p>
+<p>S. 24/3 a)</p>
+<p>A(0) = 300<br>A(1) = 300 + 300 * 0,2 = 360<br>A(2) = 360 + 360 * 0,2 = 432</p>
+<p>Allgemein:<br>A(t) = A(t-1) + A(t-1) * 0,2 = A(t-1) * 1,2</p>
+Abbruchbedingung:<br>A(0) = 300
 </div>
 
-<p class="date">18.10.2010</p>
+<p class="date">
+18.10.2010
+</p>
 
 <div class="exercise">
-  <p>Buch S. 25/5 a)</p>
-
-  <p>A(3) = 9<br>
-A(2) = 5<br>
-A(1) = 1  </p>
-
-  <p>Allgemein:<br>
-A(n) = A(n-1) + 4, n &gt; 1<br>
-Abbruchbedingung:<br>
-A(1) = 1</p>
-
-  <p>oder: A(n) = 1 + 4(n-1)</p>
-
-  <p>b)</p>
-
-  <pre><code>A(3) = A(2) + 4  
+<p>Buch S. 25/5 a)</p>
+<p>A(3) = 9<br>A(2) = 5<br>A(1) = 1</p>
+<p>Allgemein:<br>A(n) = A(n-1) + 4, n &gt; 1<br>Abbruchbedingung:<br>A(1) = 1</p>
+<p>oder: A(n) = 1 + 4(n-1)</p>
+<p>b)</p>
+<pre><code>A(3) = A(2) + 4  
      = A(1) + 4 + 4
      = 1 + 4 + 4
      = 9
@@ -407,39 +352,30 @@ A(1) = 1</p>
 </div>
 
 <h3 id="rekursive-methoden-einer-liste">Rekursive Methoden einer Liste</h3>
-
-<p>Rekursive Funktionen: im Funktionsterm steht mindestens ein Mal der eigene Funktionsbezeichner<br>
-Rekursive Methoden: Innerhalb der Definition (Methodenrumpf); Aufruf der gleichnamigen Methode eines referenzierten Objekts<br>
-Bereits bekannt: <code>hintenEinfuegen(ELEMENT e)</code><br>
-Rekursiver Aufbau in der Klasse KNOTEN:</p>
-
-<div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">hintenEinfuegen</span><span class="o">(</span><span class="n">ELEMENT</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">naechster</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">.</span><span class="na">hintenEinfuegen</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
-    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">naechster</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KNOTEN</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
-    <span class="o">}</span>
+<p>Rekursive Funktionen: im Funktionsterm steht mindestens ein Mal der eigene Funktionsbezeichner<br>Rekursive Methoden: Innerhalb der Definition (Methodenrumpf); Aufruf der gleichnamigen Methode eines referenzierten Objekts<br>Bereits bekannt: <code>hintenEinfuegen(ELEMENT e)</code><br>Rekursiver Aufbau in der Klasse KNOTEN:</p>
+<div><div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">hintenEinfuegen</span><span class="o">(</span><span class="n">ELEMENT</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">naechster</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">.</span><span class="na">hintenEinfuegen</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+  <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">naechster</span> <span class="o">=</span> <span class="k">new</span> <span class="n">KNOTEN</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+  <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
-
-
+</div>
 <p>Aufgabe: Implementiere <code>anzahlKnotenGeben()</code>!</p>
-
 <h4 id="ohne-rekursion">Ohne Rekursion</h4>
-
 <p>STATIV:</p>
-
-<div class="highlight"><pre><span class="kd">public</span> <span class="kt">int</span> <span class="nf">anzahlKnotenGeben</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">KNOTEN</span> <span class="n">aktuell</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">;</span>
-    <span class="kt">int</span> <span class="n">zaehler</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-    <span class="k">while</span> <span class="o">(</span><span class="n">aktuell</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">zaehler</span><span class="o">++;</span> <span class="c1">// Um eins hochzaehlen</span>
-        <span class="n">aktuell</span> <span class="o">=</span> <span class="n">aktuell</span><span class="o">.</span><span class="na">naechsterGeben</span><span class="o">();</span>
-    <span class="o">}</span>
-    <span class="k">return</span> <span class="n">zaehler</span><span class="o">;</span>
+<div><div class="highlight"><pre><span class="kd">public</span> <span class="kt">int</span> <span class="nf">anzahlKnotenGeben</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">KNOTEN</span> <span class="n">aktuell</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">;</span>
+  <span class="kt">int</span> <span class="n">zaehler</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+  <span class="k">while</span> <span class="o">(</span><span class="n">aktuell</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">zaehler</span><span class="o">++;</span> <span class="c1">// Um eins hochzaehlen</span>
+    <span class="n">aktuell</span> <span class="o">=</span> <span class="n">aktuell</span><span class="o">.</span><span class="na">naechsterGeben</span><span class="o">();</span>
+  <span class="o">}</span>
+  <span class="k">return</span> <span class="n">zaehler</span><span class="o">;</span>
 <span class="o">}</span>
 </pre></div>
-
+</div>
 <pre class="websequencediagram">(Benutzer)-&gt;stativ0: anzahlKnotenGeben()
 activate stativ0
 stativ0-&gt;stativ0: Zähler erhöhen
@@ -458,31 +394,27 @@ activate knoten3
 knoten3--&gt;stativ0: null
 deactivate knoten3
 stativ0--&gt;(Benutzer): 3
-deactivate stativ0</pre>
-
+deactivate stativ0
+</pre>
 <h4 id="mit-rekursion">Mit Rekursion</h4>
-
 <p>STATIV:</p>
-
-<div class="highlight"><pre><span class="kd">public</span> <span class="kt">int</span> <span class="nf">anzahlKnotenGeben</span><span class="o">()</span> <span class="o">{</span>
-    <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">erster</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">erster</span><span class="o">.</span><span class="na">anzahlGeben</span><span class="o">();</span>
+<div><div class="highlight"><pre><span class="kd">public</span> <span class="kt">int</span> <span class="nf">anzahlKnotenGeben</span><span class="o">()</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">erster</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+  <span class="o">}</span>
+  <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">erster</span><span class="o">.</span><span class="na">anzahlGeben</span><span class="o">();</span>
 <span class="o">}</span>
 </pre></div>
-
-
+</div>
 <p>KNOTEN:</p>
-
-<div class="highlight"><pre><span class="kd">public</span> <span class="kt">int</span> <span class="nf">anzahlGeben</span><span class="o">()</span> <span class="o">{</span>
-    <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">naechster</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// Abbruchbedingung</span>
-        <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">.</span><span class="na">anzahlGeben</span><span class="o">()</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+<div><div class="highlight"><pre><span class="kd">public</span> <span class="kt">int</span> <span class="nf">anzahlGeben</span><span class="o">()</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">naechster</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// Abbruchbedingung</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+  <span class="o">}</span>
+  <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">.</span><span class="na">anzahlGeben</span><span class="o">()</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
 <span class="o">}</span>
 </pre></div>
-
+</div>
 <pre class="websequencediagram">(Benutzer)-&gt;stativ0: anzahlKnotenGeben()
 activate stativ0
 stativ0-&gt;knoten1: anzahlGeben()
@@ -498,445 +430,493 @@ deactivate knoten2
 knoten1--&gt;stativ0: 3
 deactivate knoten1
 stativ0--&gt;(Benutzer): 3
-deactivate stativ0</pre>
-
+deactivate stativ0
+</pre>
 <p>Das bedeutet:</p>
-
 <ul>
-<li>Jeder Knoten muss überprüfen, ob er der letzte ist  </li>
-  <li>Alle Knoten verhalten sich gleich <strong>außer</strong> der letzte</li>
-</ul><p>⇒ Verwende eine kleine Kugel, die keinen Inhalt haben kann und hänge sie an den letzten Korb (Knoten).</p>
-
+<li>Jeder Knoten muss überprüfen, ob er der letzte ist<br></li>
+<li>Alle Knoten verhalten sich gleich <strong>außer</strong> der letzte</li>
+</ul>
+<p>⇒ Verwende eine kleine Kugel, die keinen Inhalt haben kann und hänge sie an den letzten Korb (Knoten).</p>
 <p>Objektdiagramm:</p>
-
-<img class="diagram" alt="Klassendiagramm" src="assets/yuml/d225439168483b46c6294de62aa6f5d4.png">
-
+<img class="diagram" alt="Class diagram" src="assets/yuml/104539ad5e9f7e6cc47bdd7b05ba3ea3.png">
 <p><strong>Vorteil</strong>: Bei Methoden der Klasse <code>KNOTEN</code> keine Fallunterscheidung mehr notwendig.<br><strong>Nachteil</strong>: Zwei Klassen (<code>DATENKNOTEN</code> und <code>ABSCHLUSS</code>)</p>
-
 <p>STATIV:</p>
-
-<div class="highlight"><pre><span class="kd">public</span> <span class="kt">int</span> <span class="nf">anzahlKnoten</span><span class="o">()</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">erster</span><span class="o">.</span><span class="na">anzahlGeben</span><span class="o">();</span>
+<div><div class="highlight"><pre><span class="kd">public</span> <span class="kt">int</span> <span class="nf">anzahlKnoten</span><span class="o">()</span> <span class="o">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">erster</span><span class="o">.</span><span class="na">anzahlGeben</span><span class="o">();</span>
 <span class="o">}</span>
 </pre></div>
-
-
+</div>
 <p>DATENKNOTEN:</p>
-
-<div class="highlight"><pre><span class="kd">public</span> <span class="kt">int</span> <span class="nf">anzahlGeben</span><span class="o">()</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">.</span><span class="na">anzahlGeben</span><span class="o">()</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+<div><div class="highlight"><pre><span class="kd">public</span> <span class="kt">int</span> <span class="nf">anzahlGeben</span><span class="o">()</span> <span class="o">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">.</span><span class="na">anzahlGeben</span><span class="o">()</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
 <span class="o">}</span>
 </pre></div>
-
-
+</div>
 <p>ABSCHLUSS:</p>
-
-<div class="highlight"><pre><span class="kd">public</span> <span class="kt">int</span> <span class="nf">anzahlGeben</span><span class="o">()</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+<div><div class="highlight"><pre><span class="kd">public</span> <span class="kt">int</span> <span class="nf">anzahlGeben</span><span class="o">()</span> <span class="o">{</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
 <span class="o">}</span>
 </pre></div>
-
-
+</div>
 <p>Klassendiagramm:</p>
+<img class="diagram" alt="Class diagram" src="assets/yuml/41c147e6735ce8818024c819a32724a4.png">
+<p class="date">
+19.10.2010
+</p>
 
-<img class="diagram" alt="Klassendiagramm" src="assets/yuml/34417d955d3019b96f81286bfd9a8862.png">
-
-<p class="date">19.10.2010</p>
-
-<div class="highlight"><pre><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">LISTENELEMENT</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">int</span> <span class="nf">anzahlKnoten</span><span class="o">();</span>
+<div><div class="highlight"><pre><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">LISTENELEMENT</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">int</span> <span class="nf">anzahlKnoten</span><span class="o">();</span>
 <span class="o">}</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">DATENKNOTEN</span> <span class="kd">extends</span> <span class="n">LISTENELEMENT</span> <span class="o">{</span>
-    <span class="o">...</span>
+  <span class="o">...</span>
 <span class="o">}</span>
 </pre></div>
-
-
-<p class="date">25.10.2010</p>
+</div>
+<p class="date">
+25.10.2010
+</p>
 
 <p>LISTE:</p>
-
-<div class="highlight"><pre><span class="kd">public</span> <span class="n">DATENELEMENT</span> <span class="nf">inhaltLetzterGeben</span><span class="o">()</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">erster</span><span class="o">.</span><span class="na">inhaltLetzterGeben</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+<div><div class="highlight"><pre><span class="kd">public</span> <span class="n">DATENELEMENT</span> <span class="nf">inhaltLetzterGeben</span><span class="o">()</span> <span class="o">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">erster</span><span class="o">.</span><span class="na">inhaltLetzterGeben</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
 <span class="o">}</span>
 </pre></div>
-
-
+</div>
 <p>DATENKNOTEN:</p>
-
-<div class="highlight"><pre><span class="kd">public</span> <span class="n">DATENELEMENT</span> <span class="nf">inhaltLetzterGeben</span><span class="o">(</span><span class="n">DATENELEMENT</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">.</span><span class="na">inhaltLetzterGeben</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">inhalt</span><span class="o">);</span>
+<div><div class="highlight"><pre><span class="kd">public</span> <span class="n">DATENELEMENT</span> <span class="nf">inhaltLetzterGeben</span><span class="o">(</span><span class="n">DATENELEMENT</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">.</span><span class="na">inhaltLetzterGeben</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">inhalt</span><span class="o">);</span>
 <span class="o">}</span>
 </pre></div>
-
-
+</div>
 <p>ABSCHLUSS:</p>
-
-<div class="highlight"><pre><span class="kd">public</span> <span class="n">DATENELEMENT</span> <span class="nf">inhaltLetzterGeben</span><span class="o">(</span><span class="n">DATENELEMENT</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="n">e</span><span class="o">;</span>
+<div><div class="highlight"><pre><span class="kd">public</span> <span class="n">DATENELEMENT</span> <span class="nf">inhaltLetzterGeben</span><span class="o">(</span><span class="n">DATENELEMENT</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">return</span> <span class="n">e</span><span class="o">;</span>
 <span class="o">}</span>
 </pre></div>
-
-
-<p class="date">26.10.2010</p>
+</div>
+<p class="date">
+26.10.2010
+</p>
 
 <p>LISTE:</p>
-
-<div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">listendatenAusgeben</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"In der Liste ist gespeichert: "</span><span class="o">);</span>
-    <span class="n">erster</span><span class="o">.</span><span class="na">listendatenAusgeben</span><span class="o">();</span>
+<div><div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">listendatenAusgeben</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">quot</span><span class="o">;</span><span class="n">In</span> <span class="n">der</span> <span class="n">Liste</span> <span class="n">ist</span> <span class="nl">gespeichert:</span> <span class="o">&amp;</span><span class="n">quot</span><span class="o">;);</span>
+  <span class="n">erster</span><span class="o">.</span><span class="na">listendatenAusgeben</span><span class="o">();</span>
 <span class="o">}</span>
 </pre></div>
-
-
+</div>
 <p>DATENKNOTEN:</p>
-
-<div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">listendatenAusgeben</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">inhalt</span><span class="o">.</span><span class="na">datenGeben</span><span class="o">());</span>
-    <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">.</span><span class="na">listendatenAusgeben</span><span class="o">();</span>
+<div><div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">listendatenAusgeben</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">inhalt</span><span class="o">.</span><span class="na">datenGeben</span><span class="o">());</span>
+  <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">.</span><span class="na">listendatenAusgeben</span><span class="o">();</span>
 <span class="o">}</span>
 </pre></div>
-
-
+</div>
 <p>ABSCHLUSS:</p>
-
-<div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">listendatenAusgeben</span><span class="o">()</span> <span class="o">{</span>
-    <span class="c1">// Nichts zu tun ...</span>
+<div><div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">listendatenAusgeben</span><span class="o">()</span> <span class="o">{</span>
+  <span class="c1">// Nichts zu tun ...</span>
 <span class="o">}</span>
 </pre></div>
-
-
+</div>
 <p>Weitere Methoden:</p>
-
 <ul>
 <li><code>vorneEinfuegen()</code></li>
-  <li><code>vorneEntfernen()</code></li>
-  <li><code>hintenEntfernen()</code></li>
-  <li><code>datenknotenGeben(String datenwert)</code></li>
-</ul><p class="date">8.11.2010</p>
+<li><code>vorneEntfernen()</code></li>
+<li><code>hintenEntfernen()</code></li>
+<li><code>datenknotenGeben(String datenwert)</code></li>
+</ul>
+<p class="date">
+8.11.2010
+</p>
 
 <h4 id="die-methode-hintenentnehmen-der-einfach-verketteten-liste">Die Methode <code>hintenEntnehmen</code> der einfach verketteten Liste:</h4>
-
 <ul>
 <li>Inhalt des letzten Knoten wird für entnehmen benötigt</li>
-  <li>Suche nach inhaltLetzter mit inhaltLetzterGeben</li>
-  <li>Datenwert von inhaltLetzter kann der Methode entnehmen übergeben werden</li>
-  <li>Rückgabewert von entnehmen(inhaltLetzter) liefert Inhalt des ehemals letzten Knoten</li>
-</ul><div class="highlight"><pre><span class="kd">class</span> <span class="nc">Liste</span> <span class="o">{</span>
-    <span class="c1">// ...</span>
-    <span class="kd">public</span> <span class="n">Datenelement</span> <span class="nf">hintenEntnehmen</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">Datenelement</span> <span class="n">inhaltLetzter</span> <span class="o">=</span> <span class="n">erster</span><span class="o">.</span><span class="na">inhaltLetzterGeben</span><span class="o">(</span><span class="n">erster</span><span class="o">.</span><span class="na">inhaltGeben</span><span class="o">());</span>
-        <span class="k">return</span> <span class="nf">entnehmen</span><span class="o">(</span><span class="n">inhaltLetzter</span><span class="o">.</span><span class="na">datenwertGeben</span><span class="o">());</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="n">Datenelement</span> <span class="nf">entnehmen</span><span class="o">(</span><span class="n">String</span> <span class="n">datenwert</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// alten Knoteninhalt festhalten</span>
-        <span class="n">Datenelement</span> <span class="n">alterKnoteninhalt</span> <span class="o">=</span> <span class="n">datenknotenGeben</span><span class="o">(</span><span class="n">datenwert</span><span class="o">).</span><span class="na">inhaltGeben</span><span class="o">();</span>
-        <span class="n">erster</span><span class="o">.</span><span class="na">entfernen</span><span class="o">(</span><span class="n">datenwert</span><span class="o">);</span>
-        <span class="k">return</span> <span class="n">alterKnoteninhalt</span><span class="o">;</span> <span class="c1">// Knoteninhalt zurueckgeben</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="n">Datenknoten</span> <span class="nf">datenknotenGeben</span><span class="o">(</span><span class="n">String</span> <span class="n">datenwert</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">erster</span><span class="o">.</span><span class="na">datenknotenGeben</span><span class="o">(</span><span class="n">datenwert</span><span class="o">);</span>
-    <span class="o">}</span>
-    <span class="c1">// ...</span>
+<li>Suche nach inhaltLetzter mit inhaltLetzterGeben</li>
+<li>Datenwert von inhaltLetzter kann der Methode entnehmen übergeben werden</li>
+<li>Rückgabewert von entnehmen(inhaltLetzter) liefert Inhalt des ehemals letzten Knoten</li>
+</ul>
+<div><div class="highlight"><pre><span class="kd">class</span> <span class="nc">Liste</span> <span class="o">{</span>
+  <span class="c1">// ...</span>
+  <span class="kd">public</span> <span class="n">Datenelement</span> <span class="nf">hintenEntnehmen</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">Datenelement</span> <span class="n">inhaltLetzter</span> <span class="o">=</span> <span class="n">erster</span><span class="o">.</span><span class="na">inhaltLetzterGeben</span><span class="o">(</span><span class="n">erster</span><span class="o">.</span><span class="na">inhaltGeben</span><span class="o">());</span>
+    <span class="k">return</span> <span class="nf">entnehmen</span><span class="o">(</span><span class="n">inhaltLetzter</span><span class="o">.</span><span class="na">datenwertGeben</span><span class="o">());</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="n">Datenelement</span> <span class="nf">entnehmen</span><span class="o">(</span><span class="n">String</span> <span class="n">datenwert</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// alten Knoteninhalt festhalten</span>
+    <span class="n">Datenelement</span> <span class="n">alterKnoteninhalt</span> <span class="o">=</span> <span class="n">datenknotenGeben</span><span class="o">(</span><span class="n">datenwert</span><span class="o">).</span><span class="na">inhaltGeben</span><span class="o">();</span>
+    <span class="n">erster</span><span class="o">.</span><span class="na">entfernen</span><span class="o">(</span><span class="n">datenwert</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">alterKnoteninhalt</span><span class="o">;</span> <span class="c1">// Knoteninhalt zurueckgeben</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="n">Datenknoten</span> <span class="nf">datenknotenGeben</span><span class="o">(</span><span class="n">String</span> <span class="n">datenwert</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">erster</span><span class="o">.</span><span class="na">datenknotenGeben</span><span class="o">(</span><span class="n">datenwert</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="c1">// ...</span>
 <span class="o">}</span>
 </pre></div>
-
-<div class="highlight"><pre><span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Listenelement</span> <span class="o">{</span>
-    <span class="c1">// ...</span>
-    <span class="kd">public</span> <span class="kd">abstract</span> <span class="n">Listenelement</span> <span class="nf">entfernen</span><span class="o">(</span><span class="n">String</span> <span class="n">suchwert</span><span class="o">);</span>
-    <span class="kd">public</span> <span class="kd">abstract</span> <span class="n">Datenelement</span> <span class="nf">inhaltLetzterGeben</span><span class="o">(</span><span class="n">Datenelement</span> <span class="n">aktInhalt</span><span class="o">);</span>
-    <span class="kd">public</span> <span class="kd">abstract</span> <span class="n">Datenknoten</span> <span class="nf">datenknotenGeben</span><span class="o">(</span><span class="n">String</span> <span class="n">suchwert</span><span class="o">);</span>
-    <span class="c1">// ...</span>
+</div>
+<div><div class="highlight"><pre><span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Listenelement</span> <span class="o">{</span>
+  <span class="c1">// ...</span>
+  <span class="kd">public</span> <span class="kd">abstract</span> <span class="n">Listenelement</span> <span class="nf">entfernen</span><span class="o">(</span><span class="n">String</span> <span class="n">suchwert</span><span class="o">);</span>
+  <span class="kd">public</span> <span class="kd">abstract</span> <span class="n">Datenelement</span> <span class="nf">inhaltLetzterGeben</span><span class="o">(</span><span class="n">Datenelement</span> <span class="n">aktInhalt</span><span class="o">);</span>
+  <span class="kd">public</span> <span class="kd">abstract</span> <span class="n">Datenknoten</span> <span class="nf">datenknotenGeben</span><span class="o">(</span><span class="n">String</span> <span class="n">suchwert</span><span class="o">);</span>
+  <span class="c1">// ...</span>
 <span class="o">}</span>
 </pre></div>
+</div>
+<div><div class="highlight"><pre><span class="kd">public</span> <span class="n">Datenknoten</span> <span class="kd">extends</span> <span class="n">Listenelement</span> <span class="o">{</span>
+  <span class="c1">// ...</span>
+  <span class="kd">public</span> <span class="n">Listenelement</span> <span class="nf">entfernen</span><span class="o">(</span><span class="n">String</span> <span class="n">suchwert</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// wenn datenwert von inhalt mit suchwert ueberein-</span>
+    <span class="c1">// stimmt, soll der Knoten entfernt werden</span>
+    <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">inhalt</span><span class="o">.</span><span class="na">datenwertGeben</span><span class="o">()</span> <span class="o">==</span> <span class="n">suchwert</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">naechster</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">.</span><span class="na">entfernen</span><span class="o">(</span><span class="n">suchwert</span><span class="o">);</span>
+      <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
 
-<div class="highlight"><pre><span class="kd">public</span> <span class="n">Datenknoten</span> <span class="kd">extends</span> <span class="n">Listenelement</span> <span class="o">{</span>
-    <span class="c1">// ...</span>
-    <span class="kd">public</span> <span class="n">Listenelement</span> <span class="nf">entfernen</span><span class="o">(</span><span class="n">String</span> <span class="n">suchwert</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// wenn datenwert von inhalt mit suchwert ueberein-</span>
-        <span class="c1">// stimmt, soll der Knoten entfernt werden</span>
-        <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">inhalt</span><span class="o">.</span><span class="na">datenwertGeben</span><span class="o">()</span> <span class="o">==</span> <span class="n">suchwert</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">;</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-            <span class="k">this</span><span class="o">.</span><span class="na">naechster</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">.</span><span class="na">entfernen</span><span class="o">(</span><span class="n">suchwert</span><span class="o">);</span>
-            <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
-        <span class="o">}</span>
+  <span class="kd">public</span> <span class="n">Datenelement</span> <span class="nf">inhaltLetzterGeben</span><span class="o">(</span><span class="n">Datenelement</span> <span class="n">aktInhalt</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">.</span><span class="na">inhaltLetzterGeben</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">inhalt</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="n">Datenknoten</span> <span class="nf">datenknotenGeben</span><span class="o">(</span><span class="n">String</span> <span class="n">suchwert</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">inhalt</span><span class="o">.</span><span class="na">datenwertGeben</span><span class="o">()</span> <span class="o">==</span> <span class="n">suchwert</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">.</span><span class="na">datenwertGeben</span><span class="o">(</span><span class="n">suchwert</span><span class="o">);</span>
     <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="n">Datenelement</span> <span class="nf">inhaltLetzterGeben</span><span class="o">(</span><span class="n">Datenelement</span> <span class="n">aktInhalt</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">.</span><span class="na">inhaltLetzterGeben</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">inhalt</span><span class="o">);</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="n">Datenknoten</span> <span class="nf">datenknotenGeben</span><span class="o">(</span><span class="n">String</span> <span class="n">suchwert</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">inhalt</span><span class="o">.</span><span class="na">datenwertGeben</span><span class="o">()</span> <span class="o">==</span> <span class="n">suchwert</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">.</span><span class="na">datenwertGeben</span><span class="o">(</span><span class="n">suchwert</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-    <span class="c1">// ...</span>
+  <span class="o">}</span>
+  <span class="c1">// ...</span>
 <span class="o">}</span>
 </pre></div>
+</div>
+<div><div class="highlight"><pre><span class="kd">public</span> <span class="n">Abschluss</span> <span class="kd">extends</span> <span class="n">Listenelement</span> <span class="o">{</span>
+  <span class="c1">// ...</span>
+  <span class="kd">public</span> <span class="n">Listenelement</span> <span class="nf">entfernen</span><span class="o">(</span><span class="n">String</span> <span class="n">suchwert</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
+  <span class="o">}</span>
 
-<div class="highlight"><pre><span class="kd">public</span> <span class="n">Abschluss</span> <span class="kd">extends</span> <span class="n">Listenelement</span> <span class="o">{</span>
-    <span class="c1">// ...</span>
-    <span class="kd">public</span> <span class="n">Listenelement</span> <span class="nf">entfernen</span><span class="o">(</span><span class="n">String</span> <span class="n">suchwert</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="n">Datenelement</span> <span class="nf">inhaltLetzterGeben</span><span class="o">(</span><span class="n">Datenelement</span> <span class="n">aktInhalt</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">aktInhalt</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="n">Datenknoten</span> <span class="nf">datenknotenGeben</span><span class="o">(</span><span class="n">String</span> <span class="n">suchwert</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="c1">// ...</span>
+  <span class="kd">public</span> <span class="n">Datenelement</span> <span class="nf">inhaltLetzterGeben</span><span class="o">(</span><span class="n">Datenelement</span> <span class="n">aktInhalt</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">aktInhalt</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="n">Datenknoten</span> <span class="nf">datenknotenGeben</span><span class="o">(</span><span class="n">String</span> <span class="n">suchwert</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="o">}</span>
+  <span class="c1">// ...</span>
 <span class="o">}</span>
 </pre></div>
-
-
-<p class="date">16.11.2010</p>
+</div>
+<p class="date">
+16.11.2010
+</p>
 
 <h3 id="dynamische-lineare-datenstrukturen">Dynamische lineare Datenstrukturen</h3>
-
 <ul>
-<li>Stapel (LIFO)
-    <ul>
+<li>Stapel (LIFO)</li>
 <li><code>vorneEinfuegen</code></li>
-      <li><code>vorneEntnehmen</code></li>
-      <li>z.B. Kofferraum, Aktenstapel</li>
-    </ul>
-</li>
-  <li>Warteschlange (FIFO)
-    <ul>
+<li><code>vorneEntnehmen</code></li>
+<li>z.B. Kofferraum, Aktenstapel</li>
+<li>Warteschlange (FIFO)</li>
 <li><code>hintenEinfuegen</code></li>
-      <li><code>vorneEntnehmen</code></li>
-      <li>z.B. Taxistand, Restaurantküche, Kasse</li>
-    </ul>
-</li>
-</ul><div class="exercise">
-  <p>S. 36 Nr. 6</p>
-
-  <p>Klassen:</p>
-
-  <ul>
+<li><code>vorneEntnehmen</code></li>
+<li>z.B. Taxistand, Restaurantküche, Kasse</li>
+</ul>
+<div class="exercise">
+<p>S. 36 Nr. 6</p>
+<p>Klassen:</p>
+<ul>
 <li>BETRIEBSFEST</li>
-    <li>LKW</li>
-    <li>KISTE</li>
-    <li>STAPEL</li>
-  </ul>
-<img class="diagram" alt="Klassendiagramm" src="assets/yuml/48572d18f6c2f8a896bbb5b788c216df.png">
-
+<li>LKW</li>
+<li>KISTE</li>
+<li>STAPEL</li>
+</ul>
+<img class="diagram" alt="Class diagram" src="assets/yuml/01cbe13b3c784a8bbd80ff62284a2ba4.png">
 </div>
 
-<p class="date">29.11.2010</p>
+<p class="date">
+29.11.2010
+</p>
 
 <div class="exercise">
-  <p>S. 39 Nr. 1 a)</p>
-
-  <ul>
+<p>S. 39 Nr. 1 a)</p>
+<ul>
 <li>LISTE: Container</li>
-    <li>abstract LISTENELEMENT: Bauteil</li>
-    <li>DATENKNOTEN: Schubladenbox</li>
-    <li>ABSCHLUSS: Rollgestell</li>
-    <li>abstract DATENELEMENT: Werkzeug</li>
-    <li>DATENELEMENTUNTERKLASSEN: Hammer, Rohrzange, Bohrer</li>
-  </ul>
+<li>abstract LISTENELEMENT: Bauteil</li>
+<li>DATENKNOTEN: Schubladenbox</li>
+<li>ABSCHLUSS: Rollgestell</li>
+<li>abstract DATENELEMENT: Werkzeug</li>
+<li>DATENELEMENTUNTERKLASSEN: Hammer, Rohrzange, Bohrer</li>
+</ul>
 </div>
 
 <h3 id="heterogene-listen">Heterogene Listen</h3>
-
 <p>Die Grundidee von heterogenen Listen ist, das man ja manchmal Listen mit verschiedenen Objekten haben möchte. Darum definiert man <code>DATENELEMENT</code> abstrakt und erstellt dann Unterklassen davon.</p>
-
-<p class="date">6.12.2010</p>
+<p class="date">
+6.12.2010
+</p>
 
 <h3 id="sortierte-listen">Sortierte Listen</h3>
-
 <p>Sortieren mögl. nach Zahl, Text, Datum</p>
-
 <p>Wir wollen <code>sortiertEinfuegen</code>, <code>sortiertSuchen</code> (?), <code>sortiertEntfernen</code> (alle rekursiv)</p>
-
 <p>In DATENKNOTEN:</p>
-
-<div class="highlight"><pre><span class="kd">public</span> <span class="n">DATENKNOTEN</span> <span class="nf">sortiertEinfuegen</span><span class="o">(</span><span class="n">DATENELEMENT</span> <span class="n">inhaltNeu</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">inhalt</span><span class="o">.</span><span class="na">compare</span><span class="o">(</span><span class="n">inhaltNeu</span><span class="o">))</span> <span class="o">{</span>
-        <span class="n">DATENKNOTEN</span> <span class="n">k</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DATENKNOTEN</span><span class="o">(</span><span class="n">inhaltNeu</span><span class="o">);</span>
-        <span class="n">k</span><span class="o">.</span><span class="na">naechsterSetzen</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
-        <span class="k">return</span> <span class="n">k</span><span class="o">;</span>
-    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-        <span class="n">naechster</span> <span class="o">=</span> <span class="n">naechster</span><span class="o">.</span><span class="na">sortiertEinfuegen</span><span class="o">(</span><span class="n">inhaltNeu</span><span class="o">);</span>
-        <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</pre></div>
-
-
-<p>In ABSCHLUSS:</p>
-
-<div class="highlight"><pre><span class="kd">public</span> <span class="n">DATENKNOTEN</span> <span class="nf">sortiertEinfuegen</span><span class="o">(</span><span class="n">DATENELEMENT</span> <span class="n">inhaltNeu</span><span class="o">)</span> <span class="o">{</span>
+<div><div class="highlight"><pre><span class="kd">public</span> <span class="n">DATENKNOTEN</span> <span class="nf">sortiertEinfuegen</span><span class="o">(</span><span class="n">DATENELEMENT</span> <span class="n">inhaltNeu</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">inhalt</span><span class="o">.</span><span class="na">compare</span><span class="o">(</span><span class="n">inhaltNeu</span><span class="o">))</span> <span class="o">{</span>
     <span class="n">DATENKNOTEN</span> <span class="n">k</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DATENKNOTEN</span><span class="o">(</span><span class="n">inhaltNeu</span><span class="o">);</span>
     <span class="n">k</span><span class="o">.</span><span class="na">naechsterSetzen</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
     <span class="k">return</span> <span class="n">k</span><span class="o">;</span>
+  <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="n">naechster</span> <span class="o">=</span> <span class="n">naechster</span><span class="o">.</span><span class="na">sortiertEinfuegen</span><span class="o">(</span><span class="n">inhaltNeu</span><span class="o">);</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
+  <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
-
-
+</div>
+<p>In ABSCHLUSS:</p>
+<div><div class="highlight"><pre><span class="kd">public</span> <span class="n">DATENKNOTEN</span> <span class="nf">sortiertEinfuegen</span><span class="o">(</span><span class="n">DATENELEMENT</span> <span class="n">inhaltNeu</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">DATENKNOTEN</span> <span class="n">k</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DATENKNOTEN</span><span class="o">(</span><span class="n">inhaltNeu</span><span class="o">);</span>
+  <span class="n">k</span><span class="o">.</span><span class="na">naechsterSetzen</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+  <span class="k">return</span> <span class="n">k</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
 <p>In DATENELEMENT:</p>
-
-<div class="highlight"><pre><span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">boolean</span> <span class="nf">istKleiner</span><span class="o">(</span><span class="n">DATENELEMENT</span> <span class="n">e</span><span class="o">);</span>
+<div><div class="highlight"><pre><span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">boolean</span> <span class="nf">istKleiner</span><span class="o">(</span><span class="n">DATENELEMENT</span> <span class="n">e</span><span class="o">);</span>
 </pre></div>
-
-
+</div>
 <p>Neue Klasse ANZUG:</p>
-
-<div class="highlight"><pre><span class="kd">class</span> <span class="nc">ANZUG</span> <span class="kd">extends</span> <span class="n">DATENELEMENT</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">istKleiner</span><span class="o">(</span><span class="n">DATENELEMENT</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">groesse</span> <span class="o">&lt;</span> <span class="o">((</span><span class="n">ANZUG</span><span class="o">)</span> <span class="n">e</span><span class="o">).</span><span class="na">groesse</span><span class="o">;</span>
-    <span class="o">}</span>
+<div><div class="highlight"><pre><span class="kd">class</span> <span class="nc">ANZUG</span> <span class="kd">extends</span> <span class="n">DATENELEMENT</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">istKleiner</span><span class="o">(</span><span class="n">DATENELEMENT</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">groesse</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="o">((</span><span class="n">ANZUG</span><span class="o">)</span> <span class="n">e</span><span class="o">).</span><span class="na">groesse</span><span class="o">;</span>
+  <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
-
-
-<p class="date">7.12.2010</p>
+</div>
+<p class="date">
+7.12.2010
+</p>
 
 <p>ZEITSCHRIFT:</p>
-
-<div class="highlight"><pre><span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+<div><div class="highlight"><pre><span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">istKleiner</span><span class="o">(</span><span class="n">DATENELEMENT</span> <span class="n">vg</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="n">name</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(((</span><span class="n">ZEITSCHRIFT</span><span class="o">)</span> <span class="n">vg</span><span class="o">).</span><span class="na">name</span><span class="o">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+  <span class="k">return</span> <span class="n">name</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(((</span><span class="n">ZEITSCHRIFT</span><span class="o">)</span> <span class="n">vg</span><span class="o">).</span><span class="na">name</span><span class="o">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
 <span class="o">}</span>
 </pre></div>
+</div>
+<p class="date">
+14.12.2010
+</p>
 
-
-<p class="date">14.12.2010</p>
-
-<h2 id="bume">Bäume</h2>
-
+<h2 id="bäume">Bäume</h2>
 <p>Bäume zählen wie die Listen zu den sehr häufig verwendeten Datenstrukturen in der Informatik. Wie Listen bestehen Sie aus Knoten. Allerdings hat ein Knoten nicht nur einen, sondern viele Nachfolger. So ergibt sich eine Struktur wie z.B. in Stammbäumen.</p>
-
-<h3 id="binre-weihnachts--bume">Binäre (Weihnachts-) Bäume</h3>
-
-<p><img src="assets/christmas-binary-tree.png" alt="Binärer Weihnachtsbaum"></p>
-
-<p>(XKCD’s <a href="http://xkcd.com/835/">Tree</a> by Randall Munroe; <strong>euch allen übrigens an dieser Stelle frohe Weihnachten und einen guten Rutsch!</strong>)</p>
-
+<h3 id="binäre-weihnachts--bäume">Binäre (Weihnachts-) Bäume</h3>
+<div class="figure">
+<img src="assets/christmas-binary-tree.png" alt="Binärer Weihnachtsbaum"><p class="caption">Binärer Weihnachtsbaum</p>
+</div>
+<p>(XKCD's <a href="http://xkcd.com/835/">Tree</a> by Randall Munroe; <strong>euch allen übrigens an dieser Stelle frohe Weihnachten und einen guten Rutsch!</strong>)</p>
 <p>In Binärbäumen hat jedes Objekt also höchstens zwei Nachfolger.</p>
-
-<h4 id="ausgeben-eines-binrbaums">Ausgeben eines Binärbaums</h4>
-
+<h4 id="ausgeben-eines-binärbaums">Ausgeben eines Binärbaums</h4>
 <p>Wenn alle Knoten eines Binärsbaums ausgegeben werden sollen, so gibt es drei Möglichkeiten:</p>
-
 <dl>
 <dt>Preorder</dt>
-  <dd>Zuerst wird der Datenwert des Knotens ausgegeben, dann rekursiv der linke, dann der rechte Nachfolger.</dd>
-  <dt>Inorder</dt>
-  <dd>Zuerst wird rekursiv der linke Nachfolger, dann der Datenwert des Knotens, dann der rechte Nachfolger ausgegeben.</dd>
-  <dt>Postorder</dt>
-  <dd>Zuerst wird der linke und rechte Nachfolger, dann der Datenwert des Knotens ausgegeben.</dd>
-</dl><h5 id="beispiel">Beispiel</h5>
-
-<img class="diagram" alt="Klassendiagramm" src="assets/yuml/916c76530a386f4e85a3b607cb391eeb.png">
-
+<dd>Zuerst wird der Datenwert des Knotens ausgegeben, dann rekursiv der linke, dann der rechte Nachfolger.
+</dd>
+<dt>Inorder</dt>
+<dd>Zuerst wird rekursiv der linke Nachfolger, dann der Datenwert des Knotens, dann der rechte Nachfolger ausgegeben.
+</dd>
+<dt>Postorder</dt>
+<dd>Zuerst wird der linke und rechte Nachfolger, dann der Datenwert des Knotens ausgegeben.
+</dd>
+</dl>
+<h5 id="beispiel">Beispiel</h5>
+<img class="diagram" alt="Class diagram" src="assets/yuml/6c79e194a789774fbecd795cb17b9c01.png">
 <dl>
 <dt>Preorder</dt>
-  <dd>8, 3, 99, 1, 5, 2000, 2, 13, 42, 4, 7</dd>
-  <dt>Inorder</dt>
-  <dd>1, 99, 5, 3, 2, 2000, 8, 4, 42, 7, 13</dd>
-  <dt>Postorder</dt>
-  <dd>1, 5, 99, 2, 2000, 3, 4, 7, 42, 13, 8</dd>
-</dl><p class="date">20.12.2010</p>
+<dd>8, 3, 99, 1, 5, 2000, 2, 13, 42, 4, 7
+</dd>
+<dt>Inorder</dt>
+<dd>1, 99, 5, 3, 2, 2000, 8, 4, 42, 7, 13
+</dd>
+<dt>Postorder</dt>
+<dd>1, 5, 99, 2, 2000, 3, 4, 7, 42, 13, 8
+</dd>
+</dl>
+<p class="date">
+20.12.2010
+</p>
 
 <p>Klassendiagramm für einen Binärbaum:</p>
-
-<img class="diagram" alt="Klassendiagramm" src="assets/yuml/2ae326cdcc23f44433a2d46b0eb95a16.png">
-
+<img class="diagram" alt="Class diagram" src="assets/yuml/d70318aa6c16bd013e191f42d721e061.png">
 <p>Baumelement und Datenelement sind abstrakt. In unserem Fall (Aufgabe im Buch) erstellen wir folgende Unterklasse von Datenelement:</p>
-
-<img class="diagram" alt="Klassendiagramm" src="assets/yuml/a893cd81ab0a5798fe51c8ef4968246f.png">
-
-<p class="date">10.1.2010</p>
+<img class="diagram" alt="Class diagram" src="assets/yuml/9c17177e6db18d7bdf8e1aaf72036e82.png">
+<p class="date">
+10.1.2010
+</p>
 
 <p>Preorder ausgeben:</p>
-
 <p>Binaerbaum:</p>
-
-<div class="highlight"><pre><span class="n">wurzel</span><span class="o">.</span><span class="na">datenAusgeben</span><span class="o">();</span>
+<div><div class="highlight"><pre><span class="n">wurzel</span><span class="o">.</span><span class="na">datenAusgeben</span><span class="o">();</span>
 </pre></div>
-
-
+</div>
 <p>Datenknoten:</p>
-
-<div class="highlight"><pre><span class="n">inhalt</span><span class="o">.</span><span class="na">datenAusgeben</span><span class="o">();</span>
+<div><div class="highlight"><pre><span class="n">inhalt</span><span class="o">.</span><span class="na">datenAusgeben</span><span class="o">();</span>
 <span class="n">links</span><span class="o">.</span><span class="na">datenAusgeben</span><span class="o">();</span>
 <span class="n">rechts</span><span class="o">.</span><span class="na">datenAusgeben</span><span class="o">();</span>
 </pre></div>
-
-
+</div>
 <p>Abschluss: nichts machen</p>
-
-<p class="date">10.1.2010</p>
-
-<p>S. 62 oben</p>
-
-<h3 id="geordnete-binrbume">Geordnete Binärbäume</h3>
+<p class="date">
+10.1.2010
+</p>
 
 <p>S. 62 oben</p>
-
+<h3 id="geordnete-binärbäume">Geordnete Binärbäume</h3>
+<p>S. 62 oben</p>
 <p>nicht geordnet:</p>
-
-<ul>
-<li>1-2</li>
-  <li>1-3</li>
-  <li>2-4</li>
-  <li>2-6</li>
-  <li>4-5</li>
-  <li>4-7</li>
-  <li>6-10</li>
-  <li>6-12</li>
-  <li>3-8</li>
-  <li>3-9</li>
-  <li>8-14</li>
-  <li>8-15</li>
-  <li>9-13</li>
-  <li>9-11</li>
-</ul><p>Suche nach 13: maximal 15 Vergleiche.</p>
-
+<img class="diagram" alt="Class diagram" src="assets/yuml/538b4c67f4d4f2653bf2ddffffa7b5e1.png">
+<p>Suche nach 13: maximal 15 Vergleiche.</p>
 <p>geordnet:</p>
-
-<ul>
-<li>8-4</li>
-  <li>4-2</li>
-  <li>2-1</li>
-  <li>2-3</li>
-  <li>4-6</li>
-  <li>6-5</li>
-  <li>6-7</li>
-  <li>8-12</li>
-  <li>12-10</li>
-  <li>10-9</li>
-  <li>10-11</li>
-  <li>12-14</li>
-  <li>14-13</li>
-  <li>14-15</li>
-</ul><p>Suche: maximal 4 Vergleiche</p>
-
-<p class="date">24.1.2010</p>
+<img class="diagram" alt="Class diagram" src="assets/yuml/2cae525df09c7e2fbe66fa61f4bed5b0.png">
+<p>Suche: maximal 4 Vergleiche</p>
+<p class="date">
+24.1.2010
+</p>
 
 <pre><code>funktion baumErzeugen(liste)
-	wenn nicht liste.leer()
-		linkeHaelfte, rechteHaelfte = liste.splitten()
-		knotenNeu = linkeHaelfte.letzterEntnehmen()
-		knotenNeu.naechsterLinks  = baumErzeugen(linkeHaelfte)
-		knotenNeu.naechsterRechts = baumErzeugen(rechteHaelfte)
-		return knotenNeu
-	ende
-	return neuer Abschluss
+  wenn nicht liste.leer()
+    linkeHaelfte, rechteHaelfte = liste.splitten()
+    knotenNeu = linkeHaelfte.letzterEntnehmen()
+    knotenNeu.naechsterLinks  = baumErzeugen(linkeHaelfte)
+    knotenNeu.naechsterRechts = baumErzeugen(rechteHaelfte)
+    return knotenNeu
+  ende
+  return neuer Abschluss
 ende
 </code></pre>
+<p class="date">
+7.2.2010
+</p>
+
+<h3 id="aufbau-und-erweiterung-von-suchbäumen">Aufbau und Erweiterung von Suchbäumen</h3>
+<h4 id="beispiel-1">Beispiel</h4>
+<p>Ausgangssituation:</p>
+<img class="diagram" alt="Class diagram" src="assets/yuml/deab0309783fe2038fd42768a5271f77.png">
+<p>Nun soll eine Pflaume eingefügt werden.</p>
+<p>Schritt 1 (nur der Teil mit der Quitte):</p>
+<img class="diagram" alt="Class diagram" src="assets/yuml/fc09e423e4596ecb4a5bb06dc158bbb8.png">
+<p>Schritt 2:</p>
+<img class="diagram" alt="Class diagram" src="assets/yuml/2ec7aa9cb691fdd2c9e2308c8294a5e2.png">
+<p class="date">
+15.3.2010
+</p>
+
+<h2 id="graphen">Graphen</h2>
+<p>Graphen können folgende Eigenschaften besitzen:</p>
+<ul>
+<li>gerichtet</li>
+<li>gewichtet</li>
+<li>zusammenhängend</li>
+</ul>
+<p>Sie können die folgenden Formen einnehmen:</p>
+<ul>
+<li>Stern</li>
+<li>Ring</li>
+<li>vollständig</li>
+</ul>
+<h3 id="adjazenzmatrix">Adjazenzmatrix</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Augsb.</th>
+<th align="left">Bob.</th>
+<th align="left">Inningen</th>
+<th align="left">Königsb.</th>
+<th align="left">Merching</th>
+<th align="left">Mering</th>
+<th align="left">Obo.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Augsburg</td>
+<td align="right">-</td>
+<td align="left">-1</td>
+<td align="left">7</td>
+<td align="left">12</td>
+<td align="left">-1</td>
+<td align="left">-1</td>
+<td align="left">-1</td>
+</tr>
+<tr class="even">
+<td align="left">Bobingen</td>
+<td align="right"></td>
+<td align="left">-</td>
+<td align="left">5</td>
+<td align="left">5</td>
+<td align="left">-1</td>
+<td align="left">-1</td>
+<td align="left">6,5</td>
+</tr>
+<tr class="odd">
+<td align="left">Inningen</td>
+<td align="right"></td>
+<td align="left"></td>
+<td align="left">-</td>
+<td align="left">8,7</td>
+<td align="left">-1</td>
+<td align="left">-1</td>
+<td align="left">-1</td>
+</tr>
+<tr class="even">
+<td align="left">Königsbrunn</td>
+<td align="right"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">-</td>
+<td align="left">10,5</td>
+<td align="left">9,1</td>
+<td align="left">4,5</td>
+</tr>
+<tr class="odd">
+<td align="left">Merching</td>
+<td align="right"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">-</td>
+<td align="left">3</td>
+<td align="left">-1</td>
+</tr>
+<tr class="even">
+<td align="left">Mering</td>
+<td align="right"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">-</td>
+<td align="left">-1</td>
+</tr>
+<tr class="odd">
+<td align="left">Oberottm.</td>
+<td align="right"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">-</td>
+</tr>
+</tbody>
+</table>
+
 </div>
 <script>
 (function(win, doc) {
@@ -992,7 +972,6 @@ ende
 	var h1 = document.getElementsByTagName('h1')[0];
 	h1.parentNode.insertBefore(index, h1.nextSibling);
 })(window, document);
-
 (function(win, doc) {
 	var pres = doc.querySelectorAll('.yuml');
 	for (var i = 0, l = pres.length; i < l; i++) {
@@ -1006,7 +985,6 @@ ende
 		pre.parentNode.replaceChild(img, pre);
 	}
 })(window, document);
-
 (function(win, doc) {
 	var pres = doc.querySelectorAll('.websequencediagram');
 	for (var i = 0, l = pres.length; i < l; i++) {

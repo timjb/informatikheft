@@ -1,0 +1,4 @@
+<div class="highlight"><pre><span class="kd">public</span> <span class="n">DATENELEMENT</span> <span class="nf">inhaltLetzterGeben</span><span class="o">(</span><span class="n">DATENELEMENT</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">naechster</span><span class="o">.</span><span class="na">inhaltLetzterGeben</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">inhalt</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>

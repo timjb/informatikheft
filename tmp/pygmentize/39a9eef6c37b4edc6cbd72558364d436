@@ -1,5 +1,0 @@
-<div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">listendatenAusgeben</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;In der Liste ist gespeichert: &quot;</span><span class="o">);</span>
-    <span class="n">erster</span><span class="o">.</span><span class="na">listendatenAusgeben</span><span class="o">();</span>
-<span class="o">}</span>
-</pre></div>

@@ -1,0 +1,20 @@
+<div class="highlight"><pre><span class="kd">class</span> <span class="nc">Liste</span> <span class="o">{</span>
+  <span class="c1">// ...</span>
+  <span class="kd">public</span> <span class="n">Datenelement</span> <span class="nf">hintenEntnehmen</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">Datenelement</span> <span class="n">inhaltLetzter</span> <span class="o">=</span> <span class="n">erster</span><span class="o">.</span><span class="na">inhaltLetzterGeben</span><span class="o">(</span><span class="n">erster</span><span class="o">.</span><span class="na">inhaltGeben</span><span class="o">());</span>
+    <span class="k">return</span> <span class="nf">entnehmen</span><span class="o">(</span><span class="n">inhaltLetzter</span><span class="o">.</span><span class="na">datenwertGeben</span><span class="o">());</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="n">Datenelement</span> <span class="nf">entnehmen</span><span class="o">(</span><span class="n">String</span> <span class="n">datenwert</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// alten Knoteninhalt festhalten</span>
+    <span class="n">Datenelement</span> <span class="n">alterKnoteninhalt</span> <span class="o">=</span> <span class="n">datenknotenGeben</span><span class="o">(</span><span class="n">datenwert</span><span class="o">).</span><span class="na">inhaltGeben</span><span class="o">();</span>
+    <span class="n">erster</span><span class="o">.</span><span class="na">entfernen</span><span class="o">(</span><span class="n">datenwert</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">alterKnoteninhalt</span><span class="o">;</span> <span class="c1">// Knoteninhalt zurueckgeben</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="n">Datenknoten</span> <span class="nf">datenknotenGeben</span><span class="o">(</span><span class="n">String</span> <span class="n">datenwert</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">erster</span><span class="o">.</span><span class="na">datenknotenGeben</span><span class="o">(</span><span class="n">datenwert</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="c1">// ...</span>
+<span class="o">}</span>
+</pre></div>

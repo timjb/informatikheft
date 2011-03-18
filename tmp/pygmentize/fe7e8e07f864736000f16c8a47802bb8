@@ -1,0 +1,8 @@
+<div class="highlight"><pre><span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Listenelement</span> <span class="o">{</span>
+  <span class="c1">// ...</span>
+  <span class="kd">public</span> <span class="kd">abstract</span> <span class="n">Listenelement</span> <span class="nf">entfernen</span><span class="o">(</span><span class="n">String</span> <span class="n">suchwert</span><span class="o">);</span>
+  <span class="kd">public</span> <span class="kd">abstract</span> <span class="n">Datenelement</span> <span class="nf">inhaltLetzterGeben</span><span class="o">(</span><span class="n">Datenelement</span> <span class="n">aktInhalt</span><span class="o">);</span>
+  <span class="kd">public</span> <span class="kd">abstract</span> <span class="n">Datenknoten</span> <span class="nf">datenknotenGeben</span><span class="o">(</span><span class="n">String</span> <span class="n">suchwert</span><span class="o">);</span>
+  <span class="c1">// ...</span>
+<span class="o">}</span>
+</pre></div>
