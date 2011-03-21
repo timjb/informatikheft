@@ -966,15 +966,104 @@ Sie können die folgenden Formen einnehmen:
 * Ring
 * vollständig
 
-## Adjazenzmatrix
+## Darstellung von Graphen mit Adjazenzmatrizen
 
-              Augsb. Bob. Inningen Königsb. Merching Mering Obo.
------------- ------- ---- -------- -------- -------- ------ ----
-   Augsburg   -      -1   7        12       -1       -1     -1  
-   Bobingen          -    5        5        -1       -1     6,5 
-   Inningen               -        8,7      -1       -1     -1  
-Königsbrunn                        -        10,5     9,1    4,5 
-   Merching                                 -        3      -1  
-     Mering                                          -      -1  
-  Oberottm.                                                 -   
+            Augsb. Bob. Inningen Königsb. Merching Mering Obo.
+----------- ------ ---- -------- -------- -------- ------ ----
+   Augsburg -      -1   7        12       -1       -1     -1  
+   Bobingen        -    5        5        -1       -1     6,5 
+   Inningen             -        8,7      -1       -1     -1  
+Königsbrunn                      -        10,5     9,1    4,5 
+   Merching                               -        3      -1  
+     Mering                                        -      -1  
+  Oberottm.                                               -   
 
+<p class="date">21.3.2010</p>
+
+### Ungewichtete Graphen
+
+~~~
+#yuml
+[A]-[B]
+[B]-[D]
+[C]-[A]
+[D]-[C]
+~~~
+
+  A B C D
+- - - - -
+A - w w f
+B w - f w
+C w f - w
+D f w w -
+
+Oder:
+
+  A B C D
+- - - - -
+A 0 1 1 0
+B 1 0 0 1
+C 1 0 0 1
+D 0 1 1 0
+
+&rArr; Adjazenzmatrix symmetrisch
+
+
+### Gerichtete Graphen
+
+~~~
+#yuml
+[B]->[A]
+[A]->[C]
+[D]->[C]
+[D]->[B]
+~~~
+
+  A B C D
+- - - - -
+A - f w  
+B w - f  
+C f f -  
+D f w w -
+
+
+### Gewichtete Graphen
+
+~~~
+#yuml
+[A]10-[B]
+[B]20-[D]
+[C]40-[A]
+[D]5-[C]
+~~~
+
+  A  B  C  D 
+- -- -- -- --
+A -1 10 40 -1
+B 10 -1 -1 20
+C 40 -1 -1  5
+D -1 20  5 -1
+
+
+### Gerichtete gewichtete Graphen
+
+~~~
+#yuml
+[B]-10>[A]
+[A]-40>[C]
+[D]-5>[C]
+[D]-20>[B]
+~~~
+
+  A  B  C  D 
+- -- -- -- --
+A -1 40 -1 -1
+B 10 -1 -1 -1
+C -1 -1 -1 -1
+D -1 20  5 -1
+
+Feststellung: Die Adjazenzmatrizen ungerichteter Graphen sind symmetrisch.
+
+## Implementierung
+
+Matrix!

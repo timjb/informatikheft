@@ -31,23 +31,27 @@ fileCache = (fn, type, getFileName) ->
           callback (if type == 'path' then file_name else result)
 
 
-# Alternative implementation
-#def yuml_img(yuml_code, options)
-#  md5 = Digest::MD5.new.hexdigest yuml_code
-#  sh "./scruffy/yuml2dot.py --png \"#{yuml_code}\" > #{md5}.png"
-#end
-
 loadYumlImage = (code, options, callback) ->
   code = code.replace /\n/g, ','
-  code = encodeURIComponent(code).replace '+', '%20'
-  options = ';' + options if options
-  path = "/diagram/plain#{options}/class/#{code}"
-  
   buffers = new bufferlist.BufferList()
-  http.get { host: 'yuml.me', path: path }, (response) ->
-    response.on 'data', (data) -> buffers.push data
-    response.on 'end', -> callback buffers.join()
-  console.log "Loading yuml image #{code.slice 0, 50}..."
+  
+  # Load from yuml.me
+  #code = encodeURIComponent(code).replace '+', '%20'
+  #options = ';' + options if options
+  #path = "/diagram/plain#{options}/class/#{code}"
+  #http.get { host: 'yuml.me', path: path }, (response) ->
+  #  response.on 'data', (data) -> buffers.push data
+  #  response.on 'end', -> callback buffers.join()
+  #console.log "Loading yuml image #{code.slice 0, 50}..."
+  
+  # Use aivarsk/scruffy
+  # Requires rsvg and graphviz
+  yuml2dot = child_process.spawn './scruffy/yuml2dot.py', ['--png', code]
+  yuml2dot.stdout.on 'data', (data) ->
+    buffers.push data
+  yuml2dot.on 'exit', ->
+    callback buffers.join()
+  console.log "Converting with yuml2dot: #{code.slice 0, 50}..."
 
 loadYumlImage = fileCache loadYumlImage, 'path', (md5) -> "assets/yuml/#{md5}.png"
 

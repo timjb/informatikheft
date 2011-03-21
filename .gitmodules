@@ -1,6 +1,3 @@
-[submodule "ftpsync"]
-	path = ftpsync
-	url = https://github.com/greut/ftpsync.git
 [submodule "scruffy"]
 	path = scruffy
-	url = https://github.com/aivarsk/scruffy.git
+	url = http://github.com/aivarsk/scruffy.git

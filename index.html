@@ -179,7 +179,13 @@ a:hover {
 <li><a href="#beispiel-1">Beispiel</a></li>
 </ul></li>
 <li><a href="#graphen">Graphen</a></li>
-<li><a href="#adjazenzmatrix">Adjazenzmatrix</a></li>
+<li><a href="#darstellung-von-graphen-mit-adjazenzmatrizen">Darstellung von Graphen mit Adjazenzmatrizen</a><ul>
+<li><a href="#ungewichtete-graphen">Ungewichtete Graphen</a></li>
+<li><a href="#gerichtete-graphen">Gerichtete Graphen</a></li>
+<li><a href="#gewichtete-graphen">Gewichtete Graphen</a></li>
+<li><a href="#gerichtete-gewichtete-graphen">Gerichtete gewichtete Graphen</a></li>
+</ul></li>
+<li><a href="#implementierung">Implementierung</a></li>
 </ul></li>
 </ul>
 </div>
@@ -866,12 +872,12 @@ ende
 <li>Ring</li>
 <li>vollständig</li>
 </ul>
-<h2 id="adjazenzmatrix"><a href="#TOC">Adjazenzmatrix</a></h2>
+<h2 id="darstellung-von-graphen-mit-adjazenzmatrizen"><a href="#TOC">Darstellung von Graphen mit Adjazenzmatrizen</a></h2>
 <table>
 <thead>
 <tr class="header">
 <th align="left"></th>
-<th align="right">Augsb.</th>
+<th align="left">Augsb.</th>
 <th align="left">Bob.</th>
 <th align="left">Inningen</th>
 <th align="left">Königsb.</th>
@@ -883,7 +889,7 @@ ende
 <tbody>
 <tr class="odd">
 <td align="left">Augsburg</td>
-<td align="right">-</td>
+<td align="left">-</td>
 <td align="left">-1</td>
 <td align="left">7</td>
 <td align="left">12</td>
@@ -893,7 +899,7 @@ ende
 </tr>
 <tr class="even">
 <td align="left">Bobingen</td>
-<td align="right"></td>
+<td align="left"></td>
 <td align="left">-</td>
 <td align="left">5</td>
 <td align="left">5</td>
@@ -903,7 +909,7 @@ ende
 </tr>
 <tr class="odd">
 <td align="left">Inningen</td>
-<td align="right"></td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left">-</td>
 <td align="left">8,7</td>
@@ -913,7 +919,7 @@ ende
 </tr>
 <tr class="even">
 <td align="left">Königsbrunn</td>
-<td align="right"></td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left">-</td>
@@ -923,7 +929,7 @@ ende
 </tr>
 <tr class="odd">
 <td align="left">Merching</td>
-<td align="right"></td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
@@ -933,7 +939,7 @@ ende
 </tr>
 <tr class="even">
 <td align="left">Mering</td>
-<td align="right"></td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
@@ -943,7 +949,7 @@ ende
 </tr>
 <tr class="odd">
 <td align="left">Oberottm.</td>
-<td align="right"></td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
@@ -953,6 +959,228 @@ ende
 </tr>
 </tbody>
 </table>
+<p class="date">
+21.3.2010
+</p>
+
+<h3 id="ungewichtete-graphen"><a href="#TOC">Ungewichtete Graphen</a></h3>
+<img class="diagram" alt="Class diagram" src="assets/yuml/eb6abe5b2db93727689e2db7de8c9ce6.png">
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">A</th>
+<th align="left">B</th>
+<th align="left">C</th>
+<th align="left">D</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">A</td>
+<td align="left">-</td>
+<td align="left">w</td>
+<td align="left">w</td>
+<td align="left">f</td>
+</tr>
+<tr class="even">
+<td align="left">B</td>
+<td align="left">w</td>
+<td align="left">-</td>
+<td align="left">f</td>
+<td align="left">w</td>
+</tr>
+<tr class="odd">
+<td align="left">C</td>
+<td align="left">w</td>
+<td align="left">f</td>
+<td align="left">-</td>
+<td align="left">w</td>
+</tr>
+<tr class="even">
+<td align="left">D</td>
+<td align="left">f</td>
+<td align="left">w</td>
+<td align="left">w</td>
+<td align="left">-</td>
+</tr>
+</tbody>
+</table>
+<p>Oder:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">A</th>
+<th align="left">B</th>
+<th align="left">C</th>
+<th align="left">D</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">A</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">0</td>
+</tr>
+<tr class="even">
+<td align="left">B</td>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="left">C</td>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="left">D</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">0</td>
+</tr>
+</tbody>
+</table>
+<p>⇒ Adjazenzmatrix symmetrisch</p>
+<h3 id="gerichtete-graphen"><a href="#TOC">Gerichtete Graphen</a></h3>
+<img class="diagram" alt="Class diagram" src="assets/yuml/3a98a0351e23f971ea3c7034ff6a5111.png">
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">A</th>
+<th align="left">B</th>
+<th align="left">C</th>
+<th align="left">D</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">A</td>
+<td align="left">-</td>
+<td align="left">f</td>
+<td align="left">w</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">B</td>
+<td align="left">w</td>
+<td align="left">-</td>
+<td align="left">f</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">C</td>
+<td align="left">f</td>
+<td align="left">f</td>
+<td align="left">-</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">D</td>
+<td align="left">f</td>
+<td align="left">w</td>
+<td align="left">w</td>
+<td align="left">-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gewichtete-graphen"><a href="#TOC">Gewichtete Graphen</a></h3>
+<img class="diagram" alt="Class diagram" src="assets/yuml/ef7ffdfc180b4496af4df83e86ecffbb.png">
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">A</th>
+<th align="left">B</th>
+<th align="left">C</th>
+<th align="left">D</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">A</td>
+<td align="left">-1</td>
+<td align="left">10</td>
+<td align="left">40</td>
+<td align="left">-1</td>
+</tr>
+<tr class="even">
+<td align="left">B</td>
+<td align="left">10</td>
+<td align="left">-1</td>
+<td align="left">-1</td>
+<td align="left">20</td>
+</tr>
+<tr class="odd">
+<td align="left">C</td>
+<td align="left">40</td>
+<td align="left">-1</td>
+<td align="left">-1</td>
+<td align="left">5</td>
+</tr>
+<tr class="even">
+<td align="left">D</td>
+<td align="left">-1</td>
+<td align="left">20</td>
+<td align="left">5</td>
+<td align="left">-1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gerichtete-gewichtete-graphen"><a href="#TOC">Gerichtete gewichtete Graphen</a></h3>
+<img class="diagram" alt="Class diagram" src="assets/yuml/c168f4a472b83fe3a437e3c3773e5ff3.png">
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">A</th>
+<th align="left">B</th>
+<th align="left">C</th>
+<th align="left">D</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">A</td>
+<td align="left">-1</td>
+<td align="left">40</td>
+<td align="left">-1</td>
+<td align="left">-1</td>
+</tr>
+<tr class="even">
+<td align="left">B</td>
+<td align="left">10</td>
+<td align="left">-1</td>
+<td align="left">-1</td>
+<td align="left">-1</td>
+</tr>
+<tr class="odd">
+<td align="left">C</td>
+<td align="left">-1</td>
+<td align="left">-1</td>
+<td align="left">-1</td>
+<td align="left">-1</td>
+</tr>
+<tr class="even">
+<td align="left">D</td>
+<td align="left">-1</td>
+<td align="left">20</td>
+<td align="left">5</td>
+<td align="left">-1</td>
+</tr>
+</tbody>
+</table>
+<p>Feststellung: Die Adjazenzmatrizen ungerichteter Graphen sind symmetrisch.</p>
+<h2 id="implementierung"><a href="#TOC">Implementierung</a></h2>
+<p>Matrix!</p>
 
 </div>
 <script>
