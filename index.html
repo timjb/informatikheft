@@ -185,7 +185,7 @@ a:hover {
 <li><a href="#gewichtete-graphen">Gewichtete Graphen</a></li>
 <li><a href="#gerichtete-gewichtete-graphen">Gerichtete gewichtete Graphen</a></li>
 </ul></li>
-<li><a href="#implementierung">Implementierung</a></li>
+<li><a href="#graphen-objektorientiert">Graphen objektorientiert</a></li>
 </ul></li>
 </ul>
 </div>
@@ -1179,8 +1179,27 @@ ende
 </tbody>
 </table>
 <p>Feststellung: Die Adjazenzmatrizen ungerichteter Graphen sind symmetrisch.</p>
-<h2 id="implementierung"><a href="#TOC">Implementierung</a></h2>
-<p>Matrix!</p>
+<h2 id="graphen-objektorientiert"><a href="#TOC">Graphen objektorientiert</a></h2>
+<p>Graph:</p>
+<ul>
+<li>Kante – Gewichtung</li>
+<li>Knoten – Inhalt</li>
+</ul>
+<p>Klassendiagramm:</p>
+<img class="diagram" alt="Class diagram" src="assets/yuml/7e72e63cf98ea8080f238dea6ae04643.png">
+<p>Attribute:</p>
+<ul>
+<li>int[][] adjazenzmatrix</li>
+<li>KNOTEN knotenliste</li>
+<li>int maxKnotenAnzahl</li>
+</ul>
+<p>Methoden:</p>
+<ul>
+<li>knotenEinfuegen</li>
+<li>knotenLoeschen</li>
+<li>kanteEinfuegen</li>
+<li>kanteLoeschen</li>
+</ul>
 
 </div>
 <script>

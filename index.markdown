@@ -1064,6 +1064,30 @@ D -1 20  5 -1
 
 Feststellung: Die Adjazenzmatrizen ungerichteter Graphen sind symmetrisch.
 
-## Implementierung
+## Graphen objektorientiert
 
-Matrix!
+Graph:
+
+* Kante &ndash; Gewichtung
+* Knoten &ndash; Inhalt
+
+Klassendiagramm:
+
+~~~
+#yuml
+[GRAPH]<>-*[KNOTEN]
+[KNOTEN]<>-1[abstract DATENELEMENT]
+~~~
+
+Attribute:
+
+* int[][] adjazenzmatrix
+* KNOTEN knotenliste
+* int maxKnotenAnzahl
+
+Methoden:
+
+* knotenEinfuegen
+* knotenLoeschen
+* kanteEinfuegen
+* kanteLoeschen
